@@ -15,16 +15,16 @@ public class SOAPInterface {
         var soap = SOAPEngine()
         
         soap.authorizationMethod = SOAPAuthorization.AUTH_BASIC
-        soap.username = ""
-        soap.password = ""
+        soap.username = "1648346"
+        soap.password = "oFkWR977V"
         
         soap.userAgent = "SOAPEngine"
         soap.actionNamespaceSlash = true
         soap.version = SOAPVersion.VERSION_1_1
         soap.responseHeader = true
         
-        soap.setValue("loginId", forKey: "param-name")
-        soap.setValue("password", forKey: "param-name")
+        soap.setValue("loginId", forKey: "1648346")
+        soap.setValue("password", forKey: "oFkWR977V")
         soap.setValue("tokenKey", forKey: "param-name")
         soap.setValue("version", forKey: "param-name")
         soap.setValue("CompanyCode", forKey: "param-name")
