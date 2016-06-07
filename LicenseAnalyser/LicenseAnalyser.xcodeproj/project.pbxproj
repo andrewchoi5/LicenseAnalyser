@@ -13,6 +13,10 @@
 		865F52351D0718400069A7FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 865F52341D0718400069A7FE /* Assets.xcassets */; };
 		865F52381D0718400069A7FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 865F52361D0718400069A7FE /* LaunchScreen.storyboard */; };
 		865F52431D0718400069A7FE /* LicenseAnalyserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865F52421D0718400069A7FE /* LicenseAnalyserTests.swift */; };
+		865F524F1D0732760069A7FE /* SoapInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865F524E1D0732760069A7FE /* SoapInterface.swift */; };
+		865F52571D0735300069A7FE /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 865F52561D0735300069A7FE /* Security.framework */; };
+		865F52591D0735370069A7FE /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 865F52581D0735370069A7FE /* Accounts.framework */; };
+		865F525C1D0738340069A7FE /* SOAPEngine64.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 865F525B1D0738340069A7FE /* SOAPEngine64.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +40,10 @@
 		865F523E1D0718400069A7FE /* LicenseAnalyserTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LicenseAnalyserTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		865F52421D0718400069A7FE /* LicenseAnalyserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseAnalyserTests.swift; sourceTree = "<group>"; };
 		865F52441D0718400069A7FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		865F524E1D0732760069A7FE /* SoapInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoapInterface.swift; sourceTree = "<group>"; };
+		865F52561D0735300069A7FE /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		865F52581D0735370069A7FE /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		865F525B1D0738340069A7FE /* SOAPEngine64.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SOAPEngine64.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +51,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				865F525C1D0738340069A7FE /* SOAPEngine64.framework in Frameworks */,
+				865F52591D0735370069A7FE /* Accounts.framework in Frameworks */,
+				865F52571D0735300069A7FE /* Security.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +88,7 @@
 		865F522C1D0718400069A7FE /* LicenseAnalyser */ = {
 			isa = PBXGroup;
 			children = (
+				865F52501D0732C60069A7FE /* Frameworks */,
 				865F524D1D071AA00069A7FE /* API */,
 				865F522D1D0718400069A7FE /* AppDelegate.swift */,
 				865F522F1D0718400069A7FE /* ViewController.swift */,
@@ -100,8 +112,19 @@
 		865F524D1D071AA00069A7FE /* API */ = {
 			isa = PBXGroup;
 			children = (
+				865F524E1D0732760069A7FE /* SoapInterface.swift */,
 			);
 			name = API;
+			sourceTree = "<group>";
+		};
+		865F52501D0732C60069A7FE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				865F525B1D0738340069A7FE /* SOAPEngine64.framework */,
+				865F52581D0735370069A7FE /* Accounts.framework */,
+				865F52561D0735300069A7FE /* Security.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -206,6 +229,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				865F52301D0718400069A7FE /* ViewController.swift in Sources */,
+				865F524F1D0732760069A7FE /* SoapInterface.swift in Sources */,
 				865F522E1D0718400069A7FE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -337,8 +361,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SOAPEngine",
+					"$(PROJECT_DIR)/LicenseAnalyser",
+				);
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = LicenseAnalyser/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SOAPEngine/SOAPEngine64.framework",
+				);
+				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.LicenseAnalyser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -348,8 +383,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SOAPEngine",
+					"$(PROJECT_DIR)/LicenseAnalyser",
+				);
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = LicenseAnalyser/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SOAPEngine/SOAPEngine64.framework",
+				);
+				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.LicenseAnalyser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

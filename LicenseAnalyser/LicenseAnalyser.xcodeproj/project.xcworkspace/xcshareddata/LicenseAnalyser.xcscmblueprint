@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "8AC27A5B1EE20FEB86441529555389062987CBDA",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "FE4192E41AE603EDB3B4C589F4B406D348D1D3DC" : 0,
+    "8AC27A5B1EE20FEB86441529555389062987CBDA" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "ED09386C-7999-401D-AB35-EC644D195728",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "FE4192E41AE603EDB3B4C589F4B406D348D1D3DC" : "LicenseAnalyser\/LicenseAnalyser\/SOAPEngine\/",
+    "8AC27A5B1EE20FEB86441529555389062987CBDA" : "LicenseAnalyser\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "LicenseAnalyser",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "LicenseAnalyser\/LicenseAnalyser.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.ibm.com:dylant\/LicenseAnalyser.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "8AC27A5B1EE20FEB86441529555389062987CBDA"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/priore\/SOAPEngine.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "FE4192E41AE603EDB3B4C589F4B406D348D1D3DC"
+    }
+  ]
+}
