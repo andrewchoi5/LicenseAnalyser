@@ -41,6 +41,9 @@
                                     <constraint firstAttribute="height" constant="30" id="xcF-LZ-MRX"/>
                                 </constraints>
                                 <state key="normal" title="Verify"/>
+                                <connections>
+                                    <action selector="Verify:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yvm-tm-tf2"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>

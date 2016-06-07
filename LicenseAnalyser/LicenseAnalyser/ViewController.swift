@@ -9,6 +9,9 @@
 import UIKit
 
 class ViewController: UIViewController {
+    @IBAction func Verify(sender: AnyObject) {
+        SOAPInterface.VerifyCard()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

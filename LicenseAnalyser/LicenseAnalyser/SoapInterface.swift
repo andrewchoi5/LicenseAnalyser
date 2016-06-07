@@ -23,9 +23,26 @@ public class SOAPInterface {
         soap.version = SOAPVersion.VERSION_1_1
         soap.responseHeader = true
         
-        soap.setValue("param-value", forKey: "param-name")
+        soap.setValue("loginId", forKey: "param-name")
+        soap.setValue("password", forKey: "param-name")
+        soap.setValue("tokenKey", forKey: "param-name")
+        soap.setValue("version", forKey: "param-name")
+        soap.setValue("CompanyCode", forKey: "param-name")
+        soap.setValue("PCode", forKey: "param-name")
+        soap.setValue("AccessUID", forKey: "param-name")
+        soap.setValue("PlaceID", forKey: "param-name")
+        soap.setValue("TerminalID", forKey: "param-name")
+        soap.setValue("AssociateID", forKey: "param-name")
+        soap.setValue("provinceCode", forKey: "param-name")
+        soap.setValue("drivingLicense", forKey: "param-name")
+        soap.setValue("signature", forKey: "param-name")
+        soap.setValue("identificationNo", forKey: "param-name")
+        soap.setValue("dateOfBirth", forKey: "param-name")
+        soap.setValue("licenseClass", forKey: "param-name")
+        soap.setValue("reference", forKey: "param-name")
+        
         soap.requestURL("https://vxdtech.com/vxdcustomerapi/CustomerService.asmx",
-                        soapAction: "http://www.my-web.com/My-Method-name",
+                        soapAction: "VerXdirect.API/SingleDL",
                         completeWithDictionary: { (statusCode : Int,
                             dict : [NSObject : AnyObject]!) -> Void in
                             
