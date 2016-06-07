@@ -16,7 +16,7 @@
 		865F524F1D0732760069A7FE /* SoapInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865F524E1D0732760069A7FE /* SoapInterface.swift */; };
 		865F52571D0735300069A7FE /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 865F52561D0735300069A7FE /* Security.framework */; };
 		865F52591D0735370069A7FE /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 865F52581D0735370069A7FE /* Accounts.framework */; };
-		865F525C1D0738340069A7FE /* SOAPEngine64.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 865F525B1D0738340069A7FE /* SOAPEngine64.framework */; };
+		865F525D1D0750D50069A7FE /* SOAPEngine64.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 865F525B1D0738340069A7FE /* SOAPEngine64.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,7 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				865F525C1D0738340069A7FE /* SOAPEngine64.framework in Frameworks */,
+				865F525D1D0750D50069A7FE /* SOAPEngine64.framework in Frameworks */,
 				865F52591D0735370069A7FE /* Accounts.framework in Frameworks */,
 				865F52571D0735300069A7FE /* Security.framework in Frameworks */,
 			);
