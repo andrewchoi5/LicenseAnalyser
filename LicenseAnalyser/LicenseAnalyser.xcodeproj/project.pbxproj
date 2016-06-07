@@ -77,6 +77,7 @@
 		865F522C1D0718400069A7FE /* LicenseAnalyser */ = {
 			isa = PBXGroup;
 			children = (
+				865F524D1D071AA00069A7FE /* API */,
 				865F522D1D0718400069A7FE /* AppDelegate.swift */,
 				865F522F1D0718400069A7FE /* ViewController.swift */,
 				865F52311D0718400069A7FE /* Main.storyboard */,
@@ -94,6 +95,13 @@
 				865F52441D0718400069A7FE /* Info.plist */,
 			);
 			path = LicenseAnalyserTests;
+			sourceTree = "<group>";
+		};
+		865F524D1D071AA00069A7FE /* API */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
