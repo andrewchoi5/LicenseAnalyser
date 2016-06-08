@@ -12,7 +12,7 @@ import SOAPEngine64
 
 public class SOAPInterface {
     static func VerifyCard() {
-        var soap = SOAPEngine()
+        let soap = SOAPEngine()
         
         soap.authorizationMethod = SOAPAuthorization.AUTH_BASIC
         soap.username = "1648346"
@@ -29,17 +29,17 @@ public class SOAPInterface {
         soap.setValue("version", forKey: "1.0")
         soap.setValue("CompanyCode", forKey: "53")
         soap.setValue("PCode", forKey: "pkera56g5")
-        soap.setValue("AccessUID", forKey: "param-name")
-        soap.setValue("PlaceID", forKey: "param-name")
-        soap.setValue("TerminalID", forKey: "param-name")
-        soap.setValue("AssociateID", forKey: "param-name")
-        soap.setValue("provinceCode", forKey: "param-name")
-        soap.setValue("drivingLicense", forKey: "param-name")
-        soap.setValue("signature", forKey: "param-name")
-        soap.setValue("identificationNo", forKey: "param-name")
-        soap.setValue("dateOfBirth", forKey: "param-name")
-        soap.setValue("licenseClass", forKey: "param-name")
-        soap.setValue("reference", forKey: "param-name")
+        soap.setValue("AccessUID", forKey: "")
+        soap.setValue("PlaceID", forKey: "")
+        soap.setValue("TerminalID", forKey: "")
+        soap.setValue("AssociateID", forKey: "")
+        soap.setValue("provinceCode", forKey: "ON")
+        soap.setValue("drivingLicense", forKey: "P66681858950819")
+        soap.setValue("signature", forKey: "Y")
+        soap.setValue("identificationNo", forKey: "")
+        soap.setValue("dateOfBirth", forKey: "19950819")
+        soap.setValue("licenseClass", forKey: "")
+        soap.setValue("reference", forKey: "")
         
         soap.requestURL("https://vxdtech.com/vxdcustomerapi/CustomerService.asmx",
                         soapAction: "VerXdirect.API/SingleDL",

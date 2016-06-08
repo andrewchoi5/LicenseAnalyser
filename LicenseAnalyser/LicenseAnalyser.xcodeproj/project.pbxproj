@@ -138,12 +138,14 @@
 		865F52501D0732C60069A7FE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D51F4C9D1D07537200E76192 /* MicroBlink.framework */,
 				D51F4CAB1D0753CA00E76192 /* CoreMedia.framework */,
 				D51F4CA91D0753C200E76192 /* AudioToolbox.framework */,
 				D51F4CA71D0753B500E76192 /* AVFoundation.framework */,
 				D51F4CA51D0753AC00E76192 /* Accelerate.framework */,
 				D51F4CA31D0753A300E76192 /* libiconv.tbd */,
 				D51F4CA11D07539A00E76192 /* libc++.tbd */,
+				D51F4C9F1D07537E00E76192 /* MicroBlink.bundle */,
 				865F525B1D0738340069A7FE /* SOAPEngine64.framework */,
 				865F52581D0735370069A7FE /* Accounts.framework */,
 				865F52561D0735300069A7FE /* Security.framework */,
