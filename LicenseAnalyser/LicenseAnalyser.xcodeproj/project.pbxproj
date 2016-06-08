@@ -17,8 +17,6 @@
 		865F52571D0735300069A7FE /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 865F52561D0735300069A7FE /* Security.framework */; };
 		865F52591D0735370069A7FE /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 865F52581D0735370069A7FE /* Accounts.framework */; };
 		865F525C1D0738340069A7FE /* SOAPEngine64.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 865F525B1D0738340069A7FE /* SOAPEngine64.framework */; };
-		D51F4C9E1D07537200E76192 /* MicroBlink.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D51F4C9D1D07537200E76192 /* MicroBlink.framework */; };
-		D51F4CA01D07537E00E76192 /* MicroBlink.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D51F4C9F1D07537E00E76192 /* MicroBlink.bundle */; };
 		D51F4CA21D07539A00E76192 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D51F4CA11D07539A00E76192 /* libc++.tbd */; };
 		D51F4CA41D0753A300E76192 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D51F4CA31D0753A300E76192 /* libiconv.tbd */; };
 		D51F4CA61D0753AC00E76192 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D51F4CA51D0753AC00E76192 /* Accelerate.framework */; };
@@ -52,8 +50,6 @@
 		865F52561D0735300069A7FE /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		865F52581D0735370069A7FE /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		865F525B1D0738340069A7FE /* SOAPEngine64.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SOAPEngine64.framework; sourceTree = "<group>"; };
-		D51F4C9D1D07537200E76192 /* MicroBlink.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MicroBlink.framework; sourceTree = "<group>"; };
-		D51F4C9F1D07537E00E76192 /* MicroBlink.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MicroBlink.bundle; sourceTree = "<group>"; };
 		D51F4CA11D07539A00E76192 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		D51F4CA31D0753A300E76192 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
 		D51F4CA51D0753AC00E76192 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
@@ -75,7 +71,6 @@
 				D51F4CA21D07539A00E76192 /* libc++.tbd in Frameworks */,
 				865F525C1D0738340069A7FE /* SOAPEngine64.framework in Frameworks */,
 				865F52591D0735370069A7FE /* Accounts.framework in Frameworks */,
-				D51F4C9E1D07537200E76192 /* MicroBlink.framework in Frameworks */,
 				865F52571D0735300069A7FE /* Security.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -149,8 +144,6 @@
 				D51F4CA51D0753AC00E76192 /* Accelerate.framework */,
 				D51F4CA31D0753A300E76192 /* libiconv.tbd */,
 				D51F4CA11D07539A00E76192 /* libc++.tbd */,
-				D51F4C9F1D07537E00E76192 /* MicroBlink.bundle */,
-				D51F4C9D1D07537200E76192 /* MicroBlink.framework */,
 				865F525B1D0738340069A7FE /* SOAPEngine64.framework */,
 				865F52581D0735370069A7FE /* Accounts.framework */,
 				865F52561D0735300069A7FE /* Security.framework */,
@@ -242,7 +235,6 @@
 				865F52381D0718400069A7FE /* LaunchScreen.storyboard in Resources */,
 				865F52351D0718400069A7FE /* Assets.xcassets in Resources */,
 				865F52331D0718400069A7FE /* Main.storyboard in Resources */,
-				D51F4CA01D07537E00E76192 /* MicroBlink.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,6 +403,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ibm.driverlicense.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "c8c14e52-f3d7-4e1e-84f1-52f215ae7817";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -435,6 +428,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ibm.driverlicense.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "c8c14e52-f3d7-4e1e-84f1-52f215ae7817";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
