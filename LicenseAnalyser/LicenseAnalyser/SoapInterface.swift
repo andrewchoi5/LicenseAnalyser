@@ -12,7 +12,7 @@ import SOAPEngine64
 
 public class SOAPInterface {
     static func VerifyCard() {
-        var soap = SOAPEngine()
+        let soap = SOAPEngine()
         
         soap.authorizationMethod = SOAPAuthorization.AUTH_BASIC
         soap.username = "1648346"
@@ -33,11 +33,11 @@ public class SOAPInterface {
         soap.setValue("PlaceID", forKey: "")
         soap.setValue("TerminalID", forKey: "")
         soap.setValue("AssociateID", forKey: "")
-        soap.setValue("provinceCode", forKey: "")
-        soap.setValue("drivingLicense", forKey: "")
-        soap.setValue("signature", forKey: "")
+        soap.setValue("provinceCode", forKey: "ON")
+        soap.setValue("drivingLicense", forKey: "P66681858950819")
+        soap.setValue("signature", forKey: "Y")
         soap.setValue("identificationNo", forKey: "")
-        soap.setValue("dateOfBirth", forKey: "")
+        soap.setValue("dateOfBirth", forKey: "19950819")
         soap.setValue("licenseClass", forKey: "")
         soap.setValue("reference", forKey: "")
         
