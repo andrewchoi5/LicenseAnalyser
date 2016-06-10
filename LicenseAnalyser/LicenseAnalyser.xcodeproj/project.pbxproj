@@ -14,15 +14,17 @@
 		865F52381D0718400069A7FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 865F52361D0718400069A7FE /* LaunchScreen.storyboard */; };
 		865F52431D0718400069A7FE /* LicenseAnalyserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865F52421D0718400069A7FE /* LicenseAnalyserTests.swift */; };
 		865F524F1D0732760069A7FE /* SoapInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865F524E1D0732760069A7FE /* SoapInterface.swift */; };
-		865F52571D0735300069A7FE /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 865F52561D0735300069A7FE /* Security.framework */; };
-		865F52591D0735370069A7FE /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 865F52581D0735370069A7FE /* Accounts.framework */; };
-		865F525C1D0738340069A7FE /* SOAPEngine64.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 865F525B1D0738340069A7FE /* SOAPEngine64.framework */; };
-		D51F4CA21D07539A00E76192 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D51F4CA11D07539A00E76192 /* libc++.tbd */; };
-		D51F4CA41D0753A300E76192 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D51F4CA31D0753A300E76192 /* libiconv.tbd */; };
-		D51F4CA61D0753AC00E76192 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D51F4CA51D0753AC00E76192 /* Accelerate.framework */; };
-		D51F4CA81D0753B500E76192 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D51F4CA71D0753B500E76192 /* AVFoundation.framework */; };
-		D51F4CAA1D0753C200E76192 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D51F4CA91D0753C200E76192 /* AudioToolbox.framework */; };
-		D51F4CAC1D0753CA00E76192 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D51F4CAB1D0753CA00E76192 /* CoreMedia.framework */; };
+		86A01A021D0A16D300D3C3FA /* TrueIDMobileSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86A01A011D0A16D300D3C3FA /* TrueIDMobileSDK.framework */; };
+		86A01A031D0A171500D3C3FA /* TrueIDMobileSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86A01A011D0A16D300D3C3FA /* TrueIDMobileSDK.framework */; };
+		86A01A041D0A171500D3C3FA /* TrueIDMobileSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 86A01A011D0A16D300D3C3FA /* TrueIDMobileSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		86A01A0B1D0AFB5900D3C3FA /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 86A01A0A1D0AFB5900D3C3FA /* libc++.tbd */; };
+		86A01A0D1D0AFBFA00D3C3FA /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 86A01A0C1D0AFBFA00D3C3FA /* libiconv.tbd */; };
+		86A01A0F1D0AFC0300D3C3FA /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86A01A0E1D0AFC0300D3C3FA /* Accelerate.framework */; };
+		86A01A111D0AFC0D00D3C3FA /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86A01A101D0AFC0D00D3C3FA /* AVFoundation.framework */; };
+		86A01A131D0AFC1600D3C3FA /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86A01A121D0AFC1600D3C3FA /* AudioToolbox.framework */; };
+		86A01A151D0AFC1E00D3C3FA /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86A01A141D0AFC1E00D3C3FA /* CoreMedia.framework */; };
+		86A1563E1D09E5D800D5FAF6 /* PhotoDisplayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A1563D1D09E5D800D5FAF6 /* PhotoDisplayController.swift */; };
+		86B8A8FF1D0878DA00B6CF19 /* UserLicense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B8A8FE1D0878DA00B6CF19 /* UserLicense.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +36,20 @@
 			remoteInfo = LicenseAnalyser;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		86A01A051D0A171500D3C3FA /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				86A01A041D0A171500D3C3FA /* TrueIDMobileSDK.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		865F522A1D0718400069A7FE /* LicenseAnalyser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LicenseAnalyser.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -47,15 +63,16 @@
 		865F52421D0718400069A7FE /* LicenseAnalyserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseAnalyserTests.swift; sourceTree = "<group>"; };
 		865F52441D0718400069A7FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		865F524E1D0732760069A7FE /* SoapInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoapInterface.swift; sourceTree = "<group>"; };
-		865F52561D0735300069A7FE /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		865F52581D0735370069A7FE /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
-		865F525B1D0738340069A7FE /* SOAPEngine64.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SOAPEngine64.framework; sourceTree = "<group>"; };
-		D51F4CA11D07539A00E76192 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
-		D51F4CA31D0753A300E76192 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
-		D51F4CA51D0753AC00E76192 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
-		D51F4CA71D0753B500E76192 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		D51F4CA91D0753C200E76192 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		D51F4CAB1D0753CA00E76192 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		86A019FC1D0A137900D3C3FA /* LicenseAnalyser-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LicenseAnalyser-Bridging-Header.h"; sourceTree = "<group>"; };
+		86A01A011D0A16D300D3C3FA /* TrueIDMobileSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TrueIDMobileSDK.framework; sourceTree = "<group>"; };
+		86A01A0A1D0AFB5900D3C3FA /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		86A01A0C1D0AFBFA00D3C3FA /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
+		86A01A0E1D0AFC0300D3C3FA /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		86A01A101D0AFC0D00D3C3FA /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		86A01A121D0AFC1600D3C3FA /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		86A01A141D0AFC1E00D3C3FA /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		86A1563D1D09E5D800D5FAF6 /* PhotoDisplayController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoDisplayController.swift; sourceTree = "<group>"; };
+		86B8A8FE1D0878DA00B6CF19 /* UserLicense.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLicense.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,15 +80,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D51F4CAC1D0753CA00E76192 /* CoreMedia.framework in Frameworks */,
-				D51F4CAA1D0753C200E76192 /* AudioToolbox.framework in Frameworks */,
-				D51F4CA81D0753B500E76192 /* AVFoundation.framework in Frameworks */,
-				D51F4CA61D0753AC00E76192 /* Accelerate.framework in Frameworks */,
-				D51F4CA41D0753A300E76192 /* libiconv.tbd in Frameworks */,
-				D51F4CA21D07539A00E76192 /* libc++.tbd in Frameworks */,
-				865F525C1D0738340069A7FE /* SOAPEngine64.framework in Frameworks */,
-				865F52591D0735370069A7FE /* Accounts.framework in Frameworks */,
-				865F52571D0735300069A7FE /* Security.framework in Frameworks */,
+				86A01A151D0AFC1E00D3C3FA /* CoreMedia.framework in Frameworks */,
+				86A01A131D0AFC1600D3C3FA /* AudioToolbox.framework in Frameworks */,
+				86A01A111D0AFC0D00D3C3FA /* AVFoundation.framework in Frameworks */,
+				86A01A0F1D0AFC0300D3C3FA /* Accelerate.framework in Frameworks */,
+				86A01A0D1D0AFBFA00D3C3FA /* libiconv.tbd in Frameworks */,
+				86A01A0B1D0AFB5900D3C3FA /* libc++.tbd in Frameworks */,
+				86A01A031D0A171500D3C3FA /* TrueIDMobileSDK.framework in Frameworks */,
+				86A01A021D0A16D300D3C3FA /* TrueIDMobileSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,14 +122,17 @@
 		865F522C1D0718400069A7FE /* LicenseAnalyser */ = {
 			isa = PBXGroup;
 			children = (
+				86A1563C1D09E5BA00D5FAF6 /* Controllers */,
 				865F52501D0732C60069A7FE /* Frameworks */,
 				865F524D1D071AA00069A7FE /* API */,
+				86B8A8FD1D0878C500B6CF19 /* Model */,
 				865F522D1D0718400069A7FE /* AppDelegate.swift */,
 				865F522F1D0718400069A7FE /* ViewController.swift */,
 				865F52311D0718400069A7FE /* Main.storyboard */,
 				865F52341D0718400069A7FE /* Assets.xcassets */,
 				865F52361D0718400069A7FE /* LaunchScreen.storyboard */,
 				865F52391D0718400069A7FE /* Info.plist */,
+				86A019FC1D0A137900D3C3FA /* LicenseAnalyser-Bridging-Header.h */,
 			);
 			path = LicenseAnalyser;
 			sourceTree = "<group>";
@@ -138,19 +157,31 @@
 		865F52501D0732C60069A7FE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D51F4C9D1D07537200E76192 /* MicroBlink.framework */,
-				D51F4CAB1D0753CA00E76192 /* CoreMedia.framework */,
-				D51F4CA91D0753C200E76192 /* AudioToolbox.framework */,
-				D51F4CA71D0753B500E76192 /* AVFoundation.framework */,
-				D51F4CA51D0753AC00E76192 /* Accelerate.framework */,
-				D51F4CA31D0753A300E76192 /* libiconv.tbd */,
-				D51F4CA11D07539A00E76192 /* libc++.tbd */,
-				D51F4C9F1D07537E00E76192 /* MicroBlink.bundle */,
-				865F525B1D0738340069A7FE /* SOAPEngine64.framework */,
-				865F52581D0735370069A7FE /* Accounts.framework */,
-				865F52561D0735300069A7FE /* Security.framework */,
+				86A01A0A1D0AFB5900D3C3FA /* libc++.tbd */,
+				86A01A0C1D0AFBFA00D3C3FA /* libiconv.tbd */,
+				86A01A0E1D0AFC0300D3C3FA /* Accelerate.framework */,
+				86A01A101D0AFC0D00D3C3FA /* AVFoundation.framework */,
+				86A01A121D0AFC1600D3C3FA /* AudioToolbox.framework */,
+				86A01A141D0AFC1E00D3C3FA /* CoreMedia.framework */,
+				86A01A011D0A16D300D3C3FA /* TrueIDMobileSDK.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		86A1563C1D09E5BA00D5FAF6 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				86A1563D1D09E5D800D5FAF6 /* PhotoDisplayController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		86B8A8FD1D0878C500B6CF19 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				86B8A8FE1D0878DA00B6CF19 /* UserLicense.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,6 +194,7 @@
 				865F52261D0718400069A7FE /* Sources */,
 				865F52271D0718400069A7FE /* Frameworks */,
 				865F52281D0718400069A7FE /* Resources */,
+				86A01A051D0A171500D3C3FA /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -256,6 +288,8 @@
 			files = (
 				865F52301D0718400069A7FE /* ViewController.swift in Sources */,
 				865F524F1D0732760069A7FE /* SoapInterface.swift in Sources */,
+				86B8A8FF1D0878DA00B6CF19 /* UserLicense.swift in Sources */,
+				86A1563E1D09E5D800D5FAF6 /* PhotoDisplayController.swift in Sources */,
 				865F522E1D0718400069A7FE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -387,8 +421,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Mehran Najafi (5C9NDSKQG2)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Mehran Najafi (5C9NDSKQG2)";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SOAPEngine",
@@ -405,6 +442,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ibm.driverlicense.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "c8c14e52-f3d7-4e1e-84f1-52f215ae7817";
+				SWIFT_OBJC_BRIDGING_HEADER = "LicenseAnalyser/LicenseAnalyser-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -413,7 +452,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Mehran Najafi (5C9NDSKQG2)";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SOAPEngine",
@@ -430,6 +472,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ibm.driverlicense.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "c8c14e52-f3d7-4e1e-84f1-52f215ae7817";
+				SWIFT_OBJC_BRIDGING_HEADER = "LicenseAnalyser/LicenseAnalyser-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

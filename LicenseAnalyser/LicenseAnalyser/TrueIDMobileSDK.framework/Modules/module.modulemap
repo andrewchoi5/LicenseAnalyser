@@ -1,0 +1,6 @@
+framework module TrueIDMobileSDK {
+  umbrella header "TrueIDMobileSDK.h"
+
+  export *
+  module * { export * }
+}
