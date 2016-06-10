@@ -8,8 +8,8 @@
 
 import Foundation
 import UIKit
-
-public class SOAPInterface : NSObject, NSXMLParserDelegate {
+/*
+public class SOAPInterface : NSObject, UITextFieldDelegate, NSURLConnectionDelegate, NSXMLParserDelegate {
     var mutableData:NSMutableData = NSMutableData()
     var currentElementName:NSString = ""
     
@@ -71,7 +71,7 @@ public class SOAPInterface : NSObject, NSXMLParserDelegate {
         })
         
         dataTask.resume()
-*/
+
     }
     
     public func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
@@ -82,5 +82,76 @@ public class SOAPInterface : NSObject, NSXMLParserDelegate {
         if currentElementName == "ResultArgumentName" {
             //txtFahrenheit.text = string
         }
+
+    }
+    
+    static func VerifyCard() {
+        let soapMessage = "<?xml version='1.0' encoding='utf-8'?><soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:ver='VerXdirect.API'><soapenv:Header/><soapenv:Body><ver:SingleDL><ver:loginId>1648346</ver:loginId><ver:password>oFkWR977V</ver:password><ver:tokenKey>P6Fy2gsO23KuUdvckwLqqA==</ver:tokenKey><ver:version>1.0</ver:version><ver:CompanyCode>53</ver:CompanyCode><ver:PCode>pkera56g5</ver:PCode><ver:AccessUID>?</ver:AccessUID><ver:PlaceID>?</ver:PlaceID><ver:TerminalID>?</ver:TerminalID><ver:AssociateID>?</ver:AssociateID><ver:provinceCode>ON</ver:provinceCode><ver:drivingLicense>N02035370820919</ver:drivingLicense><ver:signature>Y</ver:signature><ver:identificationNo></ver:identificationNo><ver:dateOfBirth>19820919</ver:dateOfBirth><ver:licenseClass>?</ver:licenseClass><ver:reference>?</ver:reference></ver:SingleDL></soapenv:Body></soapenv:Envelope>"
+         
+         let urlString = "https://vxdtech.com/vxdcustomerapi/CustomerService.asmx"
+        
+        /*
+        let soapMessage = "<?xml version='1.0' encoding='utf-8'?><soap12:Envelope xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:soap12='http://www.w3.org/2003/05/soap-envelope'><soap12:Body><CelsiusToFahrenheit xmlns='http://www.w3schools.com/xml/'><Celsius>44</Celsius></CelsiusToFahrenheit></soap12:Body></soap12:Envelope>"
+        
+        
+        let urlString = "http://www.w3schools.com/xml/tempconvert.asmx"*/
+        
+        let url = NSURL(string: urlString)
+        
+        let theRequest = NSMutableURLRequest(URL: url!)
+        
+        let msgLength = soapMessage.characters.count
+        
+        theRequest.setValue("text/xml; charset=utf-8", forHTTPHeaderField: "Content-Type")
+        theRequest.setValue(String(msgLength), forHTTPHeaderField: "Content-Length")
+        
+         let username = "1648346"
+         let password = "oFkWR977V"
+         let loginString = NSString(format: "%@:%@", username, password)
+         let loginData: NSData = loginString.dataUsingEncoding(NSUTF8StringEncoding)!
+         let base64LoginString = loginData.base64EncodedStringWithOptions([])
+         
+         theRequest.setValue("Basic \(base64LoginString)", forHTTPHeaderField: "Authorization")
+        
+        theRequest.HTTPMethod = "POST"
+        theRequest.HTTPBody = soapMessage.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false) // or false
+        
+        let session = NSURLSession.sharedSession()
+        let dataTask = session.dataTaskWithRequest(theRequest, completionHandler: {(data: NSData?, response: NSURLResponse?, error : NSError?) -> Void in
+            var strData = NSString(data: data!, encoding: NSUTF8StringEncoding)
+            print("Body: \(strData)")
+            
+        })
+        
+        dataTask.resume()
+
+    }
+    
+    func connection(connection: NSURLConnection!, didReceiveResponse response: NSURLResponse!) {
+        mutableData.length = 0;
+    }
+    
+    func connection(connection: NSURLConnection!, didReceiveData data: NSData!) {
+        mutableData.appendData(data)
+    }
+    
+    func connectionDidFinishLoading(connection: NSURLConnection!) {
+        let response = NSString(data: mutableData, encoding: NSUTF8StringEncoding)
+        
+        let xmlParser = NSXMLParser(data: mutableData)
+        xmlParser.delegate = self
+        xmlParser.parse()
+        xmlParser.shouldResolveExternalEntities = true
+    }
+    
+    public func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
+        currentElementName = elementName
+    }
+    
+    public func parser(parser: NSXMLParser, foundCharacters string: String) {
+        if currentElementName == "CelsiusToFahrenheitResult" {
+            //txtFahrenheit.text = string
+        }
     }
 }
+*/*/
