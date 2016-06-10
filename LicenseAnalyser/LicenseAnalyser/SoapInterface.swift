@@ -8,10 +8,14 @@
 
 import Foundation
 import UIKit
-/*
-public class SOAPInterface {
-    static func VerifyCard() {
-        var soap = SOAPEngine()
+import SOAPEngine64
+
+public class SOAPInterface : NSObject, UITextFieldDelegate, NSURLConnectionDelegate, NSXMLParserDelegate {
+    var mutableData:NSMutableData = NSMutableData()
+    var currentElementName:NSString = ""
+    
+    static func VerifyCard(LicenseToVerify: UserLicense) {
+        let soap = SOAPEngine()
         
         soap.authorizationMethod = SOAPAuthorization.AUTH_BASIC
         soap.username = "1648346"
