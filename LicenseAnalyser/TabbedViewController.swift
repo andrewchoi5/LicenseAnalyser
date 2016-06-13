@@ -15,6 +15,12 @@ class TabbedViewController: UIViewController {
     @IBOutlet weak var enhanced: UILabel!
     @IBOutlet weak var basic: UILabel!
     var pageIndex: Int = 0
+    
+    
+    var socialScore = Double()
+    var thirdPartyScore = Double()
+    var enhancedScore = Double()
+    var basicScore = Double()
 
     //@IBOutlet weak var progress: KDCircularProgress!
     @IBOutlet weak var progress: KDCircularProgress!
@@ -43,6 +49,12 @@ class TabbedViewController: UIViewController {
                 print("animation stopped, was interrupted")
             }
         }
+        social.text = String(GlobalScore.socialScore)
+        thirdParty.text = String(GlobalScore.govtScore)
+        enhanced.text = String(GlobalScore.enhancedScore)
+        basic.text = String(GlobalScore.coreScore)
+        
+        // Do any additional setup after loading the view.
     }
     
 //    @IBAction func sliderDidChangeValue(sender: UISlider) {
