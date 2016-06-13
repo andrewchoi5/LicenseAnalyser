@@ -22,11 +22,27 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
     
     var isLocalValid = false
     var isVerXValid = false
+    
+    var isPostalCodeValid = false
+    var isGeoLocationValid = false
     var isPhotoSelected = false
     
-    var condifenceScore = String()
-    var fraudScore = String()
-    var authScore = String()
+    var postalScore: Double = 0.0
+    var creditScore: Double = 0.0
+    
+    var condifenceScore: Double = Double()
+    var fraudScore: Double = Double()
+    var authScore: Double = Double()
+    
+    var coreScore: Double = 0.0
+    var enhancedScore: Double = 0.0
+    var govtScore: Double = 0.0
+    var socialScore: Double = 0.0
+    
+    let coreTotal: Double = 50.0
+    let enhacedTotal: Double = 100.0
+    let govtTotal: Double = 100.0
+    let socialTotal: Double = 25.0
     
 //    let progressIndicatorView = CircularLoaderView(frame: CGRectZero)
 //    
@@ -85,7 +101,7 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
     }
     
     func finishedLoadingValue() {
-        self.performSegueWithIdentifier("loading", sender: self)
+        //self.performSegueWithIdentifier("loading", sender: self)
     }
 
     override func didReceiveMemoryWarning() {
@@ -400,9 +416,9 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
                     let jsonResult: NSObject! = try NSJSONSerialization.JSONObjectWithData(data!, options:NSJSONReadingOptions.MutableContainers) as? NSObject
                     if (jsonResult != nil) {
                         let preScore = jsonResult.valueForKey("data")
-                        self.condifenceScore = String(Double((preScore?.valueForKey("confidence"))! as! NSNumber))
-                        self.fraudScore = String(Double((preScore?.valueForKey("fraudscore"))! as! NSNumber))
-                        self.authScore = String(Double((preScore?.valueForKey("authscore"))! as! NSNumber))
+                        self.condifenceScore = Double((preScore?.valueForKey("confidence"))! as! NSNumber)
+                        self.fraudScore = Double((preScore?.valueForKey("fraudscore"))! as! NSNumber)
+                        self.authScore = Double((preScore?.valueForKey("authscore"))! as! NSNumber)
                     } else {
                         // couldn't load JSON, look at error
                         print("no results found")
@@ -440,9 +456,11 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
             var error: AutoreleasingUnsafeMutablePointer<NSError?> = nil
             do {
                 print("address verify finished")
-                self.GeoLocationVerifiy()
+                self.GeoLocationVerifiy(personToVerify)
                 if (data != nil) {
                     var strData = NSString(data: data!, encoding: NSUTF8StringEncoding)
+                    
+                    self.isPostalCodeValid = true
                 }
                 // enhanced - 100 or 0 from postal code
                 // gov - valid or not 100 or 0
@@ -454,7 +472,7 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
         })
     }
     
-    func GeoLocationVerifiy() {
+    func GeoLocationVerifiy(personToVerify : UserLicense) {
         var url : String = "http://geocoder.ca/?latt="
             + latitude
             + "&longt="
@@ -469,10 +487,12 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue(), completionHandler:{ (response:NSURLResponse?, data: NSData?, error: NSError?) -> Void in
             var error: AutoreleasingUnsafeMutablePointer<NSError?> = nil
             do {
-                print("address verify finished")
                 self.finished()
                 if (data != nil) {
                     var strData = NSString(data: data!, encoding: NSUTF8StringEncoding)
+                    
+                    // See if postal code matches from license
+                    self.isGeoLocationValid = true
                 }
                 // enhanced - 100 or 0 from postal code
                 // gov - valid or not 100 or 0
@@ -485,15 +505,46 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
     }
     
     func finished() {
-        //self.performSegueWithIdentifier("loading", sender: self)
+        calculateScores()
+        self.performSegueWithIdentifier("loading", sender: self)
         //self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         super.prepareForSegue(segue, sender: sender)
-        //(segue.destinationViewController as! ConfidenceLevelViewController).emailAddress = emailLabel.text!
+      /*  (segue.destinationViewController as! TabbedViewController).basicScore = self.coreScore
+        (segue.destinationViewController as! TabbedViewController).thirdPartyScore = self.govtScore
+        (segue.destinationViewController as! TabbedViewController).enhancedScore = self.enhancedScore
+        (segue.destinationViewController as! TabbedViewController).socialScore = self.socialScore*/
     }
     
+    func calculateScores() {
+        var lexisNexis = 35
+        
+        // Core Score out of 50
+        if (isLocalValid) {
+            coreScore = coreTotal
+        }
+        
+        // Enhanced Score out of 100
+        if (isPostalCodeValid) {
+            postalScore = enhacedTotal
+        }
+        
+        enhancedScore = postalScore + creditScore
+        
+        // Govt Score out of 100
+        if (isVerXValid) {
+            govtScore = govtTotal
+        }
+        
+        // Social Score out of 25
+        condifenceScore = condifenceScore/socialTotal * 100
+        fraudScore = fraudScore/socialTotal * 100
+        authScore = authScore/socialTotal * 100
+        
+        socialScore = condifenceScore + fraudScore + authScore
+    }
     // MARK : Geolocation delegates 
     
 }

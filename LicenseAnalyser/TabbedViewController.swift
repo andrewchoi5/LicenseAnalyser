@@ -15,10 +15,21 @@ class TabbedViewController: UIViewController {
     @IBOutlet weak var enhanced: UILabel!
     @IBOutlet weak var basic: UILabel!
     var pageIndex: Int = 0
+    
+    
+    var socialScore = Double()
+    var thirdPartyScore = Double()
+    var enhancedScore = Double()
+    var basicScore = Double()
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        social.text = String(socialScore)
+        thirdParty.text = String(thirdPartyScore)
+        enhanced.text = String(enhancedScore)
+        basic.text = String(basicScore)
         
         // Do any additional setup after loading the view.
     }

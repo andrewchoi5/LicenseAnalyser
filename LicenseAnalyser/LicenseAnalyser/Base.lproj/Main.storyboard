@@ -178,7 +178,7 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lHf-ac-4nM">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <connections>
-                                    <segue destination="mVF-29-ru7" kind="embed" id="Kil-gJ-LSI"/>
+                                    <segue destination="qgM-pa-FhI" kind="embed" id="HTr-fa-ntT"/>
                                 </connections>
                             </containerView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" translatesAutoresizingMaskIntoConstraints="NO" id="zo3-Us-jVI">
@@ -210,10 +210,10 @@
             </objects>
             <point key="canvasLocation" x="1546.5" y="336.5"/>
         </scene>
-        <!--Page View Controller-->
+        <!--Tutorial Page View Controller-->
         <scene sceneID="ek4-w1-A2f">
             <objects>
-                <pageViewController storyboardIdentifier="PageContentViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="qgM-pa-FhI" customClass="PageViewController" customModule="LicenseAnalyser" customModuleProvider="target" sceneMemberID="viewController"/>
+                <pageViewController storyboardIdentifier="PageContentViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="qgM-pa-FhI" customClass="TutorialPageViewController" customModule="LicenseAnalyser" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GcJ-sv-u4H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2119" y="395"/>
@@ -418,24 +418,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GFe-E6-Vee" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2612.5" y="69.5"/>
-        </scene>
-        <!--Tutorial Page View Controller-->
-        <scene sceneID="FbR-dY-zU5">
-            <objects>
-                <viewController modalTransitionStyle="flipHorizontal" id="mVF-29-ru7" customClass="TutorialPageViewController" customModule="LicenseAnalyser" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Gyg-2Q-U6V"/>
-                        <viewControllerLayoutGuide type="bottom" id="fIh-Qh-483"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Ndi-3H-Sd9">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="G7C-ln-XdE" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2020.5" y="-175.5"/>
         </scene>
     </scenes>
     <resources>
