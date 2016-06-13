@@ -22,6 +22,7 @@ class TabbedViewController: UIViewController {
     var enhancedScore = Double()
     var basicScore = Double()
 
+    @IBOutlet weak var circularProgressView: KDCircularProgress!
     
     override func viewDidLoad() {
         super.viewDidLoad()

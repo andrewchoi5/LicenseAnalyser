@@ -12,6 +12,7 @@ import TrueIDMobileSDK
 class ViewController: UIViewController, UITextFieldDelegate, NSURLConnectionDelegate, NSXMLParserDelegate {
 
     @IBOutlet weak var emailLabel: UITextField!
+    
     var isChecked = true
     var checked : UIImage = UIImage(named:"ic_check_box_white")!
     var unchecked : UIImage = UIImage(named:"ic_check_box_outline_blank_white")!
@@ -74,6 +75,11 @@ class ViewController: UIViewController, UITextFieldDelegate, NSURLConnectionDele
     override func viewDidLoad() {
         super.viewDidLoad()
         self.continueButton.enabled = false
+        emailLabel.layer.borderColor = UIColor.cyanColor().CGColor
+        emailLabel.layer.borderWidth = 1.0
+        emailLabel.layer.cornerRadius = 8
+        emailLabel.backgroundColor = UIColor.blackColor()
+        emailLabel.layer.masksToBounds = true
         
 //        infoLabel.textAlignment = NSTextAlignment.Left
 //        infoLabel.text = "Please confirm your approval access to your camera to take picture of your drivers license and yourself for identify purpose."

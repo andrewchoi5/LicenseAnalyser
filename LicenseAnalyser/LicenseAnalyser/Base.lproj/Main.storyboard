@@ -54,8 +54,19 @@
                                     <action selector="onCheckboxClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JHJ-vq-Rqt"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Email:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EyL-pQ-T34">
+                                <rect key="frame" x="16" y="373" width="46" height="21"/>
+                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
+                                <color key="textColor" red="0.88371236909999995" green="0.88371236909999995" blue="0.88371236909999995" alpha="0.7182236259" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W4t-jP-29b">
+                                <rect key="frame" x="78" y="364" width="230" height="30"/>
+                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9gA-VA-E9V">
-                                <rect key="frame" x="66" y="310" width="273" height="283"/>
+                                <rect key="frame" x="70" y="310" width="273" height="283"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" staticText="YES" adjustable="YES"/>
                                 </accessibility>
@@ -70,17 +81,6 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Email:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EyL-pQ-T34">
-                                <rect key="frame" x="16" y="373" width="46" height="21"/>
-                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
-                                <color key="textColor" red="0.88371236909999995" green="0.88371236909999995" blue="0.88371236909999995" alpha="0.7182236259" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W4t-jP-29b">
-                                <rect key="frame" x="78" y="364" width="230" height="30"/>
-                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -136,20 +136,52 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="confidence-11" translatesAutoresizingMaskIntoConstraints="NO" id="P0N-XB-Fzf">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W1B-AY-kkx">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W1B-AY-kkx">
                                 <rect key="frame" x="36" y="391" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="button1:" destination="oq3-5t-HEz" eventType="touchUpInside" id="Cz9-at-38r"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3BS-Pu-2T9" customClass="KDCircularProgress" customModule="LicenseAnalyser" customModuleProvider="target">
+                                <rect key="frame" x="134" y="333" width="107" height="107"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="IBColor1">
+                                        <color key="value" red="0.12941176470588234" green="0.70588235294117641" blue="0.81568627450980391" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="trackColor">
+                                        <color key="value" red="0.14117647058823529" green="0.15686274509803921" blue="0.1764705882352941" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="roundedCorners" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="trackThickness">
+                                        <real key="value" value="-4"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="glowAmount">
+                                        <real key="value" value="-1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="startAngle">
+                                        <real key="value" value="270"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="angle">
+                                        <real key="value" value="90"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="confidence-11" translatesAutoresizingMaskIntoConstraints="NO" id="P0N-XB-Fzf">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="3BS-Pu-2T9" firstAttribute="top" secondItem="9TT-i9-LMe" secondAttribute="bottom" constant="313" id="AOg-Vl-jnw"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="3BS-Pu-2T9" secondAttribute="trailing" constant="114" id="JQG-0j-Mox"/>
+                            <constraint firstItem="KKw-tI-Gd0" firstAttribute="top" secondItem="3BS-Pu-2T9" secondAttribute="bottom" constant="227" id="Jil-bd-PVp"/>
+                            <constraint firstItem="3BS-Pu-2T9" firstAttribute="leading" secondItem="W1B-AY-kkx" secondAttribute="trailing" constant="52" id="nXW-Xs-Xbx"/>
+                        </constraints>
                     </view>
                     <connections>
+                        <outlet property="circularProgressView" destination="3BS-Pu-2T9" id="aUr-LK-6Ne"/>
                         <segue destination="YGJ-yo-Scn" kind="show" identifier="loading" id="dIP-qX-fpX"/>
                     </connections>
                 </viewController>
@@ -169,16 +201,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="4qQ-BI-HSV">
-                                <rect key="frame" x="281" y="555" width="75" height="37"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="75" id="v8t-x5-HwW"/>
-                                </constraints>
-                            </pageControl>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lHf-ac-4nM">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <connections>
-                                    <segue destination="qgM-pa-FhI" kind="embed" id="HTr-fa-ntT"/>
+                                    <segue destination="qgM-pa-FhI" kind="embed" id="Kef-NO-pty"/>
                                 </connections>
                             </containerView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" translatesAutoresizingMaskIntoConstraints="NO" id="zo3-Us-jVI">
@@ -186,15 +212,13 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="39" id="KCg-3S-Ccq"/>
                                 </constraints>
-                                <color key="pageIndicatorTintColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="pageIndicatorTintColor" red="0.12941176469999999" green="0.70588235290000001" blue="0.81568627449999997" alpha="1" colorSpace="calibratedRGB"/>
                             </pageControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="MEi-6O-99Y" firstAttribute="top" secondItem="zo3-Us-jVI" secondAttribute="bottom" constant="8" symbolic="YES" id="H8K-F9-7wv"/>
                             <constraint firstItem="lHf-ac-4nM" firstAttribute="centerX" secondItem="zo3-Us-jVI" secondAttribute="centerX" id="Qob-bu-cia"/>
-                            <constraint firstItem="MEi-6O-99Y" firstAttribute="top" secondItem="4qQ-BI-HSV" secondAttribute="bottom" constant="75" id="RPm-C2-jne"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="4qQ-BI-HSV" secondAttribute="trailing" constant="3" id="S23-xJ-pXu"/>
                             <constraint firstItem="lHf-ac-4nM" firstAttribute="leading" secondItem="1Tr-dF-RwT" secondAttribute="leading" id="YYh-ZN-uEQ"/>
                             <constraint firstItem="lHf-ac-4nM" firstAttribute="top" secondItem="1Tr-dF-RwT" secondAttribute="top" id="bKm-2t-Huf"/>
                             <constraint firstItem="lHf-ac-4nM" firstAttribute="bottom" secondItem="MEi-6O-99Y" secondAttribute="top" id="erA-bd-Gt9"/>
@@ -216,7 +240,7 @@
                 <pageViewController storyboardIdentifier="PageContentViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="qgM-pa-FhI" customClass="TutorialPageViewController" customModule="LicenseAnalyser" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GcJ-sv-u4H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2119" y="395"/>
+            <point key="canvasLocation" x="1987.5" y="336.5"/>
         </scene>
         <!--Tabbed Second View Controller-->
         <scene sceneID="594-X1-DMt">
@@ -403,6 +427,22 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BL2-bo-CER" customClass="KDCircularProgress" customModule="LicenseAnalyser" customModuleProvider="target">
+                                <rect key="frame" x="78" y="79" width="220" height="220"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="roundedCorners" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="IBColor1">
+                                        <color key="value" red="0.12941176469999999" green="0.70588235290000001" blue="0.81568627449999997" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="trackColor">
+                                        <color key="value" red="0.1764705882352941" green="0.24313725490196078" blue="0.30980392156862746" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="glowAmount">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -410,6 +450,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="basic" destination="Hfz-SI-e50" id="Dco-24-4zf"/>
+                        <outlet property="circularProgressView" destination="BL2-bo-CER" id="7LN-Aq-yEb"/>
                         <outlet property="enhanced" destination="oV7-Aq-lic" id="wqv-Vq-VWb"/>
                         <outlet property="social" destination="WCO-oU-Vib" id="nQs-gK-oTT"/>
                         <outlet property="thirdParty" destination="sBX-xM-v8O" id="Pga-5g-uGS"/>

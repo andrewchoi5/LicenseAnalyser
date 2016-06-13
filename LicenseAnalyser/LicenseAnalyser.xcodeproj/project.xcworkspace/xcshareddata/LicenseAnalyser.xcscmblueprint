@@ -4,11 +4,13 @@
 
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "F1DAE970C8FE365FE7161F9A23E1F733C2379A01" : 0,
     "FE4192E41AE603EDB3B4C589F4B406D348D1D3DC" : 0,
     "8AC27A5B1EE20FEB86441529555389062987CBDA" : 0
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "ED09386C-7999-401D-AB35-EC644D195728",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "F1DAE970C8FE365FE7161F9A23E1F733C2379A01" : "LicenseAnalyser\/LicenseAnalyser\/KDCircularProgress\/",
     "FE4192E41AE603EDB3B4C589F4B406D348D1D3DC" : "LicenseAnalyser\/LicenseAnalyser\/SOAPEngine\/",
     "8AC27A5B1EE20FEB86441529555389062987CBDA" : "LicenseAnalyser\/"
   },
@@ -20,6 +22,11 @@
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.ibm.com:dylant\/LicenseAnalyser.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "8AC27A5B1EE20FEB86441529555389062987CBDA"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/kaandedeoglu\/KDCircularProgress.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "F1DAE970C8FE365FE7161F9A23E1F733C2379A01"
     },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/priore\/SOAPEngine.git",
