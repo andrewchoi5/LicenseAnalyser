@@ -16,6 +16,7 @@ class TabbedViewController: UIViewController {
     @IBOutlet weak var basic: UILabel!
     var pageIndex: Int = 0
 
+    @IBOutlet weak var circularProgressView: KDCircularProgress!
     
     override func viewDidLoad() {
         super.viewDidLoad()

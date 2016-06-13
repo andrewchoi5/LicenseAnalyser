@@ -27,6 +27,11 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
     var condifenceScore = String()
     var fraudScore = String()
     var authScore = String()
+
+    var currentCount = 70
+    var maxCount = 100
+
+    @IBOutlet weak var circularProgressView: KDCircularProgress!
     
 //    let progressIndicatorView = CircularLoaderView(frame: CGRectZero)
 //    
@@ -45,6 +50,10 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
         locationManager.requestLocation()
     }
 
+    func newAngle() -> Double {
+        return Double(360 * (currentCount / maxCount))
+    }
+
     @IBAction func button1(sender: AnyObject) {
         self.performSegueWithIdentifier("loading", sender: self)
     }
@@ -59,7 +68,20 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         locationManagerInit()
+
+        locationManagerInit()
+
+        if currentCount != maxCount {
+            currentCount += 1
+            let newAngleValue = newAngle()
+            
+            circularProgressView.animateToAngle(newAngleValue, duration: 0.5, completion: nil)
+            
+            
+        }
+ 
 //        self.progressIndicatorView.frame = bounds
 //        self.progressIndicatorView.autoresizingMask = .FlexibleWidth | .FlexibleHeight
 
