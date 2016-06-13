@@ -186,14 +186,16 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
                  DateOfBirth = DateOfBirth.stringByReplacingOccurrencesOfString(year, withString: "")
                  DateOfBirth = year + DateOfBirth
                  
-                 let person = UserLicense(firstName: firstName, lastName: lastName, fullName: fullName, LicenseIdNumber: usdlResult.getField(kPPCustomerIdNumber), formattedLicense: licenseNo, DateOfBirth: DateOfBirth, ProvinceCode: province, VehicleClass: vehicleClass, expiryDate: expireDate, dateIssued: issueDate, fullAddress: fullName)
+
                     
 
                  
                  let streetName = usdlResult.getField(kPPAddressStreet)
                  let city = usdlResult.getField(kPPAddressCity)
-                    
-                validate(emailAddress, person: person, streetName: streetName, cityName: city)
+                
+                let person = UserLicense(firstName: firstName, lastName: lastName, fullName: fullName, LicenseIdNumber: usdlResult.getField(kPPCustomerIdNumber), formattedLicense: licenseNo, DateOfBirth: DateOfBirth, ProvinceCode: province, VehicleClass: vehicleClass, expiryDate: expireDate, dateIssued: issueDate, fullAddress: fullName, emailAddress: emailAddress, streetName: streetName, city: city)
+                
+                 validate(person)
             }
         }
     }
@@ -202,11 +204,11 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    func validate(emailAddress : String, person : UserLicense, streetName : String, cityName : String) {
-        VerXVerifyLicense(person)
-        LocalValidation(person)
-        SocialValidation(emailAddress, firstName: person.firstName, lastName: person.lastName)
-        AddressVerify("", StreetName: streetName, City: cityName, Province: person.ProvinceCode)
+    func validate(personToVerify : UserLicense) {
+        //VerXVerifyLicense(personToVerify)
+        //LocalValidation(personToVerify)
+        //SocialValidation(personToVerify.emailAddress, firstName: personToVerify.firstName, lastName: personToVerify.lastName)
+        //AddressVerify("", StreetName: personToVerify.streetName, City: personToVerify.city, Province: personToVerify.ProvinceCode)
     }
     
     func VerXVerifyLicense(LicenseToVerify: UserLicense) {
@@ -372,7 +374,11 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
                         self.authScore = String(Double((preScore?.valueForKey("authscore"))! as! NSNumber))
                     } else {
                         // couldn't load JSON, look at error
+                        print("no results found")
                     }
+                }
+                else {
+                    print("data is nil")
                 }
             }
             catch {
@@ -413,7 +419,4 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
             }
         })
     }
-    
-
-
 }

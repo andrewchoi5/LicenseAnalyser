@@ -20,8 +20,11 @@ public class UserLicense {
     var expiryDate : String
     var dateIssued : String
     var fullAddress : String
+    var emailAddress : String
+    var streetName : String
+    var city : String
     
-    init(firstName: String, lastName : String, fullName : String, LicenseIdNumber: String, formattedLicense : String, DateOfBirth: String, ProvinceCode: String, VehicleClass: String, expiryDate : String, dateIssued : String, fullAddress : String) {
+    init(firstName: String, lastName : String, fullName : String, LicenseIdNumber: String, formattedLicense : String, DateOfBirth: String, ProvinceCode: String, VehicleClass: String, expiryDate : String, dateIssued : String, fullAddress : String, emailAddress : String, streetName : String, city : String) {
         self.firstName = firstName
         self.lastName = lastName
         self.fullName = fullName
@@ -33,6 +36,9 @@ public class UserLicense {
         self.expiryDate = expiryDate
         self.dateIssued = dateIssued
         self.fullAddress = fullAddress
+        self.emailAddress = emailAddress
+        self.streetName = streetName
+        self.city = city
     }
 }
 
