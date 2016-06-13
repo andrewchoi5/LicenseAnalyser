@@ -16,6 +16,7 @@
 		861B955E1D0F0818008E756D /* TutorialPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861B95581D0F0818008E756D /* TutorialPageViewController.swift */; };
 		861B956B1D0F3004008E756D /* MicroBlink.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 861B95691D0F3004008E756D /* MicroBlink.bundle */; };
 		861B956C1D0F3004008E756D /* MicroBlink.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 861B956A1D0F3004008E756D /* MicroBlink.framework */; };
+		861B95701D0F54CB008E756D /* KDCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861B956F1D0F54CB008E756D /* KDCircularProgress.swift */; };
 		865F522E1D0718400069A7FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865F522D1D0718400069A7FE /* AppDelegate.swift */; };
 		865F52301D0718400069A7FE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865F522F1D0718400069A7FE /* ViewController.swift */; };
 		865F52331D0718400069A7FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 865F52311D0718400069A7FE /* Main.storyboard */; };
@@ -53,6 +54,7 @@
 		861B95581D0F0818008E756D /* TutorialPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialPageViewController.swift; sourceTree = SOURCE_ROOT; };
 		861B95691D0F3004008E756D /* MicroBlink.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MicroBlink.bundle; sourceTree = "<group>"; };
 		861B956A1D0F3004008E756D /* MicroBlink.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MicroBlink.framework; sourceTree = "<group>"; };
+		861B956F1D0F54CB008E756D /* KDCircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDCircularProgress.swift; sourceTree = "<group>"; };
 		865F522A1D0718400069A7FE /* LicenseAnalyser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LicenseAnalyser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		865F522D1D0718400069A7FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		865F522F1D0718400069A7FE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				865F52341D0718400069A7FE /* Assets.xcassets */,
 				865F52361D0718400069A7FE /* LaunchScreen.storyboard */,
 				865F52391D0718400069A7FE /* Info.plist */,
+				861B956F1D0F54CB008E756D /* KDCircularProgress.swift */,
 			);
 			path = LicenseAnalyser;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 				865F52301D0718400069A7FE /* ViewController.swift in Sources */,
 				861B955B1D0F0818008E756D /* PageViewController.swift in Sources */,
 				861B955A1D0F0818008E756D /* FrontBackViewController.swift in Sources */,
+				861B95701D0F54CB008E756D /* KDCircularProgress.swift in Sources */,
 				865F524F1D0732760069A7FE /* SoapInterface.swift in Sources */,
 				861B954E1D0F0727008E756D /* UserLicense.swift in Sources */,
 				861B955E1D0F0818008E756D /* TutorialPageViewController.swift in Sources */,
