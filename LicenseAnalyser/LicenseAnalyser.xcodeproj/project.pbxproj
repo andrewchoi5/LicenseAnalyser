@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B7E900B1D0F489C0018D7F4 /* KDCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7E900A1D0F489C0018D7F4 /* KDCircularProgress.swift */; };
 		861B954E1D0F0727008E756D /* UserLicense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861B954D1D0F0727008E756D /* UserLicense.swift */; };
 		861B95591D0F0818008E756D /* ConfidenceLevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861B95531D0F0818008E756D /* ConfidenceLevelViewController.swift */; };
 		861B955A1D0F0818008E756D /* FrontBackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861B95541D0F0818008E756D /* FrontBackViewController.swift */; };
@@ -44,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1B7E900A1D0F489C0018D7F4 /* KDCircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KDCircularProgress.swift; path = KDCircularProgress/KDCircularProgress/KDCircularProgress.swift; sourceTree = SOURCE_ROOT; };
 		861B954D1D0F0727008E756D /* UserLicense.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLicense.swift; sourceTree = "<group>"; };
 		861B95531D0F0818008E756D /* ConfidenceLevelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfidenceLevelViewController.swift; sourceTree = SOURCE_ROOT; };
 		861B95541D0F0818008E756D /* FrontBackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrontBackViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -149,6 +151,7 @@
 				865F52501D0732C60069A7FE /* Frameworks */,
 				865F524D1D071AA00069A7FE /* API */,
 				865F522D1D0718400069A7FE /* AppDelegate.swift */,
+				1B7E900A1D0F489C0018D7F4 /* KDCircularProgress.swift */,
 				865F52311D0718400069A7FE /* Main.storyboard */,
 				865F52341D0718400069A7FE /* Assets.xcassets */,
 				865F52361D0718400069A7FE /* LaunchScreen.storyboard */,
@@ -297,6 +300,7 @@
 				865F52301D0718400069A7FE /* ViewController.swift in Sources */,
 				861B955B1D0F0818008E756D /* PageViewController.swift in Sources */,
 				861B955A1D0F0818008E756D /* FrontBackViewController.swift in Sources */,
+				1B7E900B1D0F489C0018D7F4 /* KDCircularProgress.swift in Sources */,
 				865F524F1D0732760069A7FE /* SoapInterface.swift in Sources */,
 				861B954E1D0F0727008E756D /* UserLicense.swift in Sources */,
 				861B955E1D0F0818008E756D /* TutorialPageViewController.swift in Sources */,
@@ -451,7 +455,7 @@
 				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_BUNDLE_IDENTIFIER = ibm.driverlicense.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "c8c14e52-f3d7-4e1e-84f1-52f215ae7817";
+				PROVISIONING_PROFILE = "9cb0a33e-22ff-4bdc-a8e9-d7fe478f94cd";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -477,7 +481,7 @@
 				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_BUNDLE_IDENTIFIER = ibm.driverlicense.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "c8c14e52-f3d7-4e1e-84f1-52f215ae7817";
+				PROVISIONING_PROFILE = "9cb0a33e-22ff-4bdc-a8e9-d7fe478f94cd";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

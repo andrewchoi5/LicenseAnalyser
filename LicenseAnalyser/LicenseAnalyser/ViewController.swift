@@ -74,11 +74,13 @@ class ViewController: UIViewController, UITextFieldDelegate, NSURLConnectionDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        emailLabel.returnKeyType = UIReturnKeyType.Done
+        emailLabel.textColor = UIColor.whiteColor()
         self.continueButton.enabled = false
-        emailLabel.layer.borderColor = UIColor.cyanColor().CGColor
+        emailLabel.layer.borderColor = UIColor(red:33/255.0, green:180/255.0, blue:208/255.0, alpha: 1.0).CGColor
         emailLabel.layer.borderWidth = 1.0
         emailLabel.layer.cornerRadius = 8
-        emailLabel.backgroundColor = UIColor.blackColor()
+        //emailLabel.backgroundColor = UIColor.blackColor()
         emailLabel.layer.masksToBounds = true
         
 //        infoLabel.textAlignment = NSTextAlignment.Left
