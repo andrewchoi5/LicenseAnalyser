@@ -14,6 +14,8 @@
 		861B955C1D0F0818008E756D /* TabbedSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861B95561D0F0818008E756D /* TabbedSecondViewController.swift */; };
 		861B955D1D0F0818008E756D /* TabbedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861B95571D0F0818008E756D /* TabbedViewController.swift */; };
 		861B955E1D0F0818008E756D /* TutorialPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861B95581D0F0818008E756D /* TutorialPageViewController.swift */; };
+		861B956B1D0F3004008E756D /* MicroBlink.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 861B95691D0F3004008E756D /* MicroBlink.bundle */; };
+		861B956C1D0F3004008E756D /* MicroBlink.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 861B956A1D0F3004008E756D /* MicroBlink.framework */; };
 		865F522E1D0718400069A7FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865F522D1D0718400069A7FE /* AppDelegate.swift */; };
 		865F52301D0718400069A7FE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865F522F1D0718400069A7FE /* ViewController.swift */; };
 		865F52331D0718400069A7FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 865F52311D0718400069A7FE /* Main.storyboard */; };
@@ -49,6 +51,8 @@
 		861B95561D0F0818008E756D /* TabbedSecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabbedSecondViewController.swift; sourceTree = SOURCE_ROOT; };
 		861B95571D0F0818008E756D /* TabbedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabbedViewController.swift; sourceTree = SOURCE_ROOT; };
 		861B95581D0F0818008E756D /* TutorialPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialPageViewController.swift; sourceTree = SOURCE_ROOT; };
+		861B95691D0F3004008E756D /* MicroBlink.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MicroBlink.bundle; sourceTree = "<group>"; };
+		861B956A1D0F3004008E756D /* MicroBlink.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MicroBlink.framework; sourceTree = "<group>"; };
 		865F522A1D0718400069A7FE /* LicenseAnalyser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LicenseAnalyser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		865F522D1D0718400069A7FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		865F522F1D0718400069A7FE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -78,6 +82,7 @@
 				D51F4CAC1D0753CA00E76192 /* CoreMedia.framework in Frameworks */,
 				D51F4CAA1D0753C200E76192 /* AudioToolbox.framework in Frameworks */,
 				D51F4CA81D0753B500E76192 /* AVFoundation.framework in Frameworks */,
+				861B956C1D0F3004008E756D /* MicroBlink.framework in Frameworks */,
 				D51F4CA61D0753AC00E76192 /* Accelerate.framework in Frameworks */,
 				D51F4CA41D0753A300E76192 /* libiconv.tbd in Frameworks */,
 				D51F4CA21D07539A00E76192 /* libc++.tbd in Frameworks */,
@@ -172,6 +177,8 @@
 		865F52501D0732C60069A7FE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				861B95691D0F3004008E756D /* MicroBlink.bundle */,
+				861B956A1D0F3004008E756D /* MicroBlink.framework */,
 				D51F4CAB1D0753CA00E76192 /* CoreMedia.framework */,
 				D51F4CA91D0753C200E76192 /* AudioToolbox.framework */,
 				D51F4CA71D0753B500E76192 /* AVFoundation.framework */,
@@ -268,6 +275,7 @@
 				865F52381D0718400069A7FE /* LaunchScreen.storyboard in Resources */,
 				865F52351D0718400069A7FE /* Assets.xcassets in Resources */,
 				865F52331D0718400069A7FE /* Main.storyboard in Resources */,
+				861B956B1D0F3004008E756D /* MicroBlink.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
