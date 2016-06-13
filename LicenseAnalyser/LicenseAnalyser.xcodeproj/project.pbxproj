@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1B2AB35E1D0AF5BC00F74BD5 /* FrontBackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2AB35D1D0AF5BC00F74BD5 /* FrontBackViewController.swift */; };
-		1B2AB3601D0AF5D800F74BD5 /* TabbedSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2AB35F1D0AF5D800F74BD5 /* TabbedSecondViewController.swift */; };
-		1B2AB36C1D0B4F6100F74BD5 /* TutorialPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2AB36B1D0B4F6100F74BD5 /* TutorialPageViewController.swift */; };
-		1BECEBED1D0894D600B80DF8 /* MicroBlink.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1BECEBEC1D0894D600B80DF8 /* MicroBlink.bundle */; };
-		1BECEC081D09F3FB00B80DF8 /* CircularLoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BECEC071D09F3FB00B80DF8 /* CircularLoaderView.swift */; };
-		1BECEC0E1D09FA4300B80DF8 /* ConfidenceLevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BECEC0D1D09FA4300B80DF8 /* ConfidenceLevelViewController.swift */; };
-		1BECEC101D09FA6F00B80DF8 /* TabbedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BECEC0F1D09FA6F00B80DF8 /* TabbedViewController.swift */; };
+		861B954E1D0F0727008E756D /* UserLicense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861B954D1D0F0727008E756D /* UserLicense.swift */; };
+		861B95591D0F0818008E756D /* ConfidenceLevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861B95531D0F0818008E756D /* ConfidenceLevelViewController.swift */; };
+		861B955A1D0F0818008E756D /* FrontBackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861B95541D0F0818008E756D /* FrontBackViewController.swift */; };
+		861B955B1D0F0818008E756D /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861B95551D0F0818008E756D /* PageViewController.swift */; };
+		861B955C1D0F0818008E756D /* TabbedSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861B95561D0F0818008E756D /* TabbedSecondViewController.swift */; };
+		861B955D1D0F0818008E756D /* TabbedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861B95571D0F0818008E756D /* TabbedViewController.swift */; };
+		861B955E1D0F0818008E756D /* TutorialPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861B95581D0F0818008E756D /* TutorialPageViewController.swift */; };
 		865F522E1D0718400069A7FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865F522D1D0718400069A7FE /* AppDelegate.swift */; };
 		865F52301D0718400069A7FE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865F522F1D0718400069A7FE /* ViewController.swift */; };
 		865F52331D0718400069A7FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 865F52311D0718400069A7FE /* Main.storyboard */; };
@@ -21,18 +21,14 @@
 		865F52381D0718400069A7FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 865F52361D0718400069A7FE /* LaunchScreen.storyboard */; };
 		865F52431D0718400069A7FE /* LicenseAnalyserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865F52421D0718400069A7FE /* LicenseAnalyserTests.swift */; };
 		865F524F1D0732760069A7FE /* SoapInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865F524E1D0732760069A7FE /* SoapInterface.swift */; };
-		86A01A021D0A16D300D3C3FA /* TrueIDMobileSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86A01A011D0A16D300D3C3FA /* TrueIDMobileSDK.framework */; };
-		86A01A031D0A171500D3C3FA /* TrueIDMobileSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86A01A011D0A16D300D3C3FA /* TrueIDMobileSDK.framework */; };
-		86A01A041D0A171500D3C3FA /* TrueIDMobileSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 86A01A011D0A16D300D3C3FA /* TrueIDMobileSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		86A01A0B1D0AFB5900D3C3FA /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 86A01A0A1D0AFB5900D3C3FA /* libc++.tbd */; };
-		86A01A0D1D0AFBFA00D3C3FA /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 86A01A0C1D0AFBFA00D3C3FA /* libiconv.tbd */; };
-		86A01A0F1D0AFC0300D3C3FA /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86A01A0E1D0AFC0300D3C3FA /* Accelerate.framework */; };
-		86A01A111D0AFC0D00D3C3FA /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86A01A101D0AFC0D00D3C3FA /* AVFoundation.framework */; };
-		86A01A131D0AFC1600D3C3FA /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86A01A121D0AFC1600D3C3FA /* AudioToolbox.framework */; };
-		86A01A151D0AFC1E00D3C3FA /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86A01A141D0AFC1E00D3C3FA /* CoreMedia.framework */; };
-		86A01A171D0EEC7500D3C3FA /* Resources in Resources */ = {isa = PBXBuildFile; fileRef = 86A01A161D0EEC7500D3C3FA /* Resources */; };
-		86A1563E1D09E5D800D5FAF6 /* PhotoDisplayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A1563D1D09E5D800D5FAF6 /* PhotoDisplayController.swift */; };
-		86B8A8FF1D0878DA00B6CF19 /* UserLicense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B8A8FE1D0878DA00B6CF19 /* UserLicense.swift */; };
+		865F52571D0735300069A7FE /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 865F52561D0735300069A7FE /* Security.framework */; };
+		865F52591D0735370069A7FE /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 865F52581D0735370069A7FE /* Accounts.framework */; };
+		D51F4CA21D07539A00E76192 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D51F4CA11D07539A00E76192 /* libc++.tbd */; };
+		D51F4CA41D0753A300E76192 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D51F4CA31D0753A300E76192 /* libiconv.tbd */; };
+		D51F4CA61D0753AC00E76192 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D51F4CA51D0753AC00E76192 /* Accelerate.framework */; };
+		D51F4CA81D0753B500E76192 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D51F4CA71D0753B500E76192 /* AVFoundation.framework */; };
+		D51F4CAA1D0753C200E76192 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D51F4CA91D0753C200E76192 /* AudioToolbox.framework */; };
+		D51F4CAC1D0753CA00E76192 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D51F4CAB1D0753CA00E76192 /* CoreMedia.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,28 +41,14 @@
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		86A01A051D0A171500D3C3FA /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				86A01A041D0A171500D3C3FA /* TrueIDMobileSDK.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
-		1B2AB35D1D0AF5BC00F74BD5 /* FrontBackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrontBackViewController.swift; sourceTree = "<group>"; };
-		1B2AB35F1D0AF5D800F74BD5 /* TabbedSecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabbedSecondViewController.swift; sourceTree = "<group>"; };
-		1B2AB36B1D0B4F6100F74BD5 /* TutorialPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialPageViewController.swift; sourceTree = "<group>"; };
-		1BECEBEC1D0894D600B80DF8 /* MicroBlink.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MicroBlink.bundle; sourceTree = "<group>"; };
-		1BECEC071D09F3FB00B80DF8 /* CircularLoaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularLoaderView.swift; sourceTree = "<group>"; };
-		1BECEC0D1D09FA4300B80DF8 /* ConfidenceLevelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfidenceLevelViewController.swift; sourceTree = "<group>"; };
-		1BECEC0F1D09FA6F00B80DF8 /* TabbedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabbedViewController.swift; sourceTree = "<group>"; };
+		861B954D1D0F0727008E756D /* UserLicense.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLicense.swift; sourceTree = "<group>"; };
+		861B95531D0F0818008E756D /* ConfidenceLevelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfidenceLevelViewController.swift; sourceTree = SOURCE_ROOT; };
+		861B95541D0F0818008E756D /* FrontBackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrontBackViewController.swift; sourceTree = SOURCE_ROOT; };
+		861B95551D0F0818008E756D /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = SOURCE_ROOT; };
+		861B95561D0F0818008E756D /* TabbedSecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabbedSecondViewController.swift; sourceTree = SOURCE_ROOT; };
+		861B95571D0F0818008E756D /* TabbedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabbedViewController.swift; sourceTree = SOURCE_ROOT; };
+		861B95581D0F0818008E756D /* TutorialPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialPageViewController.swift; sourceTree = SOURCE_ROOT; };
 		865F522A1D0718400069A7FE /* LicenseAnalyser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LicenseAnalyser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		865F522D1D0718400069A7FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		865F522F1D0718400069A7FE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -78,17 +60,14 @@
 		865F52421D0718400069A7FE /* LicenseAnalyserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseAnalyserTests.swift; sourceTree = "<group>"; };
 		865F52441D0718400069A7FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		865F524E1D0732760069A7FE /* SoapInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoapInterface.swift; sourceTree = "<group>"; };
-		86A019FC1D0A137900D3C3FA /* LicenseAnalyser-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LicenseAnalyser-Bridging-Header.h"; sourceTree = "<group>"; };
-		86A01A011D0A16D300D3C3FA /* TrueIDMobileSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TrueIDMobileSDK.framework; sourceTree = "<group>"; };
-		86A01A0A1D0AFB5900D3C3FA /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
-		86A01A0C1D0AFBFA00D3C3FA /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
-		86A01A0E1D0AFC0300D3C3FA /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
-		86A01A101D0AFC0D00D3C3FA /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		86A01A121D0AFC1600D3C3FA /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		86A01A141D0AFC1E00D3C3FA /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
-		86A01A161D0EEC7500D3C3FA /* Resources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Resources; sourceTree = "<group>"; };
-		86A1563D1D09E5D800D5FAF6 /* PhotoDisplayController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoDisplayController.swift; sourceTree = "<group>"; };
-		86B8A8FE1D0878DA00B6CF19 /* UserLicense.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLicense.swift; sourceTree = "<group>"; };
+		865F52561D0735300069A7FE /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		865F52581D0735370069A7FE /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		D51F4CA11D07539A00E76192 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		D51F4CA31D0753A300E76192 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
+		D51F4CA51D0753AC00E76192 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		D51F4CA71D0753B500E76192 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		D51F4CA91D0753C200E76192 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		D51F4CAB1D0753CA00E76192 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,14 +75,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				86A01A151D0AFC1E00D3C3FA /* CoreMedia.framework in Frameworks */,
-				86A01A131D0AFC1600D3C3FA /* AudioToolbox.framework in Frameworks */,
-				86A01A111D0AFC0D00D3C3FA /* AVFoundation.framework in Frameworks */,
-				86A01A0F1D0AFC0300D3C3FA /* Accelerate.framework in Frameworks */,
-				86A01A0D1D0AFBFA00D3C3FA /* libiconv.tbd in Frameworks */,
-				86A01A0B1D0AFB5900D3C3FA /* libc++.tbd in Frameworks */,
-				86A01A031D0A171500D3C3FA /* TrueIDMobileSDK.framework in Frameworks */,
-				86A01A021D0A16D300D3C3FA /* TrueIDMobileSDK.framework in Frameworks */,
+				D51F4CAC1D0753CA00E76192 /* CoreMedia.framework in Frameworks */,
+				D51F4CAA1D0753C200E76192 /* AudioToolbox.framework in Frameworks */,
+				D51F4CA81D0753B500E76192 /* AVFoundation.framework in Frameworks */,
+				D51F4CA61D0753AC00E76192 /* Accelerate.framework in Frameworks */,
+				D51F4CA41D0753A300E76192 /* libiconv.tbd in Frameworks */,
+				D51F4CA21D07539A00E76192 /* libc++.tbd in Frameworks */,
+				865F52591D0735370069A7FE /* Accounts.framework in Frameworks */,
+				865F52571D0735300069A7FE /* Security.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,15 +96,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		861B954C1D0F0710008E756D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				861B954D1D0F0727008E756D /* UserLicense.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		861B955F1D0F081C008E756D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				865F522F1D0718400069A7FE /* ViewController.swift */,
+				861B95531D0F0818008E756D /* ConfidenceLevelViewController.swift */,
+				861B95541D0F0818008E756D /* FrontBackViewController.swift */,
+				861B95551D0F0818008E756D /* PageViewController.swift */,
+				861B95561D0F0818008E756D /* TabbedSecondViewController.swift */,
+				861B95571D0F0818008E756D /* TabbedViewController.swift */,
+				861B95581D0F0818008E756D /* TutorialPageViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		865F52211D0718400069A7FE = {
 			isa = PBXGroup;
 			children = (
-				1B2AB36B1D0B4F6100F74BD5 /* TutorialPageViewController.swift */,
-				1B2AB35F1D0AF5D800F74BD5 /* TabbedSecondViewController.swift */,
-				1B2AB35D1D0AF5BC00F74BD5 /* FrontBackViewController.swift */,
-				1BECEC0F1D09FA6F00B80DF8 /* TabbedViewController.swift */,
-				1BECEC0D1D09FA4300B80DF8 /* ConfidenceLevelViewController.swift */,
-				86A01A161D0EEC7500D3C3FA /* Resources */,
 				865F522C1D0718400069A7FE /* LicenseAnalyser */,
 				865F52411D0718400069A7FE /* LicenseAnalyserTests */,
 				865F522B1D0718400069A7FE /* Products */,
@@ -144,17 +139,15 @@
 		865F522C1D0718400069A7FE /* LicenseAnalyser */ = {
 			isa = PBXGroup;
 			children = (
-				86A1563C1D09E5BA00D5FAF6 /* Controllers */,
+				861B955F1D0F081C008E756D /* Controllers */,
+				861B954C1D0F0710008E756D /* Model */,
 				865F52501D0732C60069A7FE /* Frameworks */,
 				865F524D1D071AA00069A7FE /* API */,
-				86B8A8FD1D0878C500B6CF19 /* Model */,
 				865F522D1D0718400069A7FE /* AppDelegate.swift */,
-				865F522F1D0718400069A7FE /* ViewController.swift */,
 				865F52311D0718400069A7FE /* Main.storyboard */,
 				865F52341D0718400069A7FE /* Assets.xcassets */,
 				865F52361D0718400069A7FE /* LaunchScreen.storyboard */,
 				865F52391D0718400069A7FE /* Info.plist */,
-				86A019FC1D0A137900D3C3FA /* LicenseAnalyser-Bridging-Header.h */,
 			);
 			path = LicenseAnalyser;
 			sourceTree = "<group>";
@@ -172,7 +165,6 @@
 			isa = PBXGroup;
 			children = (
 				865F524E1D0732760069A7FE /* SoapInterface.swift */,
-				1BECEC071D09F3FB00B80DF8 /* CircularLoaderView.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -180,31 +172,16 @@
 		865F52501D0732C60069A7FE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				86A01A0A1D0AFB5900D3C3FA /* libc++.tbd */,
-				86A01A0C1D0AFBFA00D3C3FA /* libiconv.tbd */,
-				86A01A0E1D0AFC0300D3C3FA /* Accelerate.framework */,
-				86A01A101D0AFC0D00D3C3FA /* AVFoundation.framework */,
-				86A01A121D0AFC1600D3C3FA /* AudioToolbox.framework */,
-				86A01A141D0AFC1E00D3C3FA /* CoreMedia.framework */,
-				86A01A011D0A16D300D3C3FA /* TrueIDMobileSDK.framework */,
+				D51F4CAB1D0753CA00E76192 /* CoreMedia.framework */,
+				D51F4CA91D0753C200E76192 /* AudioToolbox.framework */,
+				D51F4CA71D0753B500E76192 /* AVFoundation.framework */,
+				D51F4CA51D0753AC00E76192 /* Accelerate.framework */,
+				D51F4CA31D0753A300E76192 /* libiconv.tbd */,
+				D51F4CA11D07539A00E76192 /* libc++.tbd */,
+				865F52581D0735370069A7FE /* Accounts.framework */,
+				865F52561D0735300069A7FE /* Security.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		86A1563C1D09E5BA00D5FAF6 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				86A1563D1D09E5D800D5FAF6 /* PhotoDisplayController.swift */,
-			);
-			name = Controllers;
-			sourceTree = "<group>";
-		};
-		86B8A8FD1D0878C500B6CF19 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				86B8A8FE1D0878DA00B6CF19 /* UserLicense.swift */,
-			);
-			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,7 +194,6 @@
 				865F52261D0718400069A7FE /* Sources */,
 				865F52271D0718400069A7FE /* Frameworks */,
 				865F52281D0718400069A7FE /* Resources */,
-				86A01A051D0A171500D3C3FA /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -292,8 +268,6 @@
 				865F52381D0718400069A7FE /* LaunchScreen.storyboard in Resources */,
 				865F52351D0718400069A7FE /* Assets.xcassets in Resources */,
 				865F52331D0718400069A7FE /* Main.storyboard in Resources */,
-				1BECEBED1D0894D600B80DF8 /* MicroBlink.bundle in Resources */,
-				86A01A171D0EEC7500D3C3FA /* Resources in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,17 +285,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1B2AB3601D0AF5D800F74BD5 /* TabbedSecondViewController.swift in Sources */,
+				861B955C1D0F0818008E756D /* TabbedSecondViewController.swift in Sources */,
 				865F52301D0718400069A7FE /* ViewController.swift in Sources */,
+				861B955B1D0F0818008E756D /* PageViewController.swift in Sources */,
+				861B955A1D0F0818008E756D /* FrontBackViewController.swift in Sources */,
 				865F524F1D0732760069A7FE /* SoapInterface.swift in Sources */,
-				86B8A8FF1D0878DA00B6CF19 /* UserLicense.swift in Sources */,
-				86A1563E1D09E5D800D5FAF6 /* PhotoDisplayController.swift in Sources */,
-				1BECEC101D09FA6F00B80DF8 /* TabbedViewController.swift in Sources */,
-				1BECEC081D09F3FB00B80DF8 /* CircularLoaderView.swift in Sources */,
+				861B954E1D0F0727008E756D /* UserLicense.swift in Sources */,
+				861B955E1D0F0818008E756D /* TutorialPageViewController.swift in Sources */,
 				865F522E1D0718400069A7FE /* AppDelegate.swift in Sources */,
-				1B2AB36C1D0B4F6100F74BD5 /* TutorialPageViewController.swift in Sources */,
-				1B2AB35E1D0AF5BC00F74BD5 /* FrontBackViewController.swift in Sources */,
-				1BECEC0E1D09FA4300B80DF8 /* ConfidenceLevelViewController.swift in Sources */,
+				861B95591D0F0818008E756D /* ConfidenceLevelViewController.swift in Sources */,
+				861B955D1D0F0818008E756D /* TabbedViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -452,16 +425,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Mehran Najafi (5C9NDSKQG2)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Mehran Najafi (5C9NDSKQG2)";
-				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SOAPEngine",
 					"$(PROJECT_DIR)/LicenseAnalyser",
-					"$(PROJECT_DIR)/LicenseAnalyser/MicroBlink.bundle",
+					"$(PROJECT_DIR)",
 				);
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = LicenseAnalyser/Info.plist;
@@ -474,8 +444,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ibm.driverlicense.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "c8c14e52-f3d7-4e1e-84f1-52f215ae7817";
-				SWIFT_OBJC_BRIDGING_HEADER = "LicenseAnalyser/LicenseAnalyser-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -484,15 +452,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Mehran Najafi (5C9NDSKQG2)";
-				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SOAPEngine",
 					"$(PROJECT_DIR)/LicenseAnalyser",
-					"$(PROJECT_DIR)/LicenseAnalyser/MicroBlink.bundle",
+					"$(PROJECT_DIR)",
 				);
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = LicenseAnalyser/Info.plist;
@@ -505,7 +470,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ibm.driverlicense.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "c8c14e52-f3d7-4e1e-84f1-52f215ae7817";
-				SWIFT_OBJC_BRIDGING_HEADER = "LicenseAnalyser/LicenseAnalyser-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

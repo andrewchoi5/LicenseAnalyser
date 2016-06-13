@@ -8,9 +8,9 @@
 
 import UIKit
 import TrueIDMobileSDK
-//import MicroBlink
+import MicroBlink
 
-class ViewController: UIViewController, UITextFieldDelegate, NSURLConnectionDelegate, NSXMLParserDelegate {
+class ViewController: UIViewController, UITextFieldDelegate, NSURLConnectionDelegate, NSXMLParserDelegate, PPScanDelegate {
     
     var mutableData:NSMutableData  = NSMutableData()
     var currentElementName:NSString = ""
@@ -62,7 +62,7 @@ class ViewController: UIViewController, UITextFieldDelegate, NSURLConnectionDele
     //take photo part
     var imagePicker: UIImagePickerController!
     
-    /*
+    
     func coordinatorWithError(error: NSErrorPointer) -> PPCoordinator? {
         
         if (PPCoordinator.isScanningUnsupportedForCameraType(PPCameraType.Back, error: error)) {
@@ -82,10 +82,10 @@ class ViewController: UIViewController, UITextFieldDelegate, NSURLConnectionDele
         let coordinator: PPCoordinator = PPCoordinator(settings: settings)
         
         return coordinator
-    }*/
+    }
     
     @IBAction func addPhoto(sender: AnyObject) {
-        /*let error: NSErrorPointer = nil
+        let error: NSErrorPointer = nil
         let coordinator:PPCoordinator?=self.coordinatorWithError(error)
         
         /** If scanning isn't supported, present an error */
@@ -96,7 +96,7 @@ class ViewController: UIViewController, UITextFieldDelegate, NSURLConnectionDele
         }
         //the whole photo thing
         imagePicker =  UIImagePickerController()
-        imagePicker.delegate = self
+       // imagePicker.delegate = self
         imagePicker.sourceType = .Camera
         
  
@@ -109,7 +109,7 @@ class ViewController: UIViewController, UITextFieldDelegate, NSURLConnectionDele
         /** You can use other presentation methods as well */
         self.presentViewController(scanningViewController, animated: true, completion: nil)
         print("ARRIVED AT THE OTHER VIEW/n")
-        self.presentViewController(imagePicker, animated: true, completion: nil)*/
+        self.presentViewController(imagePicker, animated: true, completion: nil)
     }
     
     func imagePickerController(picker: UIImagePickerController,
@@ -138,7 +138,7 @@ class ViewController: UIViewController, UITextFieldDelegate, NSURLConnectionDele
         // As scanning view controller is presented full screen and modally, dismiss it
         self.dismissViewControllerAnimated(true, completion: nil)
     }
-    /*
+    
     func scanningViewController(scanningViewController: UIViewController?, didOutputResults results: [PPRecognizerResult]) {
         
         let scanConroller : PPScanningViewController = scanningViewController as! PPScanningViewController
@@ -207,7 +207,7 @@ class ViewController: UIViewController, UITextFieldDelegate, NSURLConnectionDele
                 
             }
         }
-    }*/
+    }
     
     func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
         self.dismissViewControllerAnimated(true, completion: nil)
