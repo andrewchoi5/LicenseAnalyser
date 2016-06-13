@@ -27,10 +27,10 @@ class TabbedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        social.text = String(socialScore)
-        thirdParty.text = String(thirdPartyScore)
-        enhanced.text = String(enhancedScore)
-        basic.text = String(basicScore)
+        social.text = String(GlobalScore.socialScore)
+        thirdParty.text = String(GlobalScore.govtScore)
+        enhanced.text = String(GlobalScore.enhancedScore)
+        basic.text = String(GlobalScore.coreScore)
         
         // Do any additional setup after loading the view.
     }

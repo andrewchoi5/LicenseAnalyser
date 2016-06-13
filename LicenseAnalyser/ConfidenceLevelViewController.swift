@@ -534,10 +534,6 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         super.prepareForSegue(segue, sender: sender)
-      /*  (segue.destinationViewController as! TabbedViewController).basicScore = self.coreScore
-        (segue.destinationViewController as! TabbedViewController).thirdPartyScore = self.govtScore
-        (segue.destinationViewController as! TabbedViewController).enhancedScore = self.enhancedScore
-        (segue.destinationViewController as! TabbedViewController).socialScore = self.socialScore*/
     }
     
     func calculateScores() {
@@ -566,8 +562,14 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
         authScore = authScore/socialTotal * 100
         
         socialScore = condifenceScore + fraudScore + authScore
+        
+        GlobalScore.coreScore = self.coreScore
+        GlobalScore.govtScore = self.govtScore
+        GlobalScore.enhancedScore = self.enhancedScore
+        GlobalScore.socialScore = self.socialScore
+        
     }
-    // MARK : Geolocation delegates 
+    // MARK : Geolocation delegates
     
 }
 
