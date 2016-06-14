@@ -255,7 +255,7 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
                 DateOfBirth = year + DateOfBirth
                 
                 
-                let person = UserLicense(firstName: firstName, lastName: lastName, fullName: fullAddress,gender: "", LicenseIdNumber: usdlResult.getField(kPPCustomerIdNumber), formattedLicense: licenseNo, DateOfBirth: DateOfBirth, dateMonth: "", dateDay: "", ProvinceCode: province, VehicleClass: vehicleClass, expiryDate: expireDate, dateIssued: issueDate, fullAddress: fullAddress, emailAddress: emailAddress, streetName: streetName, city: city)
+                let person = UserLicense(firstName: firstName, lastName: lastName, fullName: fullAddress,gender: gender, LicenseIdNumber: usdlResult.getField(kPPCustomerIdNumber), formattedLicense: licenseNo, DateOfBirth: DateOfBirth, dateMonth: month, dateDay: day, ProvinceCode: province, VehicleClass: vehicleClass, expiryDate: expireDate, dateIssued: issueDate, fullAddress: fullAddress, emailAddress: emailAddress, streetName: streetName, city: city)
     
             
                 
@@ -429,19 +429,20 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
         if (Int(LicenseToValidate.gender) == 1) {
             if (lastFourLicense != lastFourDOB) {
                 isLocalValid = false
+            } else {
+                localValidationScore += 7
             }
-        } else {
-            localValidationScore += 7
         }
         
         if (Int(LicenseToValidate.gender) == 2) {
             var validDOB = String(Int(LicenseToValidate.dateMonth)! + 50) + LicenseToValidate.dateDay
+            print("DOB")
             print(validDOB)
             if (lastFourLicense != validDOB) {
                 isLocalValid = false
+            } else {
+                localValidationScore += 7
             }
-        } else {
-            localValidationScore += 7
         }
         
         // Last 2 Years is YY
