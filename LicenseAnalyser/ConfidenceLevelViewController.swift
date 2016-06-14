@@ -177,16 +177,27 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
         isPhotoSelected = true
         
         scanningViewController?.dismissViewControllerAnimated(false, completion: {
-
+            //while loop for is finished == false
+//            while (self.isFinished == false) {
             self.circularProgressView.animateFromAngle(0, toAngle: 360, duration: 2) { completed in
                 if completed {
                     print("animation stopped, completed")
                     self.circularProgressView.animateToAngle(0, duration: 2) {completed in
                         if completed {
-                            if(self.isFinished == true) {
-                                self.performSegueWithIdentifier("loading", sender: self)
+                            self.circularProgressView.animateFromAngle(0, toAngle: 360, duration: 2) { completed in
+                                if completed {
+                                    self.circularProgressView.animateToAngle(0, duration: 2) { completed in
+                                        if completed {
+                                            print("hi")
+                                        }
+                                    }
+                                }
+                                print("end loop")
                             }
-                            print("end loop")
+//                            if(self.isFinished == true) {
+//                                self.performSegueWithIdentifier("loading", sender: self)
+//                            }
+//                            print("end loop")
                         }
                         else {
                             print("animation stopped")
@@ -194,6 +205,10 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
                     }
                 }
             }
+
+//            }
+//            self.performSegueWithIdentifier("loading", sender: self)
+        
         })
         
  
@@ -606,6 +621,10 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
     func finished() {
         calculateScores()
         isFinished = true
+        self.performSegueWithIdentifier("loading", sender: self)
+        
+        
+        
         //self.dismissViewControllerAnimated(true, completion: nil)
     }
     

@@ -104,6 +104,8 @@ class ViewController: UIViewController, UITextFieldDelegate, NSURLConnectionDele
 
         emailLabel.returnKeyType = UIReturnKeyType.Done
         emailLabel.textColor = UIColor.whiteColor()
+        emailLabel.attributedPlaceholder = NSAttributedString(string:"Email", attributes:[NSForegroundColorAttributeName: UIColor.grayColor()])
+    
 
         self.continueButton.enabled = false
         emailLabel.layer.borderColor = UIColor(red:33/255.0, green:180/255.0, blue:208/255.0, alpha: 1.0).CGColor
