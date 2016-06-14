@@ -78,7 +78,6 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         if currentCount != maxCount {
             currentCount += 1
             let newAngleValue = newAngle()
@@ -87,6 +86,25 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
             
             
         }
+
+//        circularProgressView.animateFromAngle(0, toAngle: 360, duration: 100) { completed in
+//            if completed {
+//                print("animation stopped, completed")
+//                // do segue here not button
+//            } else {
+//                print("animation stopped, was interrupted")
+//            }
+//        }
+//
+//        if currentCount != maxCount {
+//            currentCount += 1
+//            let newAngleValue = newAngle()
+//            
+//            circularProgressView.animateToAngle(newAngleValue, duration: 0.9, completion: nil)
+//            print("yolo")
+//            
+//            
+//        }
  
 //        self.progressIndicatorView.frame = bounds
 //        self.progressIndicatorView.autoresizingMask = .FlexibleWidth | .FlexibleHeight
