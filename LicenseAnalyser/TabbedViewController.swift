@@ -10,7 +10,7 @@ import UIKit
 
 class TabbedViewController: UIViewController {
     
-    @IBOutlet weak var aggregateScore: UILabel!
+    //@IBOutlet weak var aggregateScore: UILabel!
 
     @IBOutlet weak var social: UILabel!
     @IBOutlet weak var thirdParty: UILabel!
@@ -18,39 +18,20 @@ class TabbedViewController: UIViewController {
     @IBOutlet weak var basic: UILabel!
     var pageIndex: Int = 0
     
-    
     var socialScore = Double()
     var thirdPartyScore = Double()
     var enhancedScore = Double()
     var basicScore = Double()
 
     //@IBOutlet weak var progress: KDCircularProgress!
+    @IBOutlet weak var aggregateScore: UILabel!
     @IBOutlet weak var progress: KDCircularProgress!
     
-    @IBAction func tapped(sender: AnyObject) {
-        progress.animateFromAngle(0, toAngle: 180, duration: 2) { completed in
-            if completed {
-                print("animation stopped, completed")
-            } else {
-                print("animation stopped, was interrupted")
-            }
-        }
-    }
-//    @IBAction func tabbed(sender: AnyObject) {
-//
-//        progress.animateFromAngle(0, toAngle: 180, duration: 5) { completed in
-//            if completed {
-//                print("animation stopped, completed")
-//            } else {
-//                print("animation stopped, was interrupted")
-//            }
-//        }
-//    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         print("here on tab")
-        
-        view.backgroundColor = UIColor(white: 0.22, alpha: 1)
+
         
 //        progress = KDCircularProgress(frame: CGRect(x: 0, y: 0, width: 300, height: 300))
 //        progress.startAngle = -90
@@ -72,10 +53,36 @@ class TabbedViewController: UIViewController {
 //                print("animation stopped, was interrupted")
 //            }
 //        }
-        social.text = String(GlobalScore.socialScore)
-        thirdParty.text = String(GlobalScore.govtScore)
-        enhanced.text = String(GlobalScore.enhancedScore)
-        basic.text = String(GlobalScore.coreScore)
+        
+        social.text = String(Int(GlobalScore.socialScore))
+        thirdParty.text = String(Int(GlobalScore.govtScore))
+        enhanced.text = String(Int(GlobalScore.enhancedScore))
+        basic.text = String(Int(GlobalScore.coreScore))
+
+        var aggregateScore = GlobalScore.coreScore + GlobalScore.enhancedScore + GlobalScore.govtScore + GlobalScore.socialScore
+        self.aggregateScore.text = String(Int(aggregateScore))
+
+        progress.progressThickness = 0.25
+        progress.trackThickness = 0.25
+        
+        view.backgroundColor = UIColor(white: 0.22, alpha: 1)
+        
+        let totalCalc = ((aggregateScore / 275.0) * 360.0)
+        
+        progress.startAngle = -90
+        progress.clockwise = true
+        progress.gradientRotateSpeed = 2
+        progress.roundedCorners = false
+        
+        progress.animateFromAngle(0, toAngle: totalCalc, duration: 2) { completed in
+            if completed {
+                print("animation stopped, completed")
+            } else {
+                print("animation stopped, was interrupted")
+            }
+        }
+
+
         
         // Do any additional setup after loading the view.
     }

@@ -12,6 +12,7 @@ import MapKit
 
 class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSURLConnectionDelegate, NSXMLParserDelegate, PPScanDelegate, CLLocationManagerDelegate {
     
+    
     var latitude = String()
     var longitude = String()
     
@@ -49,6 +50,10 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
     var currentCount = 70
     var maxCount = 100
     
+    let provinces = ["AB", "BC", "MB", "NB", "NL", "NT", "NS", "NU", "ON", "PE", "QC", "SK", "YT"]
+    var geoLocationResult: String = String()
+    var geoScore: Double = Double()
+    
     @IBOutlet weak var circularProgressView: KDCircularProgress!
     
     
@@ -81,36 +86,13 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        /*
-        if currentCount != maxCount {
-            currentCount += 1
-            let newAngleValue = newAngle()
-            
-            circularProgressView.animateToAngle(newAngleValue, duration: 0.5, completion: nil)
-            
-        }
+        circularProgressView.startAngle = -90
+        circularProgressView.clockwise = true
+        circularProgressView.gradientRotateSpeed = 2
+        circularProgressView.roundedCorners = false
         
-        //        circularProgressView.animateFromAngle(0, toAngle: 360, duration: 100) { completed in
-        //            if completed {
-        //                print("animation stopped, completed")
-        //                // do segue here not button
-        //            } else {
-        //                print("animation stopped, was interrupted")
-        //            }
-        //        }
-        //
-        //        if currentCount != maxCount {
-        //            currentCount += 1
-        //            let newAngleValue = newAngle()
-        //
-        //            circularProgressView.animateToAngle(newAngleValue, duration: 0.9, completion: nil)
-        //            print("yolo")
-        //
-        //
-        //        }
-        */
- 
-        // Do any additional setup after loading the view.
+
+
     }
     
     func launchCamera() {
@@ -192,6 +174,18 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
         scanningViewController?.dismissViewControllerAnimated(false, completion: nil)
         
         let scanConroller : PPScanningViewController = scanningViewController as! PPScanningViewController
+        print("camera dismissed")
+        
+        circularProgressView.animateFromAngle(0, toAngle: 360, duration: 20) { completed in
+            if completed {
+                print("animation stopped, completed")
+            } else {
+                print("animation stopped, was interrupted")
+            }
+        }
+        
+        
+        
         
         // Here you process scanning results. Scanning results are given in the array of PPRecognizerResult objects.
         
@@ -256,7 +250,7 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
                 DateOfBirth = year + DateOfBirth
                 
                 
-                let person = UserLicense(firstName: firstName, lastName: lastName, fullName: fullAddress,gender: "", LicenseIdNumber: usdlResult.getField(kPPCustomerIdNumber), formattedLicense: licenseNo, DateOfBirth: DateOfBirth, dateMonth: "", dateDay: "", ProvinceCode: province, VehicleClass: vehicleClass, expiryDate: expireDate, dateIssued: issueDate, fullAddress: fullAddress, emailAddress: emailAddress, streetName: streetName, city: city)
+                let person = UserLicense(firstName: firstName, lastName: lastName, fullName: fullAddress,gender: gender, LicenseIdNumber: usdlResult.getField(kPPCustomerIdNumber), formattedLicense: licenseNo, DateOfBirth: DateOfBirth, dateMonth: month, dateDay: day, ProvinceCode: province, VehicleClass: vehicleClass, expiryDate: expireDate, dateIssued: issueDate, fullAddress: fullAddress, emailAddress: emailAddress, streetName: streetName, city: city)
     
             
                 
@@ -430,19 +424,20 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
         if (Int(LicenseToValidate.gender) == 1) {
             if (lastFourLicense != lastFourDOB) {
                 isLocalValid = false
+            } else {
+                localValidationScore += 7
             }
-        } else {
-            localValidationScore += 7
         }
         
         if (Int(LicenseToValidate.gender) == 2) {
             var validDOB = String(Int(LicenseToValidate.dateMonth)! + 50) + LicenseToValidate.dateDay
+            print("DOB")
             print(validDOB)
             if (lastFourLicense != validDOB) {
                 isLocalValid = false
+            } else {
+                localValidationScore += 7
             }
-        } else {
-            localValidationScore += 7
         }
         
         // Last 2 Years is YY
@@ -601,7 +596,16 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
     
     func calculateScores() {
         // Core Score out of 50
-        coreScore = localValidationScore
+        
+        if (geoLocationResult == "ON") {
+            geoScore = 15
+        } else if (provinces.contains(geoLocationResult)) {
+            geoScore = 5
+        } else {
+            geoScore = 0
+        }
+        
+        coreScore = localValidationScore + geoScore
         
         // Enhanced Score out of 100
         if (isPostalCodeValid) {
