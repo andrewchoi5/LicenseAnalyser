@@ -19,3 +19,15 @@ struct LocationData {
     static var longitude = ""
     static var latitude = ""
 }
+
+struct User {
+    static var firstName = ""
+    static var lastName = ""
+    static var LicenseIdNumber = ""
+    static var ProvinceCode = ""
+    static var fullAddress = ""
+    static var emailAddress = ""
+    static var city = ""
+}
+
+var UserFields : [String : String] = [:]

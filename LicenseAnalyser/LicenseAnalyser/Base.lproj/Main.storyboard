@@ -238,14 +238,47 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="bC6-K7-qOA">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="bC6-K7-qOA">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9va-EQ-6tz">
+                                <rect key="frame" x="0.0" y="51" width="375" height="566"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="9va-EQ-6tz" firstAttribute="trailing" secondItem="bC6-K7-qOA" secondAttribute="trailing" id="2wb-Jn-zF1"/>
+                            <constraint firstItem="bC6-K7-qOA" firstAttribute="centerY" secondItem="9va-EQ-6tz" secondAttribute="centerY" id="6yp-d5-GyD"/>
+                            <constraint firstAttribute="trailing" secondItem="bC6-K7-qOA" secondAttribute="trailing" id="BCJ-Ng-lli"/>
+                            <constraint firstItem="bC6-K7-qOA" firstAttribute="top" secondItem="uu3-vg-7UH" secondAttribute="top" id="BRo-ME-pvY"/>
+                            <constraint firstItem="9va-EQ-6tz" firstAttribute="centerY" secondItem="bC6-K7-qOA" secondAttribute="centerY" id="EOU-Ru-QLm"/>
+                            <constraint firstItem="9va-EQ-6tz" firstAttribute="leading" secondItem="bC6-K7-qOA" secondAttribute="leading" id="Eao-pn-Dw1"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="9va-EQ-6tz" secondAttribute="trailing" id="GQI-yS-cBv"/>
+                            <constraint firstItem="9va-EQ-6tz" firstAttribute="top" secondItem="u1J-AG-7Uf" secondAttribute="bottom" constant="31" id="Min-we-2s4"/>
+                            <constraint firstItem="9va-EQ-6tz" firstAttribute="centerY" secondItem="uu3-vg-7UH" secondAttribute="centerY" id="aeM-fB-0kK"/>
+                            <constraint firstItem="9va-EQ-6tz" firstAttribute="top" secondItem="u1J-AG-7Uf" secondAttribute="bottom" constant="31" id="iFJ-Sc-2dv"/>
+                            <constraint firstItem="bC6-K7-qOA" firstAttribute="leading" secondItem="uu3-vg-7UH" secondAttribute="leading" id="ljk-eO-93S"/>
+                            <constraint firstItem="bC6-K7-qOA" firstAttribute="trailing" secondItem="9va-EQ-6tz" secondAttribute="trailing" id="ocJ-qB-BLD"/>
+                            <constraint firstItem="9va-EQ-6tz" firstAttribute="leading" secondItem="uu3-vg-7UH" secondAttribute="leadingMargin" id="tCr-dh-1k5"/>
+                            <constraint firstItem="bC6-K7-qOA" firstAttribute="bottom" secondItem="71A-ec-lKI" secondAttribute="top" id="vbq-h7-QVH"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="2wb-Jn-zF1"/>
+                                <exclude reference="GQI-yS-cBv"/>
+                                <exclude reference="aeM-fB-0kK"/>
+                                <exclude reference="iFJ-Sc-2dv"/>
+                                <exclude reference="tCr-dh-1k5"/>
+                            </mask>
+                        </variation>
                     </view>
                     <tabBarItem key="tabBarItem" id="OTp-kp-niJ"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="table" destination="9va-EQ-6tz" id="S1o-yL-TO6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="12F-7B-Q0B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -381,7 +414,7 @@
                     <tabBarItem key="tabBarItem" id="5ai-vJ-H2X"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="aggregateScore" destination="eM3-g8-pXa" id="r2g-NI-e6m"/>
+                        <outlet property="aggregateScore" destination="eM3-g8-pXa" id="cHH-JC-vEn"/>
                         <outlet property="basic" destination="Hfz-SI-e50" id="Dco-24-4zf"/>
                         <outlet property="enhanced" destination="oV7-Aq-lic" id="wqv-Vq-VWb"/>
                         <outlet property="progress" destination="BL2-bo-CER" id="Oyt-Qp-RKX"/>

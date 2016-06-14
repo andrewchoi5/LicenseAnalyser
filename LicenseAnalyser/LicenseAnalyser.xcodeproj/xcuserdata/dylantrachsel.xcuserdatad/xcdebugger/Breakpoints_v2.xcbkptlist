@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ConfidenceLevelViewController.swift"
-            timestampString = "487557487.861155"
+            timestampString = "487567950.288473"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "396"
-            endingLineNumber = "396"
+            startingLineNumber = "415"
+            endingLineNumber = "415"
             landmarkName = "LocalValidation(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ConfidenceLevelViewController.swift"
-            timestampString = "487557487.861155"
+            timestampString = "487567950.288473"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "341"
-            endingLineNumber = "341"
+            startingLineNumber = "360"
+            endingLineNumber = "360"
             landmarkName = "VerXVerifyLicense(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ConfidenceLevelViewController.swift"
-            timestampString = "487557487.861155"
+            timestampString = "487567950.288473"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "391"
-            endingLineNumber = "391"
+            startingLineNumber = "410"
+            endingLineNumber = "410"
             landmarkName = "LocalValidation(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -74,13 +74,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ConfidenceLevelViewController.swift"
-            timestampString = "487559994.75952"
+            timestampString = "487561573.365615"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "577"
-            endingLineNumber = "577"
-            landmarkName = "calculateScores()"
-            landmarkType = "5">
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "ConfidenceLevelViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

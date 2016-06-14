@@ -512,7 +512,7 @@
 				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_BUNDLE_IDENTIFIER = ibm.driverlicense.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "c8c14e52-f3d7-4e1e-84f1-52f215ae7817";
+				PROVISIONING_PROFILE = "9cb0a33e-22ff-4bdc-a8e9-d7fe478f94cd";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -539,7 +539,7 @@
 				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_BUNDLE_IDENTIFIER = ibm.driverlicense.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "c8c14e52-f3d7-4e1e-84f1-52f215ae7817";
+				PROVISIONING_PROFILE = "9cb0a33e-22ff-4bdc-a8e9-d7fe478f94cd";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
