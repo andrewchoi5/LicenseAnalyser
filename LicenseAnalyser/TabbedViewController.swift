@@ -54,14 +54,13 @@ class TabbedViewController: UIViewController {
 //            }
 //        }
         
-        social.text = String(round(100.0 * GlobalScore.socialScore) / 100.0)
-        thirdParty.text = String(round(100.0 * GlobalScore.govtScore) / 100.0)
-        enhanced.text = String(round(100.0 * GlobalScore.enhancedScore) / 100.0)
-        basic.text = String(round(100.0 * GlobalScore.coreScore) / 100.0)
+        social.text = String(Int(GlobalScore.socialScore))
+        thirdParty.text = String(Int(GlobalScore.govtScore))
+        enhanced.text = String(Int(GlobalScore.enhancedScore))
+        basic.text = String(Int(GlobalScore.coreScore))
 
         var aggregateScore = GlobalScore.coreScore + GlobalScore.enhancedScore + GlobalScore.govtScore + GlobalScore.socialScore
-        aggregateScore = round(100.0 * aggregateScore) / 100.0
-        self.aggregateScore.text = String(aggregateScore)
+        self.aggregateScore.text = String(Int(aggregateScore))
 
         progress.progressThickness = 0.25
         progress.trackThickness = 0.25
