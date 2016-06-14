@@ -11,6 +11,7 @@ import MicroBlink
 import MapKit
 
 class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSURLConnectionDelegate, NSXMLParserDelegate, PPScanDelegate, CLLocationManagerDelegate {
+    var notFinished = true
     
     
     var latitude = String()
@@ -67,9 +68,6 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
         return Double(360 * (currentCount / maxCount))
     }
     
-    @IBAction func button1(sender: AnyObject) {
-        self.performSegueWithIdentifier("loading", sender: self)
-    }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(false)
@@ -80,16 +78,7 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
         
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        circularProgressView.startAngle = -90
-        circularProgressView.clockwise = true
-        circularProgressView.gradientRotateSpeed = 2
-        circularProgressView.roundedCorners = false
-        
-
-
-    }
+ 
     
     func launchCamera() {
         let error: NSErrorPointer = nil
@@ -107,6 +96,16 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
         
         /** You can use other presentation methods as well */
         self.presentViewController(scanningViewController, animated: true, completion: nil)
+    }
+    
+    override func viewDidLoad() {
+        launchCamera()
+        super.viewDidLoad()
+        circularProgressView.startAngle = -90
+        circularProgressView.clockwise = true
+        circularProgressView.gradientRotateSpeed = 2
+        circularProgressView.roundedCorners = false
+        
     }
     
     func finishedLoadingValue() {
@@ -162,23 +161,55 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
     func scanningViewControllerDidClose(scanningViewController: UIViewController) {
         // As scanning view controller is presented full screen and modally, dismiss it
         self.dismissViewControllerAnimated(true, completion: nil)
+        
     }
+    
+    
+    
     
     func scanningViewController(scanningViewController: UIViewController?, didOutputResults results: [PPRecognizerResult]) {
         isPhotoSelected = true
         
-        scanningViewController?.dismissViewControllerAnimated(false, completion: nil)
+        scanningViewController?.dismissViewControllerAnimated(false, completion: {
+
+            self.circularProgressView.animateFromAngle(0, toAngle: 360, duration: 5) { completed in
+                if completed {
+                    print("animation stopped, completed")
+                    self.circularProgressView.animateToAngle(0, duration: 5) {completed in
+                        if completed {
+                            print("end loop")
+                        }
+                        else {
+                            print("animation stopped")
+                        }
+                    }
+                    
+                } else {
+                    print("animation stopped, was interrupted")
+                }
+            }
+            
+//            while self.notFinished {
+//                
+//            }
+            
+//            self.circularProgressView.animateToAngle(0, duration: 5) {completed in
+//                if completed {
+//                    print("end loop")
+//                }
+//                else {
+//                    print("animation stopped")
+//                }
+//            }
+            
+        
+        })
+        
+ 
         
         let scanConroller : PPScanningViewController = scanningViewController as! PPScanningViewController
         print("camera dismissed")
-        
-        circularProgressView.animateFromAngle(0, toAngle: 360, duration: 20) { completed in
-            if completed {
-                print("animation stopped, completed")
-            } else {
-                print("animation stopped, was interrupted")
-            }
-        }
+       
         
         
         
@@ -278,6 +309,7 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
     
     func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
         self.dismissViewControllerAnimated(true, completion: nil)
+        
     }
     
     func validate(personToVerify : UserLicense) {

@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ConfidenceLevelViewController.swift"
-            timestampString = "487609412.905445"
+            timestampString = "487618952.079913"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "434"
-            endingLineNumber = "434"
+            startingLineNumber = "466"
+            endingLineNumber = "466"
             landmarkName = "LocalValidation(_:)"
             landmarkType = "5">
             <Locations>
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ConfidenceLevelViewController.swift"
-            timestampString = "487609412.905445"
+            timestampString = "487618952.079913"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "432"
-            endingLineNumber = "432"
+            startingLineNumber = "464"
+            endingLineNumber = "464"
             landmarkName = "LocalValidation(_:)"
             landmarkType = "5">
             <Locations>
