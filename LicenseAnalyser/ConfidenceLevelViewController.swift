@@ -14,7 +14,7 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
     
     var latitude = String()
     var longitude = String()
-
+    
     var emailAddress = String()
     
     var mutableData:NSMutableData  = NSMutableData()
@@ -26,6 +26,8 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
     var isPostalCodeValid = false
     var isGeoLocationValid = false
     var isPhotoSelected = false
+    
+    var localValidationScore = 0.0
     
     var postalScore: Double = 0.0
     var creditScore: Double = 0.0
@@ -43,13 +45,13 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
     let enhacedTotal: Double = 100.0
     let govtTotal: Double = 100.0
     let socialTotal: Double = 25.0
-
+    
     var currentCount = 70
     var maxCount = 100
-
+    
     @IBOutlet weak var circularProgressView: KDCircularProgress!
-
-
+    
+    
     let locationManager = CLLocationManager()
     
     func locationManagerInit() {
@@ -58,12 +60,12 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
         locationManager.requestWhenInUseAuthorization()
         locationManager.requestLocation()
     }
-
-
+    
+    
     func newAngle() -> Double {
         return Double(360 * (currentCount / maxCount))
     }
-
+    
     @IBAction func button1(sender: AnyObject) {
         self.performSegueWithIdentifier("loading", sender: self)
     }
@@ -74,7 +76,7 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
         if (isPhotoSelected == false) {
             launchCamera()
         }
-
+        
     }
     
     override func viewDidLoad() {
@@ -86,29 +88,28 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
             
             circularProgressView.animateToAngle(newAngleValue, duration: 0.5, completion: nil)
             
-            
-        }*/
-
-//        circularProgressView.animateFromAngle(0, toAngle: 360, duration: 100) { completed in
-//            if completed {
-//                print("animation stopped, completed")
-//                // do segue here not button
-//            } else {
-//                print("animation stopped, was interrupted")
-//            }
-//        }
-//
-//        if currentCount != maxCount {
-//            currentCount += 1
-//            let newAngleValue = newAngle()
-//            
-//            circularProgressView.animateToAngle(newAngleValue, duration: 0.9, completion: nil)
-//            print("yolo")
-//            
-//            
-//        }
+        }
+        
+        //        circularProgressView.animateFromAngle(0, toAngle: 360, duration: 100) { completed in
+        //            if completed {
+        //                print("animation stopped, completed")
+        //                // do segue here not button
+        //            } else {
+        //                print("animation stopped, was interrupted")
+        //            }
+        //        }
+        //
+        //        if currentCount != maxCount {
+        //            currentCount += 1
+        //            let newAngleValue = newAngle()
+        //
+        //            circularProgressView.animateToAngle(newAngleValue, duration: 0.9, completion: nil)
+        //            print("yolo")
+        //
+        //
+        //        }
+        */
  
-
         // Do any additional setup after loading the view.
     }
     
@@ -133,22 +134,22 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
     func finishedLoadingValue() {
         //self.performSegueWithIdentifier("loading", sender: self)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
     
     // MARK: Scanning Delegates
     func coordinatorWithError(error: NSErrorPointer) -> PPCoordinator? {
@@ -191,23 +192,23 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
         scanningViewController?.dismissViewControllerAnimated(false, completion: nil)
         
         let scanConroller : PPScanningViewController = scanningViewController as! PPScanningViewController
-         
-         // Here you process scanning results. Scanning results are given in the array of PPRecognizerResult objects.
-         
-         // first, pause scanning until we process all the results
-         scanConroller.pauseScanning()
-         
-         var message : String = ""
-         var title : String = ""
-         
-         // Collect data from the result
-         for result in results {
+        
+        // Here you process scanning results. Scanning results are given in the array of PPRecognizerResult objects.
+        
+        // first, pause scanning until we process all the results
+        scanConroller.pauseScanning()
+        
+        var message : String = ""
+        var title : String = ""
+        
+        // Collect data from the result
+        for result in results {
             if(result.isKindOfClass(PPMrtdRecognizerResult)) {
                 let mrtdResult : PPMrtdRecognizerResult = result as! PPMrtdRecognizerResult
                 title="MRTD"
                 message=mrtdResult.description
             }
-             if(result.isKindOfClass(PPUsdlRecognizerResult)) {
+            if(result.isKindOfClass(PPUsdlRecognizerResult)) {
                 let usdlResult : PPUsdlRecognizerResult = result as! PPUsdlRecognizerResult
                 title="USDL"
                 message=usdlResult.description
@@ -216,37 +217,46 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
                 print(usdlResult.getField(kPPDateOfBirth))
                 print(usdlResult.getField(kPPAddressJurisdictionCode))
                 print(usdlResult.getField(kPPJurisdictionVehicleClass))
-             
-                 var firstName = usdlResult.getField(kPPCustomerFirstName)
-                 var lastName = usdlResult.getField(kPPCustomerFamilyName)
-                 var fullName = usdlResult.getField(kPPCustomerFullName)
-                 
-                 var issueDate = usdlResult.getField(kPPDocumentIssueDate)
-                 var expireDate = usdlResult.getField(kPPDocumentExpirationDate)
-                 
-                 var fullAddress = usdlResult.getField(kPPFullAddress)
-                 
-                 var licenseNo = usdlResult.getField(kPPCustomerIdNumber)
-                 licenseNo = licenseNo.stringByReplacingOccurrencesOfString("-", withString: "")
-                 
-                 let province = usdlResult.getField(kPPAddressJurisdictionCode)
-                 
-                 let vehicleClass = usdlResult.getField(kPPJurisdictionVehicleClass)
-                 
-                 
-                 // Making DOB format YYYYMMDD
-                 var DateOfBirth = usdlResult.getField(kPPDateOfBirth)
-                 
-                 let index = DateOfBirth.startIndex.advancedBy(4)
-                 let year = DateOfBirth.substringFromIndex(index)
-                 
-                 DateOfBirth = DateOfBirth.stringByReplacingOccurrencesOfString(year, withString: "")
-                 DateOfBirth = year + DateOfBirth
-                 
-                 let streetName = usdlResult.getField(kPPAddressStreet)
-                 let city = usdlResult.getField(kPPAddressCity)
+                print(usdlResult.getField(kPPSex))
                 
-                let person = UserLicense(firstName: firstName, lastName: lastName, fullName: fullName, LicenseIdNumber: usdlResult.getField(kPPCustomerIdNumber), formattedLicense: licenseNo, DateOfBirth: DateOfBirth, ProvinceCode: province, VehicleClass: vehicleClass, expiryDate: expireDate, dateIssued: issueDate, fullAddress: fullName, emailAddress: emailAddress, streetName: streetName, city: city)
+                var firstName = usdlResult.getField(kPPCustomerFirstName)
+                var lastName = usdlResult.getField(kPPCustomerFamilyName)
+                var fullName = usdlResult.getField(kPPCustomerFullName)
+                
+                var gender = usdlResult.getField(kPPSex)
+                
+                var issueDate = usdlResult.getField(kPPDocumentIssueDate)
+                var expireDate = usdlResult.getField(kPPDocumentExpirationDate)
+                
+                var fullAddress = usdlResult.getField(kPPFullAddress)
+                
+                var licenseNo = usdlResult.getField(kPPCustomerIdNumber)
+                licenseNo = licenseNo.stringByReplacingOccurrencesOfString("-", withString: "")
+                
+                let province = usdlResult.getField(kPPAddressJurisdictionCode)
+                
+                let vehicleClass = usdlResult.getField(kPPJurisdictionVehicleClass)
+                
+                let streetName = usdlResult.getField(kPPAddressStreet)
+                let city = usdlResult.getField(kPPAddressCity)
+                // Making DOB format YYYYMMDD
+                var DateOfBirth = usdlResult.getField(kPPDateOfBirth)
+                
+                var index = DateOfBirth.startIndex.advancedBy(4)
+                let year = DateOfBirth.substringFromIndex(index)
+                
+                index = DateOfBirth.startIndex.advancedBy(2)
+                let month = DateOfBirth.substringToIndex(index)
+                
+                var startIndex = DateOfBirth.startIndex.advancedBy(2)
+                index = DateOfBirth.startIndex.advancedBy(4)
+                let day = DateOfBirth.substringWithRange(Range<String.Index>(start: startIndex, end: index))
+                DateOfBirth = DateOfBirth.stringByReplacingOccurrencesOfString(year, withString: "")
+                DateOfBirth = year + DateOfBirth
+                
+                
+                let person = UserLicense(firstName: firstName, lastName: lastName, fullName: fullAddress,gender: "", LicenseIdNumber: usdlResult.getField(kPPCustomerIdNumber), formattedLicense: licenseNo, DateOfBirth: DateOfBirth, dateMonth: "", dateDay: "", ProvinceCode: province, VehicleClass: vehicleClass, expiryDate: expireDate, dateIssued: issueDate, fullAddress: fullAddress, emailAddress: emailAddress, streetName: streetName, city: city)
+    
             
                 
                 User.firstName = firstName
@@ -264,8 +274,14 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
                 UserFields["Address"] = fullAddress
                 UserFields["Email"] = emailAddress
                 UserFields["City"] = city
+
+
+
                 
-                 validate(person)
+
+                
+                
+                validate(person)
             }
         }
     }
@@ -354,7 +370,7 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
                 xmlParser.shouldResolveExternalEntities = true
                 
             }
-
+            
             // Next step is local validation
             self.LocalValidation(LicenseToVerify)
         })
@@ -377,7 +393,7 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
             isVerXValid = false
         }
     }
-
+    
     // MARK - Validation
     func LocalValidation(LicenseToValidate: UserLicense) {
         print("local validation called")
@@ -388,6 +404,8 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
         if (LicenseToValidate.formattedLicense.characters.count != 15) {
             // INVALID
             isLocalValid = false
+        } else {
+            localValidationScore += 7
         }
         
         // First letter of license is the first letter of last name
@@ -398,6 +416,8 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
         if (firstLicense != firstOfLastName) {
             // INVALID
             isLocalValid = false
+        } else {
+            localValidationScore += 7
         }
         
         // Characters 12-15 of License are Birth MMDD
@@ -405,19 +425,35 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
         
         let lastFourDOB = LicenseToValidate.DateOfBirth.substringWithRange(Range<String.Index>(start: LicenseToValidate.DateOfBirth.startIndex.advancedBy(4), end: LicenseToValidate.DateOfBirth.endIndex))
         
-        if (lastFourLicense != lastFourDOB) {
-            isLocalValid = false
+        // If male
+        if (Int(LicenseToValidate.gender) == 1) {
+            if (lastFourLicense != lastFourDOB) {
+                isLocalValid = false
+            }
+        } else {
+            localValidationScore += 7
         }
         
+        if (Int(LicenseToValidate.gender) == 2) {
+            var validDOB = String(Int(LicenseToValidate.dateMonth)! + 50) + LicenseToValidate.dateDay
+            print(validDOB)
+            if (lastFourLicense != validDOB) {
+                isLocalValid = false
+            }
+        } else {
+            localValidationScore += 7
+        }
         
+        // Last 2 Years is YY
         let lastTwoYearDOB = LicenseToValidate.DateOfBirth.substringWithRange(Range<String.Index>(start: LicenseToValidate.DateOfBirth.startIndex.advancedBy(2), end: LicenseToValidate.DateOfBirth.startIndex.advancedBy(4)))
         
         let lastTwoYearLicense = LicenseToValidate.formattedLicense.substringWithRange(Range<String.Index>(start: LicenseToValidate.formattedLicense.startIndex.advancedBy(9), end: LicenseToValidate.formattedLicense.startIndex.advancedBy(11)))
         
         if (lastTwoYearDOB != lastTwoYearLicense) {
             isLocalValid = false
+        } else {
+            localValidationScore += 7
         }
-        
         
         let currentDate = NSDate()
         
@@ -428,6 +464,8 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
         
         if (currentDate.compare(expDate!) == NSComparisonResult.OrderedDescending) {
             isLocalValid = false
+        } else {
+            localValidationScore += 7
         }
         
         SocialValidation(LicenseToValidate)
@@ -457,14 +495,14 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
                     let jsonResult: NSObject! = try NSJSONSerialization.JSONObjectWithData(data!, options:NSJSONReadingOptions.MutableContainers) as? NSObject
                     if (jsonResult != nil) {
                         let preScore = jsonResult.valueForKey("data")
-
+                        
                         let error = jsonResult.valueForKey("status") as! String
                         if (error != "Error") {
                             self.condifenceScore = Double((preScore?.valueForKey("confidence"))! as! NSNumber)
                             self.fraudScore = Double((preScore?.valueForKey("fraudscore"))! as! NSNumber)
                             self.authScore = Double((preScore?.valueForKey("authscore"))! as! NSNumber)
                         }
-
+                        
                     } else {
                         // couldn't load JSON, look at error
                         print("no results found")
@@ -561,12 +599,8 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
     }
     
     func calculateScores() {
-        var lexisNexis = 35
-        
         // Core Score out of 50
-        if (isLocalValid) {
-            coreScore = coreTotal
-        }
+        coreScore = localValidationScore
         
         // Enhanced Score out of 100
         if (isPostalCodeValid) {
