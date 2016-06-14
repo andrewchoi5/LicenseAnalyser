@@ -27,25 +27,7 @@ class TabbedViewController: UIViewController {
     @IBOutlet weak var aggregateScore: UILabel!
     @IBOutlet weak var progress: KDCircularProgress!
     
-    @IBAction func tapped(sender: AnyObject) {
-        progress.animateFromAngle(-90, toAngle: 360, duration: 2) { completed in
-            if completed {
-                print("animation stopped, completed")
-            } else {
-                print("animation stopped, was interrupted")
-            }
-        }
-    }
-//    @IBAction func tabbed(sender: AnyObject) {
-//
-//        progress.animateFromAngle(0, toAngle: 180, duration: 5) { completed in
-//            if completed {
-//                print("animation stopped, completed")
-//            } else {
-//                print("animation stopped, was interrupted")
-//            }
-//        }
-//    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         print("here on tab")
@@ -82,20 +64,24 @@ class TabbedViewController: UIViewController {
         
         view.backgroundColor = UIColor(white: 0.22, alpha: 1)
         
+        let aggregateScore = GlobalScore.coreScore + GlobalScore.enhancedScore + GlobalScore.govtScore + GlobalScore.socialScore
+        self.aggregateScore.text = String(Int(aggregateScore))
+        
+        let totalCalc = ((aggregateScore / 275.0) * 360.0)
+        
         progress.startAngle = -90
         progress.clockwise = true
         progress.gradientRotateSpeed = 2
         progress.roundedCorners = false
         
-        progress.animateFromAngle(0, toAngle: 180, duration: 5) { completed in
+        progress.animateFromAngle(0, toAngle: totalCalc, duration: 5) { completed in
             if completed {
                 print("animation stopped, completed")
             } else {
                 print("animation stopped, was interrupted")
             }
         }
-        let aggregateScore = GlobalScore.coreScore + GlobalScore.enhancedScore + GlobalScore.govtScore + GlobalScore.socialScore
-        self.aggregateScore.text = String(Int(aggregateScore))
+
 
         
         // Do any additional setup after loading the view.
