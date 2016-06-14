@@ -50,23 +50,7 @@ class TabbedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("here on tab")
-        progress.progressThickness = 0.25
-        progress.trackThickness = 0.25
-        
-        view.backgroundColor = UIColor(white: 0.22, alpha: 1)
-        
-        progress.startAngle = -90
-        progress.clockwise = true
-        progress.gradientRotateSpeed = 2
-        progress.roundedCorners = false
-        
-        progress.animateFromAngle(0, toAngle: 180, duration: 5) { completed in
-            if completed {
-                print("animation stopped, completed")
-            } else {
-                print("animation stopped, was interrupted")
-            }
-        }
+
         
 //        progress = KDCircularProgress(frame: CGRect(x: 0, y: 0, width: 300, height: 300))
 //        progress.startAngle = -90
@@ -92,6 +76,24 @@ class TabbedViewController: UIViewController {
         thirdParty.text = String(GlobalScore.govtScore)
         enhanced.text = String(GlobalScore.enhancedScore)
         basic.text = String(GlobalScore.coreScore)
+        
+        progress.progressThickness = 0.25
+        progress.trackThickness = 0.25
+        
+        view.backgroundColor = UIColor(white: 0.22, alpha: 1)
+        
+        progress.startAngle = -90
+        progress.clockwise = true
+        progress.gradientRotateSpeed = 2
+        progress.roundedCorners = false
+        
+        progress.animateFromAngle(0, toAngle: 180, duration: 5) { completed in
+            if completed {
+                print("animation stopped, completed")
+            } else {
+                print("animation stopped, was interrupted")
+            }
+        }
         
         // Do any additional setup after loading the view.
     }
