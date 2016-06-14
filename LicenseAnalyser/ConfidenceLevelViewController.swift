@@ -171,7 +171,7 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
         isPhotoSelected = true
         
         scanningViewController?.dismissViewControllerAnimated(false, completion: {
-            self.circularProgressView.animateFromAngle(0, toAngle: 360, duration: 1) { completed in
+            self.circularProgressView.animateFromAngle(0, toAngle: 1920, duration: 10) { completed in
                 if completed {
                     print("animation stopped, completed")
                     if (self.isFinished == true) {
