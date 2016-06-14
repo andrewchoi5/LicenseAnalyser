@@ -11,7 +11,8 @@ import MicroBlink
 import MapKit
 
 class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSURLConnectionDelegate, NSXMLParserDelegate, PPScanDelegate, CLLocationManagerDelegate {
-    
+
+    var isFinished = false
     
     var latitude = String()
     var longitude = String()
@@ -90,9 +91,6 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
         circularProgressView.clockwise = true
         circularProgressView.gradientRotateSpeed = 2
         circularProgressView.roundedCorners = false
-        
-
-
     }
     
     func launchCamera() {
@@ -171,21 +169,21 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
     func scanningViewController(scanningViewController: UIViewController?, didOutputResults results: [PPRecognizerResult]) {
         isPhotoSelected = true
         
-        scanningViewController?.dismissViewControllerAnimated(false, completion: nil)
+        scanningViewController?.dismissViewControllerAnimated(false, completion: {
+            self.circularProgressView.animateFromAngle(0, toAngle: 360, duration: 1) { completed in
+                if completed {
+                    print("animation stopped, completed")
+                    if (self.isFinished == true) {
+                        self.performSegueWithIdentifier("loading", sender: self)
+                    }
+                } else {
+                    print("animation stopped, was interrupted")
+                }
+            }
+        })
         
         let scanConroller : PPScanningViewController = scanningViewController as! PPScanningViewController
         print("camera dismissed")
-        
-        circularProgressView.animateFromAngle(0, toAngle: 360, duration: 20) { completed in
-            if completed {
-                print("animation stopped, completed")
-            } else {
-                print("animation stopped, was interrupted")
-            }
-        }
-        
-        
-        
         
         // Here you process scanning results. Scanning results are given in the array of PPRecognizerResult objects.
         
@@ -497,6 +495,7 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
                             self.condifenceScore = Double((preScore?.valueForKey("confidence"))! as! NSNumber)
                             self.fraudScore = Double((preScore?.valueForKey("fraudscore"))! as! NSNumber)
                             self.authScore = Double((preScore?.valueForKey("authscore"))! as! NSNumber)
+                            print("auth score = " + String(self.condifenceScore))
                         }
                         
                     } else {
@@ -587,6 +586,7 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
     
     func finished() {
         calculateScores()
+        isFinished = true
         //self.dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -635,7 +635,6 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
         
     }
     // MARK : Geolocation delegates
-    
 }
 
 
