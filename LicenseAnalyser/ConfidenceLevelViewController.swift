@@ -49,14 +49,7 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
 
     @IBOutlet weak var circularProgressView: KDCircularProgress!
     
-//    let progressIndicatorView = CircularLoaderView(frame: CGRectZero)
-//    
-//    required init?(coder aDecoder: NSCoder) {
-//        super.init(coder: aDecoder)
-//        addSubview(self.progressIndicatorView)
-//        progressIndicatorView.frame = bounds
-//        progressIndicatorView.autoresizingMask = .FlexibleWidth | .FlexibleHeight
-//    }
+
     let locationManager = CLLocationManager()
     
     func locationManagerInit() {
@@ -108,8 +101,6 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
 //            
 //        }
  
-//        self.progressIndicatorView.frame = bounds
-//        self.progressIndicatorView.autoresizingMask = .FlexibleWidth | .FlexibleHeight
 
         // Do any additional setup after loading the view.
     }
@@ -448,9 +439,9 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
                     let jsonResult: NSObject! = try NSJSONSerialization.JSONObjectWithData(data!, options:NSJSONReadingOptions.MutableContainers) as? NSObject
                     if (jsonResult != nil) {
                         let preScore = jsonResult.valueForKey("data")
-                        self.condifenceScore = Double((preScore?.valueForKey("confidence"))! as! NSNumber)
-                        self.fraudScore = Double((preScore?.valueForKey("fraudscore"))! as! NSNumber)
-                        self.authScore = Double((preScore?.valueForKey("authscore"))! as! NSNumber)
+////                        self.condifenceScore = Double((preScore?.valueForKey("confidence"))! as! NSNumber)
+//                        self.fraudScore = Double((preScore?.valueForKey("fraudscore"))! as! NSNumber)
+//                        self.authScore = Double((preScore?.valueForKey("authscore"))! as! NSNumber)
                     } else {
                         // couldn't load JSON, look at error
                         print("no results found")

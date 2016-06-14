@@ -6,17 +6,145 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ConfidenceLevelViewController.swift"
-            timestampString = "487547220.017536"
+            timestampString = "487549691.351974"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
-            landmarkName = "ConfidenceLevelViewController"
-            landmarkType = "3">
+            startingLineNumber = "444"
+            endingLineNumber = "444"
+            landmarkName = "SocialValidation(_:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LicenseAnalyser.ConfidenceLevelViewController.(SocialValidation (LicenseAnalyser.UserLicense) -&gt; ()).(closure #1)"
+                  moduleName = "LicenseAnalyser"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/chelseathiel-jones/Desktop/Xcode%20Projects/LicenseAnalyser/LicenseAnalyser/ConfidenceLevelViewController.swift"
+                  timestampString = "487549873.690213"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "444"
+                  endingLineNumber = "444"
+                  offsetFromSymbolStart = "1204">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LicenseAnalyser.ConfidenceLevelViewController.(SocialValidation (LicenseAnalyser.UserLicense) -&gt; ()).(closure #1)"
+                  moduleName = "LicenseAnalyser"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/chelseathiel-jones/Desktop/Xcode%20Projects/LicenseAnalyser/LicenseAnalyser/ConfidenceLevelViewController.swift"
+                  timestampString = "487549873.690331"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "444"
+                  endingLineNumber = "444"
+                  offsetFromSymbolStart = "2140">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ConfidenceLevelViewController.swift"
+            timestampString = "487549734.84518"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "442"
+            endingLineNumber = "442"
+            landmarkName = "SocialValidation(_:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LicenseAnalyser.ConfidenceLevelViewController.(SocialValidation (LicenseAnalyser.UserLicense) -&gt; ()).(closure #1)"
+                  moduleName = "LicenseAnalyser"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/chelseathiel-jones/Desktop/Xcode%20Projects/LicenseAnalyser/LicenseAnalyser/ConfidenceLevelViewController.swift"
+                  timestampString = "487549873.691807"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "443"
+                  endingLineNumber = "443"
+                  offsetFromSymbolStart = "908">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LicenseAnalyser.ConfidenceLevelViewController.(SocialValidation (LicenseAnalyser.UserLicense) -&gt; ()).(closure #1)"
+                  moduleName = "LicenseAnalyser"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/chelseathiel-jones/Desktop/Xcode%20Projects/LicenseAnalyser/LicenseAnalyser/ConfidenceLevelViewController.swift"
+                  timestampString = "487549873.691927"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "443"
+                  endingLineNumber = "443"
+                  offsetFromSymbolStart = "2136">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TutorialPageViewController.swift"
+            timestampString = "487550695.978319"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TutorialPageViewController.swift"
+            timestampString = "487550701.593925"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TabbedViewController.swift"
+            timestampString = "487556298.400564"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
