@@ -13,6 +13,7 @@ import MapKit
 class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSURLConnectionDelegate, NSXMLParserDelegate, PPScanDelegate, CLLocationManagerDelegate {
 
     var isFinished = false
+    var firstVisit = true
     
     var latitude = String()
     var longitude = String()
@@ -401,6 +402,11 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
         else if (string == "ResultArgument  Name=\"Status\" Value=\"Not Found\" /") {
             isVerXValid = false
         }
+        
+        if (currentElementName == "prov" && firstVisit == true) {
+            geoLocationResult = string
+            firstVisit = false
+        }
     }
     
     // MARK - Validation
@@ -499,7 +505,7 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue(), completionHandler:{ (response:NSURLResponse?, data: NSData?, error: NSError?) -> Void in
             var error: AutoreleasingUnsafeMutablePointer<NSError?> = nil
             do {
-                self.AddressVerify(personToVerify)
+                self.GeoLocationVerify(personToVerify)
                 
                 if (data != nil) {
                     let jsonResult: NSObject! = try NSJSONSerialization.JSONObjectWithData(data!, options:NSJSONReadingOptions.MutableContainers) as? NSObject
@@ -529,6 +535,43 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
         })
     }
     
+    func GeoLocationVerify(personToVerify : UserLicense) {
+        var url : String = "http://geocoder.ca/?latt="
+            + LocationData.latitude
+            + "&longt="
+            + LocationData.longitude
+            + "&reverse=1"
+            + "&geoit=XML"
+        
+        var request : NSMutableURLRequest = NSMutableURLRequest()
+        request.URL = NSURL(string: url)
+        request.HTTPMethod = "GET"
+        
+        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue(), completionHandler:{ (response:NSURLResponse?, data: NSData?, error: NSError?) -> Void in
+            var error: AutoreleasingUnsafeMutablePointer<NSError?> = nil
+            do {
+                self.AddressVerify(personToVerify)
+                if (data != nil) {
+                    var strData = NSString(data: data!, encoding: NSUTF8StringEncoding)
+                    
+                    let xmlParser = NSXMLParser(data: data!)
+                    xmlParser.delegate = self
+                    xmlParser.parse()
+                    xmlParser.shouldResolveExternalEntities = true
+                    
+                    // See if postal code matches from license
+                    self.isGeoLocationValid = true
+                }
+                // enhanced - 100 or 0 from postal code
+                // gov - valid or not 100 or 0
+                // social - 10 == 25, 0 == 0
+            }
+            catch {
+                print(error)
+            }
+        })
+    }
+    
     func AddressVerify(personToVerify : UserLicense) {
         print("address verify called")
         var url : String = "http://geocoder.ca/?adresst="
@@ -551,44 +594,12 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
             var error: AutoreleasingUnsafeMutablePointer<NSError?> = nil
             do {
                 print("address verify finished")
-                self.GeoLocationVerify(personToVerify)
+                self.finished()
                 if (data != nil) {
                     var strData = NSString(data: data!, encoding: NSUTF8StringEncoding)
                     
                     // if postal code matches
                     self.isPostalCodeValid = true
-                }
-                // enhanced - 100 or 0 from postal code
-                // gov - valid or not 100 or 0
-                // social - 10 == 25, 0 == 0
-            }
-            catch {
-                print(error)
-            }
-        })
-    }
-    
-    func GeoLocationVerify(personToVerify : UserLicense) {
-        var url : String = "http://geocoder.ca/?latt="
-            + LocationData.latitude
-            + "&longt="
-            + LocationData.longitude
-            + "&reverse=1"
-            + "&geoit=XML"
-        
-        var request : NSMutableURLRequest = NSMutableURLRequest()
-        request.URL = NSURL(string: url)
-        request.HTTPMethod = "GET"
-        
-        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue(), completionHandler:{ (response:NSURLResponse?, data: NSData?, error: NSError?) -> Void in
-            var error: AutoreleasingUnsafeMutablePointer<NSError?> = nil
-            do {
-                self.finished()
-                if (data != nil) {
-                    var strData = NSString(data: data!, encoding: NSUTF8StringEncoding)
-                    
-                    // See if postal code matches from license
-                    self.isGeoLocationValid = true
                 }
                 // enhanced - 100 or 0 from postal code
                 // gov - valid or not 100 or 0
