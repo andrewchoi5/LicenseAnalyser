@@ -620,9 +620,9 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
         }
         
         // Social Score out of 25
-        condifenceScore = condifenceScore/socialTotal * 100
-        fraudScore = fraudScore/socialTotal * 100
-        authScore = authScore/socialTotal * 100
+        condifenceScore = (condifenceScore * 25.0/3.0)
+        fraudScore = (fraudScore * 25.0/3.0)
+        authScore = (authScore * 25.0/3.0) / 10
         
         socialScore = condifenceScore + fraudScore + authScore
         
