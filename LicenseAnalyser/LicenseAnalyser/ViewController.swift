@@ -8,10 +8,14 @@
 
 import UIKit
 import TrueIDMobileSDK
+import MapKit
 
 class ViewController: UIViewController, UITextFieldDelegate, NSURLConnectionDelegate, NSXMLParserDelegate {
 
     @IBOutlet weak var emailLabel: UITextField!
+    
+    var latitude = String()
+    var longitude = String()
     
     var isChecked = true
     var checked : UIImage = UIImage(named:"ic_check_box_white")!
@@ -21,6 +25,15 @@ class ViewController: UIViewController, UITextFieldDelegate, NSURLConnectionDele
     
     @IBOutlet weak var continueButton: UIButton!
     @IBOutlet weak var checkbox: UIButton!
+    
+    let locationManager = CLLocationManager()
+    
+    func locationManagerInit() {
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.requestLocation()
+    }
     
     @IBAction func onCheckboxClick(sender: AnyObject) {
         if isChecked {
@@ -74,6 +87,7 @@ class ViewController: UIViewController, UITextFieldDelegate, NSURLConnectionDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        locationManagerInit()
         self.continueButton.enabled = false
         emailLabel.layer.borderColor = UIColor.cyanColor().CGColor
         emailLabel.layer.borderWidth = 1.0
@@ -137,4 +151,28 @@ class ViewController: UIViewController, UITextFieldDelegate, NSURLConnectionDele
     }
     
 }
+
+extension ViewController : CLLocationManagerDelegate {
+    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+        if status == .AuthorizedWhenInUse {
+            locationManager.requestLocation()
+        }
+    }
+    
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        var locValue:CLLocationCoordinate2D = manager.location!.coordinate
+        print("locations = \(locValue.latitude) \(locValue.longitude)")
+        latitude = String(locValue.latitude)
+        longitude = String(locValue.longitude)
+        
+        LocationData.latitude = latitude
+        LocationData.longitude = longitude
+    }
+    
+    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+        print("error:: \(error)")
+    }
+}
+
 

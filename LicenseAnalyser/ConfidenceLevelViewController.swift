@@ -57,14 +57,7 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
 //        progressIndicatorView.frame = bounds
 //        progressIndicatorView.autoresizingMask = .FlexibleWidth | .FlexibleHeight
 //    }
-    let locationManager = CLLocationManager()
-    
-    func locationManagerInit() {
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.requestLocation()
-    }
+
 
     func newAngle() -> Double {
         return Double(360 * (currentCount / maxCount))
@@ -80,14 +73,11 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
         if (isPhotoSelected == false) {
             launchCamera()
         }
+
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        locationManagerInit()
-
-        locationManagerInit()
 
         if currentCount != maxCount {
             currentCount += 1
@@ -180,7 +170,6 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
     func scanningViewController(scanningViewController: UIViewController?, didOutputResults results: [PPRecognizerResult]) {
         isPhotoSelected = true
         
-        
         scanningViewController?.dismissViewControllerAnimated(false, completion: nil)
         
         let scanConroller : PPScanningViewController = scanningViewController as! PPScanningViewController
@@ -235,10 +224,6 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
                  
                  DateOfBirth = DateOfBirth.stringByReplacingOccurrencesOfString(year, withString: "")
                  DateOfBirth = year + DateOfBirth
-                 
-
-                    
-
                  
                  let streetName = usdlResult.getField(kPPAddressStreet)
                  let city = usdlResult.getField(kPPAddressCity)
@@ -438,9 +423,12 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
                     let jsonResult: NSObject! = try NSJSONSerialization.JSONObjectWithData(data!, options:NSJSONReadingOptions.MutableContainers) as? NSObject
                     if (jsonResult != nil) {
                         let preScore = jsonResult.valueForKey("data")
-                        self.condifenceScore = Double((preScore?.valueForKey("confidence"))! as! NSNumber)
-                        self.fraudScore = Double((preScore?.valueForKey("fraudscore"))! as! NSNumber)
-                        self.authScore = Double((preScore?.valueForKey("authscore"))! as! NSNumber)
+                        let error = jsonResult.valueForKey("status") as! String
+                        if (error != "Error") {
+                            self.condifenceScore = Double((preScore?.valueForKey("confidence"))! as! NSNumber)
+                            self.fraudScore = Double((preScore?.valueForKey("fraudscore"))! as! NSNumber)
+                            self.authScore = Double((preScore?.valueForKey("authscore"))! as! NSNumber)
+                        }
                     } else {
                         // couldn't load JSON, look at error
                         print("no results found")
@@ -459,13 +447,13 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
     func AddressVerify(personToVerify : UserLicense) {
         print("address verify called")
         var url : String = "http://geocoder.ca/?stno="
-            + ""
+            + "120"
             + "&adresst="
-            + personToVerify.streetName
+            + "Bloor St"//personToVerify.streetName
             + "&city="
-            + personToVerify.city
+            + "Toronto"//personToVerify.city
             + "&prov="
-            + personToVerify.ProvinceCode
+            + "ON"//personToVerify.ProvinceCode
             + "&postal="
             + "&id="
             + "&geoit=XML"
@@ -478,7 +466,7 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
             var error: AutoreleasingUnsafeMutablePointer<NSError?> = nil
             do {
                 print("address verify finished")
-                self.GeoLocationVerifiy(personToVerify)
+                self.GeoLocationVerify(personToVerify)
                 if (data != nil) {
                     var strData = NSString(data: data!, encoding: NSUTF8StringEncoding)
                     
@@ -494,11 +482,11 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
         })
     }
     
-    func GeoLocationVerifiy(personToVerify : UserLicense) {
+    func GeoLocationVerify(personToVerify : UserLicense) {
         var url : String = "http://geocoder.ca/?latt="
-            + latitude
+            + LocationData.latitude
             + "&longt="
-            + longitude
+            + LocationData.longitude
             + "&reverse=1"
             + "&geoit=XML"
         
@@ -528,7 +516,6 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
     
     func finished() {
         calculateScores()
-        self.performSegueWithIdentifier("loading", sender: self)
         //self.dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -568,27 +555,11 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
         GlobalScore.enhancedScore = self.enhancedScore
         GlobalScore.socialScore = self.socialScore
         
+        self.performSegueWithIdentifier("loading", sender: self)
+        
     }
     // MARK : Geolocation delegates
     
 }
 
-extension ConfidenceLevelViewController : CLLocationManagerDelegate {
-    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-        if status == .AuthorizedWhenInUse {
-            locationManager.requestLocation()
-        }
-    }
-    
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        
-        var locValue:CLLocationCoordinate2D = manager.location!.coordinate
-        print("locations = \(locValue.latitude) \(locValue.longitude)")
-        latitude = String(locValue.latitude)
-        longitude = String(locValue.longitude)
-    }
-    
-    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
-        print("error:: \(error)")
-    }
-}
+

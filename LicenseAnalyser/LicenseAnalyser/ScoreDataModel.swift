@@ -14,3 +14,8 @@ struct GlobalScore {
     static var enhancedScore = 0.0
     static var coreScore = 0.0
 }
+
+struct LocationData {
+    static var longitude = ""
+    static var latitude = ""
+}
