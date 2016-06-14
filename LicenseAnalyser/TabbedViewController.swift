@@ -10,6 +10,7 @@ import UIKit
 
 class TabbedViewController: UIViewController {
     
+    @IBOutlet weak var aggregateScore: UILabel!
 
     @IBOutlet weak var social: UILabel!
     @IBOutlet weak var thirdParty: UILabel!
