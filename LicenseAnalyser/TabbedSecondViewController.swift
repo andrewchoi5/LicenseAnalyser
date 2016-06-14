@@ -8,22 +8,20 @@
 
 import UIKit
 
-class TabbedSecondViewController: UIViewController {
+class TabbedSecondViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    
-    @IBOutlet weak var expires: UILabel!
-    @IBOutlet weak var issued: UILabel!
-    @IBOutlet weak var license: UILabel!
-    @IBOutlet weak var address: UILabel!
-    @IBOutlet weak var name: UILabel!
     var pageIndex: Int = 1
 
+    
+    @IBOutlet weak var table: UITableView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print("2ndview")
 
         // Do any additional setup after loading the view.
+        self.table.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,5 +39,19 @@ class TabbedSecondViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 0
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        return UITableViewCell()
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+    }
 
 }

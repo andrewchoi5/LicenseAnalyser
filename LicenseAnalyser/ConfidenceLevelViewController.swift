@@ -489,6 +489,7 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
                 if (data != nil) {
                     var strData = NSString(data: data!, encoding: NSUTF8StringEncoding)
                     
+                    // if postal code matches
                     self.isPostalCodeValid = true
                 }
                 // enhanced - 100 or 0 from postal code
