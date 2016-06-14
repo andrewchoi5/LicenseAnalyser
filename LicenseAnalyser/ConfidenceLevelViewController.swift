@@ -50,6 +50,10 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
     var currentCount = 70
     var maxCount = 100
     
+    let provinces = ["AB", "BC", "MB", "NB", "NL", "NT", "NS", "NU", "ON", "PE", "QC", "SK", "YT"]
+    var geoLocationResult: String = String()
+    var geoScore: Double = Double()
+    
     @IBOutlet weak var circularProgressView: KDCircularProgress!
     
     
@@ -591,7 +595,16 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
     
     func calculateScores() {
         // Core Score out of 50
-        coreScore = localValidationScore
+        
+        if (geoLocationResult == "ON") {
+            geoScore = 15
+        } else if (provinces.contains(geoLocationResult)) {
+            geoScore = 5
+        } else {
+            geoScore = 0
+        }
+        
+        coreScore = localValidationScore + geoScore
         
         // Enhanced Score out of 100
         if (isPostalCodeValid) {
