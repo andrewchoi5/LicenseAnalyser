@@ -15,6 +15,7 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
 
     var isFinished = false
 
+    var firstVisit = true
     
     var latitude = String()
     var longitude = String()
@@ -177,20 +178,19 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
         isPhotoSelected = true
         
         scanningViewController?.dismissViewControllerAnimated(false, completion: {
-            //while loop for is finished == false
-//            while (self.isFinished == false) {
-            self.circularProgressView.animateFromAngle(0, toAngle: 1900, duration: 32) { completed in
+
+            self.circularProgressView.animateFromAngle(0, toAngle: 1920, duration: 10) { completed in
                 if completed {
                     print("animation stopped, completed")
+                    if (self.isFinished == true) {
+                        self.performSegueWithIdentifier("loading", sender: self)
                     }
+                } else {
+                    print("animation stopped, was interrupted")
                 }
-            })
 
-        
-
-//            }
-//            self.performSegueWithIdentifier("loading", sender: self)
-        
+            }
+        })
 
         
  
@@ -219,13 +219,6 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
                 let usdlResult : PPUsdlRecognizerResult = result as! PPUsdlRecognizerResult
                 title="USDL"
                 message=usdlResult.description
-                print("RESULTS")
-                print(usdlResult.getField(kPPCustomerIdNumber))
-                print(usdlResult.getField(kPPDateOfBirth))
-                print(usdlResult.getField(kPPAddressJurisdictionCode))
-                print(usdlResult.getField(kPPJurisdictionVehicleClass))
-                print(usdlResult.getField(kPPSex))
-            
                 
                 var firstName = usdlResult.getField(kPPCustomerFirstName)
                 var lastName = usdlResult.getField(kPPCustomerFamilyName)
@@ -274,17 +267,26 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
                 User.fullAddress = fullName
                 User.emailAddress = emailAddress
                 User.city = city
-                
-                /*UserFields["First name"] = firstName
-                UserFields["Last name"] = lastName
-                UserFields["License No."] = usdlResult.getField(kPPCustomerIdNumber)
-                UserFields["Province"] = province
-                UserFields["Address"] = fullAddress
-                UserFields["Email"] = emailAddress
-                UserFields["City"] = city*/
+                User.PostalCode = usdlResult.getField(kPPAddressPostalCode)
                 
                 let test = usdlResult.getAllStringElements()
                 UserFields = usdlResult.getAllStringElements()
+                
+                UserFields.removeValueForKey("uncertain")
+                UserFields.removeValueForKey("pdf417")
+                UserFields.removeValueForKey("Inventory control number")
+                
+                let genderFormat = UserFields["Sex"]
+                UserFields.removeValueForKey("Sex")
+                
+                
+                if (genderFormat as! String == "1") {
+                    UserFields["Sex"] = "M"
+                }
+                else if (genderFormat as! String == "2") {
+                    UserFields["Sex"] = "F"
+                }
+                
                 
                 validate(person)
             }
@@ -294,6 +296,39 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
     func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
         self.dismissViewControllerAnimated(true, completion: nil)
         
+    }
+    
+    public func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
+        currentElementName = elementName
+    }
+    
+    public func parser(parser: NSXMLParser, foundCharacters string: String) {
+        if (string == "ResultArgument  Name=\"Status\" Value=\"Valid\" /") {
+            // LICENSE IS VALID
+            print("SUCCESS")
+            isVerXValid = true
+        }
+        else if (string == "ResultArgument  Name=\"Status\" Value=\"Not Found\" /") {
+            isVerXValid = false
+        }
+        
+        if (currentElementName == "prov" && firstVisit == true) {
+            geoLocationResult = string
+            firstVisit = false
+        }
+        
+        if (currentElementName == "postal" && string != "\n") {
+            let postalCode = string
+            let userPostalCode = User.PostalCode.stringByReplacingOccurrencesOfString(" ", withString: "")
+            
+            let postalCodeFirstThree = postalCode.substringWithRange(Range<String.Index>(start: postalCode.startIndex, end: postalCode.startIndex.advancedBy(2)))
+            
+            let userPostalCodeFirstThree =  userPostalCode.substringWithRange(Range<String.Index>(start: userPostalCode.startIndex, end: userPostalCode.startIndex.advancedBy(2)))
+            
+            if (postalCodeFirstThree == userPostalCodeFirstThree) {
+                isPostalCodeValid = true
+            }
+        }
     }
     
     func validate(personToVerify : UserLicense) {
@@ -383,27 +418,88 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
         
         dataTask.resume()*/
         
-        self.LocalValidation(LicenseToVerify)
-
-        
-    }
-    
-    public func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
-        currentElementName = elementName
-    }
-    
-    public func parser(parser: NSXMLParser, foundCharacters string: String) {
-        if (string == "ResultArgument  Name=\"Status\" Value=\"Valid\" /") {
-            // LICENSE IS VALID
-            print("SUCCESS")
-            isVerXValid = true
-        }
-        else if (string == "ResultArgument  Name=\"Status\" Value=\"Not Found\" /") {
-            isVerXValid = false
-        }
+        self.GeoLocationVerify(LicenseToVerify)
     }
     
     // MARK - Validation
+    func GeoLocationVerify(personToVerify : UserLicense) {
+        var url : String = "http://geocoder.ca/?latt="
+            + LocationData.latitude
+            + "&longt="
+            + LocationData.longitude
+            + "&reverse=1"
+            + "&geoit=XML"
+        
+        var request : NSMutableURLRequest = NSMutableURLRequest()
+        request.URL = NSURL(string: url)
+        request.HTTPMethod = "GET"
+        
+        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue(), completionHandler:{ (response:NSURLResponse?, data: NSData?, error: NSError?) -> Void in
+            var error: AutoreleasingUnsafeMutablePointer<NSError?> = nil
+            do {
+                self.AddressVerify(personToVerify)
+                if (data != nil) {
+                    var strData = NSString(data: data!, encoding: NSUTF8StringEncoding)
+                    
+                    let xmlParser = NSXMLParser(data: data!)
+                    xmlParser.delegate = self
+                    xmlParser.parse()
+                    xmlParser.shouldResolveExternalEntities = true
+                }
+                // enhanced - 100 or 0 from postal code
+                // gov - valid or not 100 or 0
+                // social - 10 == 25, 0 == 0
+            }
+            catch {
+                print(error)
+            }
+        })
+    }
+    
+    func AddressVerify(personToVerify : UserLicense) {
+        print("address verify called")
+        
+        let streetAddress = personToVerify.streetName.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
+        
+        let city = personToVerify.city.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
+        
+        
+        var url : String = "http://geocoder.ca/?adresst="
+            + streetAddress
+            + "&stno="
+            + "&city="
+            + city
+            + "&prov="
+            + personToVerify.ProvinceCode
+            + "&postal=&id=&geoit=XML"
+        
+        var request : NSMutableURLRequest = NSMutableURLRequest()
+        request.URL = NSURL(string: url)
+        request.HTTPMethod = "GET"
+        
+        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue(), completionHandler:{ (response:NSURLResponse?, data: NSData?, error: NSError?) -> Void in
+            var error: AutoreleasingUnsafeMutablePointer<NSError?> = nil
+            do {
+                print("address verify finished")
+                self.LocalValidation(personToVerify)
+                if (data != nil) {
+                    var strData = NSString(data: data!, encoding: NSUTF8StringEncoding)
+                    
+                    let xmlParser = NSXMLParser(data: data!)
+                    xmlParser.delegate = self
+                    xmlParser.parse()
+                    xmlParser.shouldResolveExternalEntities = true
+                }
+                // enhanced - 100 or 0 from postal code
+                // gov - valid or not 100 or 0
+                // social - 10 == 25, 0 == 0
+            }
+            catch {
+                print(error)
+            }
+        })
+    }
+    
     func LocalValidation(LicenseToValidate: UserLicense) {
         print("local validation called")
         
@@ -481,7 +577,7 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
         SocialValidation(LicenseToValidate)
     }
     
-    // MARK Social Validation
+    // Social Validation
     func SocialValidation(personToVerify : UserLicense) {
         print("called social validation")
         
@@ -499,7 +595,7 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue(), completionHandler:{ (response:NSURLResponse?, data: NSData?, error: NSError?) -> Void in
             var error: AutoreleasingUnsafeMutablePointer<NSError?> = nil
             do {
-                self.AddressVerify(personToVerify)
+
                 
                 if (data != nil) {
                     let jsonResult: NSObject! = try NSJSONSerialization.JSONObjectWithData(data!, options:NSJSONReadingOptions.MutableContainers) as? NSObject
@@ -522,83 +618,16 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
                 else {
                     print("data is nil")
                 }
-            }
-            catch {
-                print(error)
-            }
-        })
-    }
-    
-    func AddressVerify(personToVerify : UserLicense) {
-        print("address verify called")
-        var url : String = "http://geocoder.ca/?adresst="
-            + "Bloor"
-            + "&stno="
-            + "120"//personToVerify.streetName
-            + "&city="
-            + "Toronto"//personToVerify.city
-            + "&prov="
-            + "ON"//personToVerify.ProvinceCode
-            + "&postal="
-            + "&id="
-            + "&geoit=XML"
-        
-        var request : NSMutableURLRequest = NSMutableURLRequest()
-        request.URL = NSURL(string: url)
-        request.HTTPMethod = "GET"
-        
-        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue(), completionHandler:{ (response:NSURLResponse?, data: NSData?, error: NSError?) -> Void in
-            var error: AutoreleasingUnsafeMutablePointer<NSError?> = nil
-            do {
-                print("address verify finished")
-                self.GeoLocationVerify(personToVerify)
-                if (data != nil) {
-                    var strData = NSString(data: data!, encoding: NSUTF8StringEncoding)
-                    
-                    // if postal code matches
-                    self.isPostalCodeValid = true
-                }
-                // enhanced - 100 or 0 from postal code
-                // gov - valid or not 100 or 0
-                // social - 10 == 25, 0 == 0
-            }
-            catch {
-                print(error)
-            }
-        })
-    }
-    
-    func GeoLocationVerify(personToVerify : UserLicense) {
-        var url : String = "http://geocoder.ca/?latt="
-            + LocationData.latitude
-            + "&longt="
-            + LocationData.longitude
-            + "&reverse=1"
-            + "&geoit=XML"
-        
-        var request : NSMutableURLRequest = NSMutableURLRequest()
-        request.URL = NSURL(string: url)
-        request.HTTPMethod = "GET"
-        
-        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue(), completionHandler:{ (response:NSURLResponse?, data: NSData?, error: NSError?) -> Void in
-            var error: AutoreleasingUnsafeMutablePointer<NSError?> = nil
-            do {
+                // API CALLS ARE DONE
                 self.finished()
-                if (data != nil) {
-                    var strData = NSString(data: data!, encoding: NSUTF8StringEncoding)
-                    
-                    // See if postal code matches from license
-                    self.isGeoLocationValid = true
-                }
-                // enhanced - 100 or 0 from postal code
-                // gov - valid or not 100 or 0
-                // social - 10 == 25, 0 == 0
             }
             catch {
                 print(error)
             }
         })
+        
     }
+
     
     func finished() {
         calculateScores()
