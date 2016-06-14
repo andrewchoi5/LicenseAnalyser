@@ -24,10 +24,11 @@ class TabbedViewController: UIViewController {
     var basicScore = Double()
 
     //@IBOutlet weak var progress: KDCircularProgress!
+    @IBOutlet weak var aggregateScore: UILabel!
     @IBOutlet weak var progress: KDCircularProgress!
     
     @IBAction func tapped(sender: AnyObject) {
-        progress.animateFromAngle(0, toAngle: 180, duration: 2) { completed in
+        progress.animateFromAngle(-90, toAngle: 360, duration: 2) { completed in
             if completed {
                 print("animation stopped, completed")
             } else {
@@ -48,6 +49,8 @@ class TabbedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("here on tab")
+        progress.progressThickness = 0.25
+        progress.trackThickness = 0.25
         
         view.backgroundColor = UIColor(white: 0.22, alpha: 1)
         

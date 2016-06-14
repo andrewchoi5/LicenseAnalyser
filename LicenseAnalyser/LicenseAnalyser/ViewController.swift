@@ -101,7 +101,7 @@ class ViewController: UIViewController, UITextFieldDelegate, NSURLConnectionDele
         emailLabel.layer.masksToBounds = true
         
 //        infoLabel.textAlignment = NSTextAlignment.Left
-//        infoLabel.text = "Please confirm your approval access to your camera to take picture of your drivers license and yourself for identify purpose."
+        infoLabel.text = "Please confirm your approval for access to your camera to take picture of your drivers license and yourself for identification purposes."
         infoLabel.font = UIFont(name: "Lato-Regular", size: 15)
 //        infoLabel.backgroundColor = UIColor.whiteColor()
 //        self.view.addSubview(infoLabel)
