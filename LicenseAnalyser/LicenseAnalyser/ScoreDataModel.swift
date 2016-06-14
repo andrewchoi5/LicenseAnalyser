@@ -28,6 +28,7 @@ struct User {
     static var fullAddress = ""
     static var emailAddress = ""
     static var city = ""
+    static var PostalCode = ""
 }
 
 var UserFields : [NSObject : AnyObject] = [:]
