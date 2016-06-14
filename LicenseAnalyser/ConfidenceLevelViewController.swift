@@ -79,6 +79,7 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        /*
         if currentCount != maxCount {
             currentCount += 1
             let newAngleValue = newAngle()
@@ -86,7 +87,7 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
             circularProgressView.animateToAngle(newAngleValue, duration: 0.5, completion: nil)
             
             
-        }
+        }*/
 
 //        circularProgressView.animateFromAngle(0, toAngle: 360, duration: 100) { completed in
 //            if completed {
@@ -246,7 +247,23 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
                  let city = usdlResult.getField(kPPAddressCity)
                 
                 let person = UserLicense(firstName: firstName, lastName: lastName, fullName: fullName, LicenseIdNumber: usdlResult.getField(kPPCustomerIdNumber), formattedLicense: licenseNo, DateOfBirth: DateOfBirth, ProvinceCode: province, VehicleClass: vehicleClass, expiryDate: expireDate, dateIssued: issueDate, fullAddress: fullName, emailAddress: emailAddress, streetName: streetName, city: city)
+            
                 
+                User.firstName = firstName
+                User.lastName = lastName
+                User.LicenseIdNumber = usdlResult.getField(kPPCustomerIdNumber)
+                User.ProvinceCode = province
+                User.fullAddress = fullName
+                User.emailAddress = emailAddress
+                User.city = city
+                
+                UserFields["First name"] = firstName
+                UserFields["Last name"] = lastName
+                UserFields["License No."] = usdlResult.getField(kPPCustomerIdNumber)
+                UserFields["Province"] = province
+                UserFields["Address"] = fullAddress
+                UserFields["Email"] = emailAddress
+                UserFields["City"] = city
                 
                  validate(person)
             }

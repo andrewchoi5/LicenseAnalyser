@@ -21,7 +21,10 @@ class TabbedSecondViewController: UIViewController, UITableViewDelegate, UITable
         print("2ndview")
 
         // Do any additional setup after loading the view.
-        self.table.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+       self.table.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+       self.table.dataSource = self
+       self.table.delegate = self
+       self.table.tableFooterView = UIView()
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,11 +46,17 @@ class TabbedSecondViewController: UIViewController, UITableViewDelegate, UITable
     
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return UserFields.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell:UITableViewCell = self.table.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
+        
+        cell.textLabel?.text = Array(UserFields.keys)[indexPath.row] + " : " + Array(UserFields.values)[indexPath.row]
+        cell.backgroundColor = UIColor.clearColor()
+        cell.textLabel?.textColor = UIColor.whiteColor()
+        
+        return cell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

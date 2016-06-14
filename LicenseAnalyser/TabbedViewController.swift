@@ -22,6 +22,9 @@ class TabbedViewController: UIViewController {
     var thirdPartyScore = Double()
     var enhancedScore = Double()
     var basicScore = Double()
+    
+    
+    @IBOutlet weak var aggregateScore: UILabel!
 
     //@IBOutlet weak var progress: KDCircularProgress!
     @IBOutlet weak var progress: KDCircularProgress!
