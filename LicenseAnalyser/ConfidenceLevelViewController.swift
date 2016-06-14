@@ -218,6 +218,7 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
                 print(usdlResult.getField(kPPAddressJurisdictionCode))
                 print(usdlResult.getField(kPPJurisdictionVehicleClass))
                 print(usdlResult.getField(kPPSex))
+            
                 
                 var firstName = usdlResult.getField(kPPCustomerFirstName)
                 var lastName = usdlResult.getField(kPPCustomerFamilyName)
@@ -267,19 +268,16 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
                 User.emailAddress = emailAddress
                 User.city = city
                 
-                UserFields["First name"] = firstName
+                /*UserFields["First name"] = firstName
                 UserFields["Last name"] = lastName
                 UserFields["License No."] = usdlResult.getField(kPPCustomerIdNumber)
                 UserFields["Province"] = province
                 UserFields["Address"] = fullAddress
                 UserFields["Email"] = emailAddress
-                UserFields["City"] = city
-
-
-
+                UserFields["City"] = city*/
                 
-
-                
+                let test = usdlResult.getAllStringElements()
+                UserFields = usdlResult.getAllStringElements()
                 
                 validate(person)
             }
@@ -349,7 +347,7 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
         theRequest.setValue("text/xml; charset=utf-8", forHTTPHeaderField: "Content-Type")
         theRequest.setValue(String(msgLength), forHTTPHeaderField: "Content-Length")
         
-        let loginString = NSString(format: "%@:%@", username, password)
+        let loginString = NSString(format: "%@:%@", prodUser, prodPassword)
         let loginData: NSData = loginString.dataUsingEncoding(NSUTF8StringEncoding)!
         let base64LoginString = loginData.base64EncodedStringWithOptions([])
         
@@ -359,7 +357,7 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
         theRequest.HTTPBody = soapMessage.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false) // or false
         
         let session = NSURLSession.sharedSession()
-        
+        /*
         let dataTask = session.dataTaskWithRequest(theRequest, completionHandler: {(data: NSData?, response: NSURLResponse?, error : NSError?) -> Void in
             if (data != nil) {
                 var strData = NSString(data: data!, encoding: NSUTF8StringEncoding)
@@ -375,7 +373,10 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
             self.LocalValidation(LicenseToVerify)
         })
         
-        dataTask.resume()
+        dataTask.resume()*/
+        
+        self.LocalValidation(LicenseToVerify)
+
         
     }
     
@@ -520,10 +521,10 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
     
     func AddressVerify(personToVerify : UserLicense) {
         print("address verify called")
-        var url : String = "http://geocoder.ca/?stno="
-            + "120"
-            + "&adresst="
-            + "Bloor St"//personToVerify.streetName
+        var url : String = "http://geocoder.ca/?adresst="
+            + "Bloor"
+            + "&stno="
+            + "120"//personToVerify.streetName
             + "&city="
             + "Toronto"//personToVerify.city
             + "&prov="

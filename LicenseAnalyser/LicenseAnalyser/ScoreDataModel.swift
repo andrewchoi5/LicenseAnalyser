@@ -30,4 +30,4 @@ struct User {
     static var city = ""
 }
 
-var UserFields : [String : String] = [:]
+var UserFields : [NSObject : AnyObject] = [:]

@@ -22,6 +22,11 @@ class TabbedSecondViewController: UIViewController, UITableViewDelegate, UITable
 
         // Do any additional setup after loading the view.
        self.table.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        
+       var nib = UINib(nibName: "InfoTableViewCell", bundle: nil)
+        
+       table.registerNib(nib, forCellReuseIdentifier: "InfoTableViewCell")
+        
        self.table.dataSource = self
        self.table.delegate = self
        self.table.tableFooterView = UIView()
@@ -50,9 +55,17 @@ class TabbedSecondViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell:UITableViewCell = self.table.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
+        let cell:InfoTableViewCell = self.table.dequeueReusableCellWithIdentifier("InfoTableViewCell") as! InfoTableViewCell
         
-        cell.textLabel?.text = Array(UserFields.keys)[indexPath.row] + " : " + Array(UserFields.values)[indexPath.row]
+        cell.separatorInset = UIEdgeInsetsMake(0, 0, cell.frame.size.width, 0)
+        if (cell.respondsToSelector("preservesSuperviewLayoutMargins")){
+            cell.layoutMargins = UIEdgeInsetsZero
+            cell.preservesSuperviewLayoutMargins = false
+        }
+        
+        cell.keyLabel.text = Array(UserFields.keys)[indexPath.row] as! String
+        cell.valueLabel.text = Array(UserFields.values)[indexPath.row] as! String
+        
         cell.backgroundColor = UIColor.clearColor()
         cell.textLabel?.textColor = UIColor.whiteColor()
         

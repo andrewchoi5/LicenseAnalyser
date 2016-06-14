@@ -248,6 +248,11 @@
                                 <rect key="frame" x="0.0" y="51" width="375" height="566"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Zxc-x5-BZc" id="9xx-bY-uwm"/>
+                                    <outlet property="delegate" destination="Zxc-x5-BZc" id="Aqu-uy-5eL"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -256,11 +261,15 @@
                             <constraint firstItem="bC6-K7-qOA" firstAttribute="centerY" secondItem="9va-EQ-6tz" secondAttribute="centerY" id="6yp-d5-GyD"/>
                             <constraint firstAttribute="trailing" secondItem="bC6-K7-qOA" secondAttribute="trailing" id="BCJ-Ng-lli"/>
                             <constraint firstItem="bC6-K7-qOA" firstAttribute="top" secondItem="uu3-vg-7UH" secondAttribute="top" id="BRo-ME-pvY"/>
+                            <constraint firstItem="9va-EQ-6tz" firstAttribute="bottom" secondItem="71A-ec-lKI" secondAttribute="top" constant="-43" id="BgG-Wx-u5m"/>
+                            <constraint firstItem="9va-EQ-6tz" firstAttribute="trailing" secondItem="bC6-K7-qOA" secondAttribute="trailing" id="E9q-sr-Y6Z"/>
                             <constraint firstItem="9va-EQ-6tz" firstAttribute="centerY" secondItem="bC6-K7-qOA" secondAttribute="centerY" id="EOU-Ru-QLm"/>
                             <constraint firstItem="9va-EQ-6tz" firstAttribute="leading" secondItem="bC6-K7-qOA" secondAttribute="leading" id="Eao-pn-Dw1"/>
                             <constraint firstAttribute="trailingMargin" secondItem="9va-EQ-6tz" secondAttribute="trailing" id="GQI-yS-cBv"/>
                             <constraint firstItem="9va-EQ-6tz" firstAttribute="top" secondItem="u1J-AG-7Uf" secondAttribute="bottom" constant="31" id="Min-we-2s4"/>
+                            <constraint firstItem="9va-EQ-6tz" firstAttribute="leading" secondItem="bC6-K7-qOA" secondAttribute="leading" id="MnP-kq-sBU"/>
                             <constraint firstItem="9va-EQ-6tz" firstAttribute="centerY" secondItem="uu3-vg-7UH" secondAttribute="centerY" id="aeM-fB-0kK"/>
+                            <constraint firstItem="9va-EQ-6tz" firstAttribute="top" secondItem="u1J-AG-7Uf" secondAttribute="bottom" constant="38" id="dL2-YK-QQY"/>
                             <constraint firstItem="9va-EQ-6tz" firstAttribute="top" secondItem="u1J-AG-7Uf" secondAttribute="bottom" constant="31" id="iFJ-Sc-2dv"/>
                             <constraint firstItem="bC6-K7-qOA" firstAttribute="leading" secondItem="uu3-vg-7UH" secondAttribute="leading" id="ljk-eO-93S"/>
                             <constraint firstItem="bC6-K7-qOA" firstAttribute="trailing" secondItem="9va-EQ-6tz" secondAttribute="trailing" id="ocJ-qB-BLD"/>
@@ -269,8 +278,13 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="6yp-d5-GyD"/>
+                                <exclude reference="ocJ-qB-BLD"/>
                                 <exclude reference="2wb-Jn-zF1"/>
+                                <exclude reference="EOU-Ru-QLm"/>
+                                <exclude reference="Eao-pn-Dw1"/>
                                 <exclude reference="GQI-yS-cBv"/>
+                                <exclude reference="Min-we-2s4"/>
                                 <exclude reference="aeM-fB-0kK"/>
                                 <exclude reference="iFJ-Sc-2dv"/>
                                 <exclude reference="tCr-dh-1k5"/>
