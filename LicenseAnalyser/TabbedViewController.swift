@@ -88,13 +88,14 @@ class TabbedViewController: UIViewController {
 //            }
 //        }
         
-        social.text = String(GlobalScore.socialScore)
-        thirdParty.text = String(GlobalScore.govtScore)
-        enhanced.text = String(GlobalScore.enhancedScore)
-        basic.text = String(GlobalScore.coreScore)
+        social.text = String(round(100.0 * GlobalScore.socialScore) / 100.0)
+        thirdParty.text = String(round(100.0 * GlobalScore.govtScore) / 100.0)
+        enhanced.text = String(round(100.0 * GlobalScore.enhancedScore) / 100.0)
+        basic.text = String(round(100.0 * GlobalScore.coreScore) / 100.0)
         
-        let aggregateScore = GlobalScore.coreScore + GlobalScore.enhancedScore + GlobalScore.govtScore + GlobalScore.socialScore
-        self.aggregateScore.text = String(Int(aggregateScore))
+        var aggregateScore = GlobalScore.coreScore + GlobalScore.enhancedScore + GlobalScore.govtScore + GlobalScore.socialScore
+        aggregateScore = round(100.0 * aggregateScore) / 100.0
+        self.aggregateScore.text = String(aggregateScore)
         
         // Do any additional setup after loading the view.
     }
