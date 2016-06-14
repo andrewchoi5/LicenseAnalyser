@@ -10,7 +10,7 @@ import UIKit
 import MicroBlink
 import MapKit
 
-class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSURLConnectionDelegate, NSXMLParserDelegate, PPScanDelegate {
+class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSURLConnectionDelegate, NSXMLParserDelegate, PPScanDelegate, CLLocationManagerDelegate {
     
     var latitude = String()
     var longitude = String()
@@ -48,15 +48,16 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
     var maxCount = 100
 
     @IBOutlet weak var circularProgressView: KDCircularProgress!
+
+
+    let locationManager = CLLocationManager()
     
-//    let progressIndicatorView = CircularLoaderView(frame: CGRectZero)
-//    
-//    required init?(coder aDecoder: NSCoder) {
-//        super.init(coder: aDecoder)
-//        addSubview(self.progressIndicatorView)
-//        progressIndicatorView.frame = bounds
-//        progressIndicatorView.autoresizingMask = .FlexibleWidth | .FlexibleHeight
-//    }
+    func locationManagerInit() {
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.requestLocation()
+    }
 
 
     func newAngle() -> Double {
@@ -106,8 +107,6 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
 //            
 //        }
  
-//        self.progressIndicatorView.frame = bounds
-//        self.progressIndicatorView.autoresizingMask = .FlexibleWidth | .FlexibleHeight
 
         // Do any additional setup after loading the view.
     }
@@ -441,12 +440,14 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
                     let jsonResult: NSObject! = try NSJSONSerialization.JSONObjectWithData(data!, options:NSJSONReadingOptions.MutableContainers) as? NSObject
                     if (jsonResult != nil) {
                         let preScore = jsonResult.valueForKey("data")
+
                         let error = jsonResult.valueForKey("status") as! String
                         if (error != "Error") {
                             self.condifenceScore = Double((preScore?.valueForKey("confidence"))! as! NSNumber)
                             self.fraudScore = Double((preScore?.valueForKey("fraudscore"))! as! NSNumber)
                             self.authScore = Double((preScore?.valueForKey("authscore"))! as! NSNumber)
                         }
+
                     } else {
                         // couldn't load JSON, look at error
                         print("no results found")

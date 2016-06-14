@@ -21,12 +21,15 @@ class TutorialPageViewController: UIPageViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print("ola amigo")
         dataSource = self
         delegate = self
-        
+        print("1")
         if let initialViewController = orderedViewControllers.first {
             scrollToViewController(initialViewController)
+            print("\ninscroll to view")
         }
+        print("2")
         
         tutorialDelegate?.tutorialPageViewController(self,
                                                      didUpdatePageCount: orderedViewControllers.count)
