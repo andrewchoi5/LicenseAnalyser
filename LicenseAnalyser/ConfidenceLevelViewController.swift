@@ -12,6 +12,7 @@ import MapKit
 
 class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSURLConnectionDelegate, NSXMLParserDelegate, PPScanDelegate, CLLocationManagerDelegate {
     
+    
     var latitude = String()
     var longitude = String()
     
@@ -81,36 +82,13 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        /*
-        if currentCount != maxCount {
-            currentCount += 1
-            let newAngleValue = newAngle()
-            
-            circularProgressView.animateToAngle(newAngleValue, duration: 0.5, completion: nil)
-            
-        }
+        circularProgressView.startAngle = -90
+        circularProgressView.clockwise = true
+        circularProgressView.gradientRotateSpeed = 2
+        circularProgressView.roundedCorners = false
         
-        //        circularProgressView.animateFromAngle(0, toAngle: 360, duration: 100) { completed in
-        //            if completed {
-        //                print("animation stopped, completed")
-        //                // do segue here not button
-        //            } else {
-        //                print("animation stopped, was interrupted")
-        //            }
-        //        }
-        //
-        //        if currentCount != maxCount {
-        //            currentCount += 1
-        //            let newAngleValue = newAngle()
-        //
-        //            circularProgressView.animateToAngle(newAngleValue, duration: 0.9, completion: nil)
-        //            print("yolo")
-        //
-        //
-        //        }
-        */
- 
-        // Do any additional setup after loading the view.
+
+
     }
     
     func launchCamera() {
@@ -192,6 +170,18 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
         scanningViewController?.dismissViewControllerAnimated(false, completion: nil)
         
         let scanConroller : PPScanningViewController = scanningViewController as! PPScanningViewController
+        print("camera dismissed")
+        
+        circularProgressView.animateFromAngle(0, toAngle: 360, duration: 20) { completed in
+            if completed {
+                print("animation stopped, completed")
+            } else {
+                print("animation stopped, was interrupted")
+            }
+        }
+        
+        
+        
         
         // Here you process scanning results. Scanning results are given in the array of PPRecognizerResult objects.
         

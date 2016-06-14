@@ -14,6 +14,10 @@ class ViewController: UIViewController, UITextFieldDelegate, NSURLConnectionDele
 
     @IBOutlet weak var emailLabel: UITextField!
     
+//    override func  preferredStatusBarStyle()-> UIStatusBarStyle {
+//        return UIStatusBarStyle.LightContent
+//    }
+    
     var latitude = String()
     var longitude = String()
     
