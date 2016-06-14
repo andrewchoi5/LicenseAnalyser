@@ -271,6 +271,22 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
                 let test = usdlResult.getAllStringElements()
                 UserFields = usdlResult.getAllStringElements()
                 
+                UserFields.removeValueForKey("uncertain")
+                UserFields.removeValueForKey("pdf417")
+                UserFields.removeValueForKey("Inventory control number")
+                
+                let genderFormat = UserFields["Sex"]
+                UserFields.removeValueForKey("Sex")
+                
+                
+                if (genderFormat as! String == "1") {
+                    UserFields["Sex"] = "M"
+                }
+                else if (genderFormat as! String == "2") {
+                    UserFields["Sex"] = "F"
+                }
+                
+                
                 validate(person)
             }
         }
