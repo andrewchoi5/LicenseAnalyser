@@ -12,7 +12,9 @@ import MapKit
 
 class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSURLConnectionDelegate, NSXMLParserDelegate, PPScanDelegate, CLLocationManagerDelegate {
 
+
     var isFinished = false
+
     var firstVisit = true
     
     var latitude = String()
@@ -73,9 +75,6 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
         return Double(360 * (currentCount / maxCount))
     }
     
-    @IBAction func button1(sender: AnyObject) {
-        self.performSegueWithIdentifier("loading", sender: self)
-    }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(false)
@@ -86,13 +85,7 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
         
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        circularProgressView.startAngle = -90
-        circularProgressView.clockwise = true
-        circularProgressView.gradientRotateSpeed = 2
-        circularProgressView.roundedCorners = false
-    }
+
     
     func launchCamera() {
         let error: NSErrorPointer = nil
@@ -110,6 +103,16 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
         
         /** You can use other presentation methods as well */
         self.presentViewController(scanningViewController, animated: true, completion: nil)
+    }
+    
+    override func viewDidLoad() {
+        launchCamera()
+        super.viewDidLoad()
+        circularProgressView.startAngle = -90
+        circularProgressView.clockwise = true
+        circularProgressView.gradientRotateSpeed = 2
+        circularProgressView.roundedCorners = false
+        
     }
     
     func finishedLoadingValue() {
@@ -165,7 +168,11 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
     func scanningViewControllerDidClose(scanningViewController: UIViewController) {
         // As scanning view controller is presented full screen and modally, dismiss it
         self.dismissViewControllerAnimated(true, completion: nil)
+        
     }
+    
+    
+    
     
     func scanningViewController(scanningViewController: UIViewController?, didOutputResults results: [PPRecognizerResult]) {
         isPhotoSelected = true
@@ -183,8 +190,12 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
             }
         })
         
+ 
+        
         let scanConroller : PPScanningViewController = scanningViewController as! PPScanningViewController
         print("camera dismissed")
+       
+        
         
         // Here you process scanning results. Scanning results are given in the array of PPRecognizerResult objects.
         
@@ -281,6 +292,7 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
     
     func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
         self.dismissViewControllerAnimated(true, completion: nil)
+        
     }
     
     public func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
@@ -617,6 +629,10 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
     func finished() {
         calculateScores()
         isFinished = true
+        self.performSegueWithIdentifier("loading", sender: self)
+        
+        
+        
         //self.dismissViewControllerAnimated(true, completion: nil)
     }
     

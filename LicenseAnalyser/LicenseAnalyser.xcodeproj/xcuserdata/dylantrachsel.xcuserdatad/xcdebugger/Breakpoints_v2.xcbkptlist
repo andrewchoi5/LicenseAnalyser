@@ -26,12 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ConfidenceLevelViewController.swift"
-            timestampString = "487635437.306672"
+            timestampString = "487638893.727395"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "312"
-            endingLineNumber = "312"
-            landmarkName = "parser(_:foundCharacters:)"
+            startingLineNumber = "283"
+            endingLineNumber = "283"
+            landmarkName = "scanningViewController(_:didOutputResults:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

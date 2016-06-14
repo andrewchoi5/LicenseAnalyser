@@ -14,6 +14,7 @@ class ViewController: UIViewController, UITextFieldDelegate, NSURLConnectionDele
 
     @IBOutlet weak var emailLabel: UITextField!
     
+    @IBOutlet weak var invalidEmailLabel: UILabel!
 //    override func  preferredStatusBarStyle()-> UIStatusBarStyle {
 //        return UIStatusBarStyle.LightContent
 //    }
@@ -84,15 +85,27 @@ class ViewController: UIViewController, UITextFieldDelegate, NSURLConnectionDele
         imagePicker.dismissViewControllerAnimated(true, completion: nil)
         frontPic.image = info[UIImagePickerControllerOriginalImage] as? UIImage
     }
+    func enableCheckbox () {
+        if emailLabel.text == ""{
+            checkbox.enabled = false
+        }
+        else {
+            checkbox.enabled = true
+        }
+        
+    }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        invalidEmailLabel.hidden = true
 
         locationManagerInit()
 
         emailLabel.returnKeyType = UIReturnKeyType.Done
         emailLabel.textColor = UIColor.whiteColor()
+        emailLabel.attributedPlaceholder = NSAttributedString(string:"Email", attributes:[NSForegroundColorAttributeName: UIColor.grayColor()])
+    
 
         self.continueButton.enabled = false
         emailLabel.layer.borderColor = UIColor(red:33/255.0, green:180/255.0, blue:208/255.0, alpha: 1.0).CGColor
@@ -103,7 +116,13 @@ class ViewController: UIViewController, UITextFieldDelegate, NSURLConnectionDele
 
         infoLabel.text = "Please confirm your approval for access to your camera to take picture of your drivers license and yourself for identification purposes."
         infoLabel.font = UIFont(name: "Lato-Regular", size: 15)
-
+        
+        if emailLabel.text == ""{
+            checkbox.enabled = false
+        }
+        else {
+            checkbox.enabled = true
+        }
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         view.addGestureRecognizer(tap)
@@ -117,12 +136,33 @@ class ViewController: UIViewController, UITextFieldDelegate, NSURLConnectionDele
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         self.view.endEditing(true)
+        enableCheckbox()
+        
+        if emailLabel.text != nil {
+            if !validateEmail(emailLabel.text!) {
+                invalidEmailLabel.hidden = false
+                
+            }
+            else {
+                invalidEmailLabel.hidden = true
+            }
+        }
         return false
     }
     
     func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
+        enableCheckbox()
+        if emailLabel.text != nil {
+            if !validateEmail(emailLabel.text!) {
+                invalidEmailLabel.hidden = false
+                
+            }
+            else {
+                invalidEmailLabel.hidden = true
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
