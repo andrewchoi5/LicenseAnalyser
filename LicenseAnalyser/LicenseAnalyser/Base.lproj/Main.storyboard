@@ -307,10 +307,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="confidence-14" translatesAutoresizingMaskIntoConstraints="NO" id="goS-gV-CkH">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="confidence-14" translatesAutoresizingMaskIntoConstraints="NO" id="goS-gV-CkH">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gze-Hi-sid">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gze-Hi-sid">
                                 <rect key="frame" x="0.0" y="260" width="375" height="66"/>
                                 <state key="normal" image="continue-dark"/>
                                 <connections>
@@ -318,10 +318,10 @@
                                     <action selector="scanFront:" destination="vbS-ok-ek8" eventType="touchUpInside" id="5N6-jV-cv1"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="images" translatesAutoresizingMaskIntoConstraints="NO" id="pGu-hu-XhG">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="images" translatesAutoresizingMaskIntoConstraints="NO" id="pGu-hu-XhG">
                                 <rect key="frame" x="67" y="87" width="240" height="128"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KBQ-Qo-Vgq">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KBQ-Qo-Vgq">
                                 <rect key="frame" x="0.0" y="381" width="375" height="66"/>
                                 <state key="normal" image="continue-dark"/>
                                 <connections>
@@ -331,6 +331,24 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="KBQ-Qo-Vgq" firstAttribute="leading" secondItem="KKb-vK-rlJ" secondAttribute="leadingMargin" constant="-20" id="0J3-3f-NkL"/>
+                            <constraint firstItem="Gze-Hi-sid" firstAttribute="leading" secondItem="KKb-vK-rlJ" secondAttribute="leadingMargin" constant="-20" id="9C0-A4-4LW"/>
+                            <constraint firstItem="XO4-7b-6Q4" firstAttribute="top" secondItem="KBQ-Qo-Vgq" secondAttribute="bottom" constant="220" id="C6b-W8-MZz"/>
+                            <constraint firstItem="Gze-Hi-sid" firstAttribute="top" secondItem="pGu-hu-XhG" secondAttribute="bottom" constant="45" id="CMg-OP-pDy"/>
+                            <constraint firstItem="pGu-hu-XhG" firstAttribute="top" secondItem="gqU-dh-UPa" secondAttribute="bottom" constant="67" id="G12-Ow-J6d"/>
+                            <constraint firstItem="pGu-hu-XhG" firstAttribute="leading" secondItem="KKb-vK-rlJ" secondAttribute="leadingMargin" constant="47" id="HUm-lU-yho"/>
+                            <constraint firstItem="XO4-7b-6Q4" firstAttribute="top" secondItem="goS-gV-CkH" secondAttribute="bottom" id="IX7-c0-OEL"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Gze-Hi-sid" secondAttribute="trailing" constant="-20" id="Mub-4C-tEe"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="goS-gV-CkH" secondAttribute="trailing" constant="-20" id="Oeq-fq-qyv"/>
+                            <constraint firstItem="KBQ-Qo-Vgq" firstAttribute="top" secondItem="Gze-Hi-sid" secondAttribute="bottom" constant="55" id="QKQ-q5-gsb"/>
+                            <constraint firstItem="KBQ-Qo-Vgq" firstAttribute="top" secondItem="Gze-Hi-sid" secondAttribute="bottom" constant="55" id="VV3-ia-wWc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="pGu-hu-XhG" secondAttribute="trailing" constant="48" id="WN6-JM-Zxp"/>
+                            <constraint firstItem="goS-gV-CkH" firstAttribute="leading" secondItem="KKb-vK-rlJ" secondAttribute="leadingMargin" constant="-20" id="ii7-zj-ecv"/>
+                            <constraint firstItem="goS-gV-CkH" firstAttribute="top" secondItem="KKb-vK-rlJ" secondAttribute="topMargin" id="nvA-Bs-aLc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="KBQ-Qo-Vgq" secondAttribute="trailing" constant="-20" id="uca-jR-DFe"/>
+                            <constraint firstItem="Gze-Hi-sid" firstAttribute="top" secondItem="pGu-hu-XhG" secondAttribute="bottom" constant="45" id="zyx-0j-ld4"/>
+                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
