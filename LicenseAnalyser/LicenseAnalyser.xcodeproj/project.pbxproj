@@ -17,10 +17,10 @@
 		1B7E901E1D0F94340018D7F4 /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1B7E90141D0F94340018D7F4 /* Lato-Light.ttf */; };
 		1B7E901F1D0F94340018D7F4 /* Lato-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1B7E90151D0F94340018D7F4 /* Lato-LightItalic.ttf */; };
 		1B7E90201D0F94340018D7F4 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1B7E90161D0F94340018D7F4 /* Lato-Regular.ttf */; };
+		1B7E90221D118F0C0018D7F4 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7E90211D118F0C0018D7F4 /* ScanViewController.swift */; };
 		861B954E1D0F0727008E756D /* UserLicense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861B954D1D0F0727008E756D /* UserLicense.swift */; };
 		861B95591D0F0818008E756D /* ConfidenceLevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861B95531D0F0818008E756D /* ConfidenceLevelViewController.swift */; };
 		861B955A1D0F0818008E756D /* FrontBackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861B95541D0F0818008E756D /* FrontBackViewController.swift */; };
-		861B955B1D0F0818008E756D /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861B95551D0F0818008E756D /* PageViewController.swift */; };
 		861B955C1D0F0818008E756D /* TabbedSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861B95561D0F0818008E756D /* TabbedSecondViewController.swift */; };
 		861B955D1D0F0818008E756D /* TabbedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861B95571D0F0818008E756D /* TabbedViewController.swift */; };
 		861B955E1D0F0818008E756D /* TutorialPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861B95581D0F0818008E756D /* TutorialPageViewController.swift */; };
@@ -68,10 +68,10 @@
 		1B7E90141D0F94340018D7F4 /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
 		1B7E90151D0F94340018D7F4 /* Lato-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-LightItalic.ttf"; sourceTree = "<group>"; };
 		1B7E90161D0F94340018D7F4 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
+		1B7E90211D118F0C0018D7F4 /* ScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
 		861B954D1D0F0727008E756D /* UserLicense.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLicense.swift; sourceTree = "<group>"; };
 		861B95531D0F0818008E756D /* ConfidenceLevelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfidenceLevelViewController.swift; sourceTree = SOURCE_ROOT; };
 		861B95541D0F0818008E756D /* FrontBackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrontBackViewController.swift; sourceTree = SOURCE_ROOT; };
-		861B95551D0F0818008E756D /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = SOURCE_ROOT; };
 		861B95561D0F0818008E756D /* TabbedSecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabbedSecondViewController.swift; sourceTree = SOURCE_ROOT; };
 		861B95571D0F0818008E756D /* TabbedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabbedViewController.swift; sourceTree = SOURCE_ROOT; };
 		861B95581D0F0818008E756D /* TutorialPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialPageViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -161,10 +161,10 @@
 				865F522F1D0718400069A7FE /* ViewController.swift */,
 				861B95531D0F0818008E756D /* ConfidenceLevelViewController.swift */,
 				861B95541D0F0818008E756D /* FrontBackViewController.swift */,
-				861B95551D0F0818008E756D /* PageViewController.swift */,
 				861B95561D0F0818008E756D /* TabbedSecondViewController.swift */,
 				861B95571D0F0818008E756D /* TabbedViewController.swift */,
 				861B95581D0F0818008E756D /* TutorialPageViewController.swift */,
+				1B7E90211D118F0C0018D7F4 /* ScanViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -358,8 +358,8 @@
 				861B95741D0F8964008E756D /* KDCircularProgress.swift in Sources */,
 				861B955C1D0F0818008E756D /* TabbedSecondViewController.swift in Sources */,
 				865F52301D0718400069A7FE /* ViewController.swift in Sources */,
+				1B7E90221D118F0C0018D7F4 /* ScanViewController.swift in Sources */,
 				861B95721D0F5AE5008E756D /* ScoreDataModel.swift in Sources */,
-				861B955B1D0F0818008E756D /* PageViewController.swift in Sources */,
 				861B955A1D0F0818008E756D /* FrontBackViewController.swift in Sources */,
 				865F524F1D0732760069A7FE /* SoapInterface.swift in Sources */,
 				861B954E1D0F0727008E756D /* UserLicense.swift in Sources */,
@@ -516,7 +516,7 @@
 				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_BUNDLE_IDENTIFIER = ibm.driverlicense.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "c8c14e52-f3d7-4e1e-84f1-52f215ae7817";
+				PROVISIONING_PROFILE = "9cb0a33e-22ff-4bdc-a8e9-d7fe478f94cd";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -543,7 +543,7 @@
 				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_BUNDLE_IDENTIFIER = ibm.driverlicense.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "c8c14e52-f3d7-4e1e-84f1-52f215ae7817";
+				PROVISIONING_PROFILE = "9cb0a33e-22ff-4bdc-a8e9-d7fe478f94cd";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

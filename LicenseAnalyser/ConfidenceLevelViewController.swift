@@ -182,9 +182,9 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
             self.circularProgressView.animateFromAngle(0, toAngle: 1920, duration: 10) { completed in
                 if completed {
                     print("animation stopped, completed")
-                    if (self.isFinished == true) {
-                        self.performSegueWithIdentifier("loading", sender: self)
-                    }
+                    //if (self.isFinished == true) {
+                     //   self.performSegueWithIdentifier("loading", sender: self)
+                   // }
                 } else {
                     print("animation stopped, was interrupted")
                 }
@@ -678,7 +678,7 @@ class ConfidenceLevelViewController: UIViewController, UITextFieldDelegate, NSUR
         GlobalScore.enhancedScore = self.enhancedScore
         GlobalScore.socialScore = self.socialScore
         
-        self.performSegueWithIdentifier("loading", sender: self)
+        //self.performSegueWithIdentifier("loading", sender: self)
         
     }
     // MARK : Geolocation delegates

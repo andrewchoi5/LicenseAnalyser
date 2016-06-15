@@ -38,13 +38,6 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" red="1" green="0.20480896639999999" blue="0.16002337280000001" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qHo-G1-my0">
-                                <rect key="frame" x="0.0" y="601" width="375" height="66"/>
-                                <state key="normal" image="continue-dark"/>
-                                <connections>
-                                    <action selector="onContinueClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oln-5D-aKx"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W4t-jP-29b">
                                 <rect key="frame" x="39" y="364" width="294" height="30"/>
                                 <color key="backgroundColor" red="0.14117647058823529" green="0.15686274509803921" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
@@ -87,6 +80,13 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qHo-G1-my0">
+                                <rect key="frame" x="0.0" y="601" width="375" height="66"/>
+                                <state key="normal" image="continue-dark"/>
+                                <connections>
+                                    <action selector="onContinueClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oln-5D-aKx"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -295,23 +295,51 @@
             </objects>
             <point key="canvasLocation" x="2979.5" y="820.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Scan View Controller-->
         <scene sceneID="boz-c4-ZmJ">
             <objects>
-                <viewController id="vbS-ok-ek8" sceneMemberID="viewController">
+                <viewController id="vbS-ok-ek8" customClass="ScanViewController" customModule="LicenseAnalyser" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gqU-dh-UPa"/>
                         <viewControllerLayoutGuide type="bottom" id="XO4-7b-6Q4"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="KKb-vK-rlJ">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="confidence-14" translatesAutoresizingMaskIntoConstraints="NO" id="goS-gV-CkH">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gze-Hi-sid">
+                                <rect key="frame" x="0.0" y="260" width="375" height="66"/>
+                                <state key="normal" image="continue-dark"/>
+                                <connections>
+                                    <action selector="onContinueClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JlI-PH-jJ6"/>
+                                    <action selector="scanFront:" destination="vbS-ok-ek8" eventType="touchUpInside" id="5N6-jV-cv1"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="images" translatesAutoresizingMaskIntoConstraints="NO" id="pGu-hu-XhG">
+                                <rect key="frame" x="67" y="87" width="240" height="128"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KBQ-Qo-Vgq">
+                                <rect key="frame" x="0.0" y="381" width="375" height="66"/>
+                                <state key="normal" image="continue-dark"/>
+                                <connections>
+                                    <action selector="onContinueClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TVU-gn-SLg"/>
+                                    <action selector="scanBack:" destination="vbS-ok-ek8" eventType="touchUpInside" id="8Ce-Y2-n2U"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="driversLicense" destination="pGu-hu-XhG" id="7oo-dr-acV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RgU-fY-vzi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3541" y="517"/>
+            <point key="canvasLocation" x="3540.5" y="516.5"/>
         </scene>
         <!--Tabbed View Controller-->
         <scene sceneID="N5W-Ib-KTw">
@@ -581,5 +609,6 @@
         <image name="confidence-14" width="1563" height="2779"/>
         <image name="continue-dark" width="1558" height="259"/>
         <image name="ic_check_box_outline_blank_white" width="24" height="24"/>
+        <image name="images" width="180" height="125"/>
     </resources>
 </document>

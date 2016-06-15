@@ -10,13 +10,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ConfidenceLevelViewController.swift"
-            timestampString = "487637156.500321"
+            timestampString = "487686244.277013"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "417"
-            endingLineNumber = "417"
+            startingLineNumber = "401"
+            endingLineNumber = "401"
             landmarkName = "VerXVerifyLicense(_:)"
-            landmarkType = "7">
+            landmarkType = "5">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
@@ -58,13 +58,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ConfidenceLevelViewController.swift"
-            timestampString = "487637156.500321"
+            timestampString = "487686244.277013"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "415"
-            endingLineNumber = "415"
+            startingLineNumber = "399"
+            endingLineNumber = "399"
             landmarkName = "VerXVerifyLicense(_:)"
-            landmarkType = "7">
+            landmarkType = "5">
             <Locations>
                <Location
                   shouldBeEnabled = "No"

@@ -74,11 +74,14 @@ class TabbedViewController: UIViewController {
         progress.gradientRotateSpeed = 2
         progress.roundedCorners = false
         
+        print("animating")
         progress.animateFromAngle(0, toAngle: totalCalc, duration: 2) { completed in
             if completed {
                 print("animation stopped, completed")
+                print("tab spin 1")
             } else {
                 print("animation stopped, was interrupted")
+                print("tab spin 2")
             }
         }
 
