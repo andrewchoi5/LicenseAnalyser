@@ -307,20 +307,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="confidence-14" translatesAutoresizingMaskIntoConstraints="NO" id="goS-gV-CkH">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gze-Hi-sid">
-                                <rect key="frame" x="0.0" y="260" width="375" height="66"/>
-                                <state key="normal" image="continue-dark"/>
-                                <connections>
-                                    <action selector="onContinueClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JlI-PH-jJ6"/>
-                                    <action selector="scanFront:" destination="vbS-ok-ek8" eventType="touchUpInside" id="5N6-jV-cv1"/>
-                                </connections>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="images" translatesAutoresizingMaskIntoConstraints="NO" id="pGu-hu-XhG">
-                                <rect key="frame" x="67" y="87" width="240" height="128"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KBQ-Qo-Vgq">
                                 <rect key="frame" x="0.0" y="381" width="375" height="66"/>
                                 <state key="normal" image="continue-dark"/>
@@ -329,6 +315,20 @@
                                     <action selector="scanBack:" destination="vbS-ok-ek8" eventType="touchUpInside" id="8Ce-Y2-n2U"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gze-Hi-sid">
+                                <rect key="frame" x="0.0" y="260" width="375" height="66"/>
+                                <state key="normal" image="continue-dark"/>
+                                <connections>
+                                    <action selector="onContinueClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JlI-PH-jJ6"/>
+                                    <action selector="scanFront:" destination="vbS-ok-ek8" eventType="touchUpInside" id="5N6-jV-cv1"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="ic_account_box_3x" translatesAutoresizingMaskIntoConstraints="NO" id="pGu-hu-XhG">
+                                <rect key="frame" x="67" y="87" width="240" height="128"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="confidence-14" translatesAutoresizingMaskIntoConstraints="NO" id="goS-gV-CkH">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -626,7 +626,7 @@
         <image name="confidence-11" width="1563" height="2779"/>
         <image name="confidence-14" width="1563" height="2779"/>
         <image name="continue-dark" width="1558" height="259"/>
+        <image name="ic_account_box_3x" width="3628" height="3628"/>
         <image name="ic_check_box_outline_blank_white" width="24" height="24"/>
-        <image name="images" width="180" height="125"/>
     </resources>
 </document>
