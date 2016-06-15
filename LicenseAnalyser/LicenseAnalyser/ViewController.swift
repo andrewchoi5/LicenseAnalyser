@@ -41,6 +41,7 @@ class ViewController: UIViewController, UITextFieldDelegate, NSURLConnectionDele
     }
     
     func validateEmail(candidate: String) -> Bool {
+        
         let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}"
         return NSPredicate(format: "SELF MATCHES %@", emailRegex).evaluateWithObject(candidate)
     }
@@ -141,9 +142,11 @@ class ViewController: UIViewController, UITextFieldDelegate, NSURLConnectionDele
         if emailLabel.text != nil {
             if !validateEmail(emailLabel.text!) {
                 invalidEmailLabel.hidden = false
+                checkbox.enabled = false
                 
             }
             else {
+                checkbox.enabled = true
                 invalidEmailLabel.hidden = true
             }
         }
@@ -157,10 +160,12 @@ class ViewController: UIViewController, UITextFieldDelegate, NSURLConnectionDele
         if emailLabel.text != nil {
             if !validateEmail(emailLabel.text!) {
                 invalidEmailLabel.hidden = false
+                checkbox.enabled = false
                 
             }
             else {
                 invalidEmailLabel.hidden = true
+                checkbox.enabled = true
             }
         }
     }
